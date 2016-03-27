@@ -46,45 +46,92 @@ The lab has recently developed a method for continuous high-resolution
 behavioral data collection and analysis, which enables them to observe and
 study the structure of spontaneous patterns of behavior (``Lifestyles'') in the
 mouse \cite{tecott2003genes, tecott2004neurobehavioral, goulding2008robust,
-hillar2016activestate}.  They have found that using this method: 1) reveals a
-set of fundamental principles of behavioral organization that have not been
+anderson2014toward}.  They have found that using this method: 1) reveals a set
+of fundamental principles of behavioral organization that have not been
 previously reported, 2) permits classification by genotype with unprecedented
 accuracy, and 3) enables fine dissection of behavioral patterns.
 
-A central goal for this project is to give you hands-on experience working,
-as a member of a consulting team, on a substantial Python package.  While the
-Tecott Lab will provide guidance on how to analyze the data, as a member of
-the class, you will each be responsible for helping to refine the project
-scope and deliverables.
+A central goal for this project is to give you hands-on experience working on
+a real-world applied statistics\footnote{See Philip Stark's ``Thoughts on applied
+Statistics'' here: \url{http://www.stat.berkeley.edu/~stark/other.htm}}
+project.  While the Tecott Lab will provide guidance on how to analyze the
+data, you will each be responsible for helping to refine the project scope and
+deliverables.
 
 \section{Your Assignment}
 
-Working as a fictitious consulting company, Capstone Analytics, we will produce
-a high quality Python package to analyze some of the new data generated in the
-Tecott lab.  I (Jarrod) will act as the head of Capstone Analytics and you will
-all act as employees. 
-
-As a team, we will work with the Tecott Lab to refine the project scope and
-focus.  In order to manage all of your contributions, I will require that (1)
-all contributions undergo a rigorous review process, (2) all code is tested and
+We will work with the Tecott Lab to refine the project scope and focus.  In
+order to manage all of your contributions, I will require that (1) all
+contributions undergo a rigorous review process, (2) all code is tested and
 that those tests are included as part of our automated test suite, and (3) all
 code and text components follow the best practices adopted by many open source
 scientific Python packages \cite{millman2014developing}.  All project code will
 be distributed under the
-\href{https://en.wikipedia.org/wiki/BSD_licenses\#2-clause_license_.28.22Simplified_BSD_License.22_or_.22FreeBSD_License.22.29}{simplified BSD license}
-and test data will be made publicly available.  Project documentation will
-be published using \href{https://pages.github.com/}{GitHub Pages}.
+\href{https://en.wikipedia.org/wiki/BSD_licenses\#2-clause_license_.28.22Simplified_BSD_License.22_or_.22FreeBSD_License.22.29}{simplified
+BSD license} and test data will be made publicly available.  Project
+documentation will be published using \href{https://pages.github.com/}{GitHub
+Pages}.
 
-The Tecott Lab has provided the following project topics:
+Class assignments commonly have well-defined problems to solve.  When those
+assignments involve data, the typical situation is that the data are clean and
+trivial to work with.  As this assignment mimics a real-world applied
+statistical data analyis, this not going to be an usual assignment.
+
+Given the unusual nature of the assignment, it will be instructive to consider
+the following stages of the project:
 
 \begin{enumerate}
-\item Behavioral profile
-\item Exploration and path diversity
-\item Dynamics of Active State patterns
-\item Ultradian Analysis
-\item Application of clustering algorithms
-\item Power laws and universality
+
+\item \textbf{Understand the fundamental problem.}
+
+This is the starting point for the project and is the unifying thread that will
+run throughout all the elements of the project.  The problem provides the
+context for why you are doing what you are doing.  It leads to the research questions
+and hypotheses as well as guides the conclusions you make from the results of
+your analysis.
+
+\item \textbf{Data acquisition, pre-processing, and cleaning.}
+
+As applied statisticians, we would ideally help in the experimental design part
+of the project.  However, in this project (as in many applied statistics
+projects), the experiment has already been conducted and the data collected.
+So your next step, will be to understand the data that has been collected.  You
+will also need to verify that the data you received is correct (as far as you
+can tell) and that your understanding of what it represents is correct.
+
+\item \textbf{Algorithm development.}
+
+Before you can start writing code, you will need to decide what you want to do.
+While you will want to consider computational efficiency and numerical
+stability, you first objective will be to determine whether your approach to
+the problem is sensible given the problem you wish to address and the data you
+have available.
+
+\item \textbf{Code development.}
+
+While you will start coding fairly early in the project, the majority of the
+coding will occur in the second half of the project.  Perhaps unlike your
+previous experience coding, the goal is not to produce a stream of
+consciousness script.  Rather you will carefully engineer a well-designed,
+rigorously tested, systematically documented codebase.  This will involve
+design discussions, use case considerations, and a systematic code review
+process.  It is likely that code will be heavily refactored and improved as
+part of the project.
+
+\item \textbf{Data analysis.}
+
+Your training may have focused on the aspect of the project.  Yet, this will be
+the last step and least involved aspect of this project.  Once you've
+understood the problem and available data, determined and implemented your
+algorithms, the final data analysis step should be more or less
+straightforward.
+
 \end{enumerate}
+
+While I've enumerated the above stages of the project, it is unlikely that the
+project will proceed in an entirely linear fashion.  Rather you will likely
+proceed in accord with something more like a spiral plan.  In the spiral plan,
+you would proceed in the order 1, 2, 1, 2, 3, 1, 2, 3, 4, 1, 2, 3, 4, 5.
 
 \subsection*{Timeline and logistics}
 
@@ -96,13 +143,13 @@ Here is the tentative schedule:
 \toprule
 \multicolumn{1}{c|}{Monday} & \multicolumn{1}{c}{Wednesday} \\
 \hline
-(3/7) Project introduction     & (3/9) Git workflow I \\
-(3/14) Follow-up discussion    & (3/16) Git workflow II \\
+(3/7) Project introduction     & (3/9) Git I \\
+(3/14) Git II                  & (3/16) Git III \\
 \emph{\hspace{12mm} Spring break}  & \emph{\hspace{12mm} Spring break}\\
 (3/28) Start final project     & (3/30) TBD\\
 (4/4) Project check in         & (4/6) TBD\\
 (4/11) Project check in        & (4/13) TBD\\
-(4/18) Project check in        & (4/20) TBD\\
+(4/18) Presentation            & (4/20) TBD\\
 (4/25) Project check in        & (4/27) TBD\\
 (5/2) Project check in         & (5/4) TBD\\
 \emph{\hspace{12mm} RRR week}  & \emph{\hspace{12mm} RRR week}\\
@@ -113,41 +160,111 @@ Here is the tentative schedule:
 \end{tabular}
 \end{table}
 
-On Monday, March 7th during class, Professor Larry Tecott and Dr. Chris Hillar
-will provide a general introduction to the project from the perspective of a
-behavioral neuroscientist (Professor Tecott) as well as from the perspective of
-a computational data scientist (Dr. Hillar).  
+For the remainder of the class we will be focused on the final project.  Every
+Monday will be devoted to merging pull requests and planning the weeks work.
+Depending on how things progress, Wednesdays will be used for discussing
+assigned readings or student presentations relating to the project.
 
-I will lead short follow-up discussions on Monday, March 14th and Wednesday,
-March 16th during class.  I will also introduce the GitHub workflow we will be
-using for this project prior to spring break.  Over spring break, you should
-carefully read the articles referenced at the end of this document.  You should
-also decide on the top 3 subprojects you would like to work on. While
-considering subprojects, you should think about what skills you can bring to
-the project as well as what skills you would like to strengthen.  We will
-finalize teams and subprojects the week after spring break and then will focus
-on the final project for the remainder of the semester.
+On Monday, March 28th, I will go over the general project plan in class as well
+as orient you to the project repository.  I will ask you to form 11 teams of 3
+members each by Wednesday, March 30th.  When forming teams, you will need to
+make sure that there aren't any major weaknesses on the team.  Each team will
+need a mix of strengths including strong written and verbal communication
+skills, core mathematical and statistical competency, as well as a programming
+maturity.
 
-\section{Project Deliverables}
+On Wednesday, March 30th, teams will be assigned one of several tasks:
 
-There will be two main project deliverables: a Python package and a
-final self-evaluation.  The entire class will be responsible for
-the Python package and there will be one grade for the final project.
-Each student will be required to submit a final self evaluation
-and to schedule a 30 minute meeting with me during finals to discuss
-your evaluations.
+\begin{enumerate}
+
+\item project overview
+
+\item subproject descriptions
+
+\item data loaders and tests
+
+\item project infrastructure
+
+\end{enumerate}
+
+As a class on Wednesday, we will discuss the various tasks and come to some
+agreement about what they entail.  The project overview and subproject
+descriptions will focus on understanding the fundamental problem and will
+involve writing a roughly one page description of the overall project as
+well as one page descriptions of each subproject.
+
+For each one page description, one or more teams will prepare a pull request by
+the beginning of class on Monday, April 4th.  I've created a Git repository for
+you with a directory with the following structure inside of the \texttt{doc}
+directory:
+
+\begin{verbatim}
+problem/
+|-- overview.md
+|-- behavior.md
+|-- path.md
+|-- dynamics.md
+|-- ultradian.md
+|-- classification.md
+`-- distribution.md
+\end{verbatim}
+
+The pull requests will be reviewed by the project sponsors as well as the
+Johnny and me.  I will also ask each team to review another team's project
+description.
+
+I will discuss the details of the other tasks in more detail in class.  While
+I've created the tasks for each team for the first week, I will rely on you
+to help define the tasks moving forward.  However, I expect that each team
+will prepare one or more substantial pull requests each week, which will be
+ready for review before class on the following Monday.
+
+I expect everyone to follow all aspects of the class project.  To help
+meet my expectation, I will require that for the first few weeks teams
+will take turns leading and reviewing the various aspects of the project.
+
+On Monday, April 18th, you will present the intial work on the project in
+class.  Our project sponsors will attend the presentation, so I expect to see
+something substantial, professional, and interesting.  At a minimum, I expect
+that you will have made substantial progress on understanding the problem, the
+data, and the algorithms.  You should also have made some progress on the
+implementation.  In particular, I expect that you will have massively
+refactored the code given to us by the project sponsors.  This refactoring
+should include making the code more modular as well as documenting and
+testing everything thoroughly.
+
+Part of the goal of the presentation on April 18th will be to propose what each
+team will focus on for the last half of the project.  While I will require
+every team to work on all aspects of the project before the 18th, it will be up
+to you to determine how you will divide up the work remaining in the project.
+If there are several teams that want to work on one subproject, I may have to
+assign final projects.  If this happens, I will tend to assign teams to their
+preferred projects based on how much they've contributed during the first part
+of the project.
+
+%Based on the introductory
+%presentation, project readings (see the Reference section at the end), your own
+%research, and discussions with your classmates, you will prepare a problem
+%statement at the beginning of the course.  The problem statement should provide
+%a general background and context for the subprojects as well as detailed
+%descriptions of the subprojects.  
+
+\section{Project Deliverable}
+
+There will be one main project deliverable: a Python package including online
+and printable documentation.  The entire class will be responsible for the
+Python package and there will be one grade for the final project.
 
 \subsection{Python package}
 
-I will be responsible for creating the initial project infrastructure
-on GitHub.  If there are code or infrastructure issues that the
-class can't agree on, I will be responsible for making the final
-decision.  However, before I intervene, you will need to carefully
-think through the issue and prepare arguments for and against
-any decision you wish me to make.
+I will be responsible for creating the initial project infrastructure on
+GitHub.  If there are code or infrastructure issues that the class can't agree
+on, I will be responsible for making the final decision.  However, before I
+intervene, you will need to carefully think through the issue and prepare
+arguments for and against any decision you wish me to make.
 
-While you will be responsible for the majority of design decisions,
-I will require that the Python package have:
+While you will be responsible for the majority of design decisions, I will
+require that the Python package have:
 
 \begin{itemize}
 \item an automated test suite with a reasonably high test coverage,
@@ -166,23 +283,55 @@ merging them.  As a class, we will develop a code review process, which will
 include (among other things) program correctness, test coverage, code
 readability, and style consistency.
 
-\subsection{Self evaluation}
+%\subsection{Self evaluation}
+%
+%The purpose of the self evaluation is to provide you with an opportunity to
+%reflect on your contributions and growth during the final project.
+%Additionally, it is your opportunity to make sure I am aware of what you
+%contributed to the final project.  You will also be asked to reflect on
+%the overall course as well as the MA program in general.
+%
+%After spring break, I will provide additional details regarding the self
+%evaluation.  I will also ask you to track your weekly goals and progress
+%electronically.  You should use this weekly planning process to make
+%sure your final self evaluation includes numerous concrete examples.
+%
 
-The purpose of the self evaluation is to provide you with an opportunity to
-reflect on your contributions and growth during the final project.
-Additionally, it is your opportunity to make sure I am aware of what you
-contributed to the final project.  You will also be asked to reflect on
-the overall course as well as the MA program in general.
+\section{Participation}
 
-After spring break, I will provide additional details regarding the self
-evaluation.  I will also ask you to track your weekly goals and progress
-electronically.  You should use this weekly planning process to make
-sure your final self evaluation includes numerous concrete examples.
+While the entire class will recieve one grade for the final project, I will use
+the participation portion (10\%) of your class grade to assess your
+contribution to the project.  I will provide additional details about how this
+will work, but here are a few things I will expect from everyone:
+
+\begin{enumerate}
+\item Attending class.  Several of you have had difficulties attending class.
+  This is unacceptable.  Moving forward I expect everyone to attend every
+  class.  I also expect that you will arrive prior to the start of class.
+  Given the attendance problems in the first half of the class, I will likely
+  start taking attendance.  I will provide additional details in class.
+\item Contributing to all project aspects.  At a minimumn every student will
+  be expected to contribute to understanding the problem, developing code,
+  writing tests, finding and fixing bugs, writing and revising documentation, and
+  thinking through the general approach.
+\end{enumerate}
+
+This is an open-ended, real-life applied statistics project.  If you wait until
+the last minute and try to do as little as possible, you will not succeed.  As
+with anything worthwhile, you will have to work constantly and thoughtfully.
+You will need to be able to discard work that doesn't lead anywhere and be open
+to trying new approaches throughout the project.
+
+A core principle throughout the project is that you will be required to convince
+me that what you did meet my expectations.  In regard to the participation portion
+of your grade, this means that you will ultimately be responsible for convincing
+me that you've participated fully and productively.  While details will follow,
+you will need to submit a self-evaluation at the end of the semester as well
+as meet with me during finals week to discuss your contributions.
 
 Here are few things to keep in mind while working on your self evaluation:
 \begin{enumerate}
 \item Take responsibility for failures and shortcomings.
-\item Show confidence, not arrogance.
 \item Do not over embellish.
 \item Outline constraints you faced as well as reasons performance was hampered.
 \item Include your weakness, but view them as opportunities for improvement.
@@ -192,7 +341,6 @@ Here are few things to keep in mind while working on your self evaluation:
 \item Highlight skills acquired.
 \item Include a discussion of problem-solving abilities you used during the project.
 \end{enumerate}
-
 
 \bibliographystyle{plain}
 \bibliography{mouse}
