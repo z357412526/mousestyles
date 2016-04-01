@@ -20,6 +20,6 @@ Project 2: Exploration & Path Diversity
 
 ## Reference reading:
 - Spatial memory: the part of memory that is responsible for recording information about one's environment and its spatial orientation 
--[Wikipedia](https://en.wikipedia.org/wiki/Spatial_memory)
--[Mouse Cognition-Related Behavior in the Open-Field: Emergence of Places of Attraction](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000027#s1)
+- [Wikipedia](https://en.wikipedia.org/wiki/Spatial_memory)
+- [Mouse Cognition-Related Behavior in the Open-Field: Emergence of Places of Attraction](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000027#s1)
 
