@@ -1,0 +1,5 @@
+[run]
+branch = True
+source = mousestyles
+include = */mousestyles/*
+omit = */setup.py

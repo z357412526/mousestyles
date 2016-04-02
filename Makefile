@@ -1,5 +1,5 @@
 test:
-	py.test mousestyles
+	py.test --cov=mousestyles mousestyles
 
 clean:
 	find . -name "*.so" -o -name "*.pyc" -o -name "*.pyx.md5" | xargs rm -f
