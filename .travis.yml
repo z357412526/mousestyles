@@ -20,8 +20,7 @@ before_install:
   - wheelhouse_pip_r_install ${DEPENDS}
 
 install:
-  - make clean
-  - python setup.py install
+  - pip install --upgrade .
 
 script:
   - make test
