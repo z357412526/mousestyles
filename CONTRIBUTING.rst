@@ -107,7 +107,7 @@ If any conflicts occur in (e.g. conflict-file1 and conflict-file2), fix the acco
    git add conflict-file1 conflict-file2
    git rebase --continue
 
-Help in resolving merge conflicts is provided `here <https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/> `__.
+Help in resolving merge conflicts is provided `here <https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/>`__.
 
 However, you should only rebase your own branches and must generally not
 rebase any branch which you collaborate on with someone else.
