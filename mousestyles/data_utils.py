@@ -1,4 +1,6 @@
-# data_utils.py
+"""Data utilities."""
+
+from __future__ import print_function, absolute_import, division
 
 import numpy as np
 
@@ -13,12 +15,12 @@ def day_to_mouse_average(features, labels, num_strains=16, stdev=False, stderr=F
     tot_data_std = np.zeros((1, data.shape[1] - 1))
     tot_data_stderr = np.zeros((1, data.shape[1] - 1))
 
-    for strain in xrange(0, num_strains):
+    for strain in range(0, num_strains):
         mice = {}
         cnt = 0
         tmp_data = data[data[:, 0]==strain, :]
 
-        for i in xrange(tmp_data.shape[0]):
+        for i in range(tmp_data.shape[0]):
             if mice.has_key(tmp_data[i, 1]):
                 mice[tmp_data[i, 1]] += 1
             else:
@@ -64,7 +66,7 @@ def mouse_to_strain_average(features, labels, num_strains=16, stdev=False, stder
     tot_data_std = np.zeros((num_strains, data.shape[1] - 2))
     tot_data_stderr = np.zeros((num_strains, data.shape[1] - 2))
 
-    for strain in xrange(0, num_strains):
+    for strain in range(0, num_strains):
         tmp_data = data[data[:, 0]==strain, 2:]
         tot_data_avgs[strain] = tmp_data.mean(axis=0)
         tot_data_std[strain] = tmp_data.std(axis=0)
@@ -103,7 +105,7 @@ def split_data_in_half_randomly(features, labels):
         sub_labels = labels[labels[:, 0] == strain]
         mice_nums = {}
 
-        for i in xrange(len(sub_data)):
+        for i in range(len(sub_data)):
             mice_nums[sub_labels[i, 1]] = 1
 
         for mouse in mice_nums.keys():
@@ -170,7 +172,7 @@ def total_time_rectangle_bins(M, xlims=(0,1), ylims=(0,1), xbins=5, ybins=10):
 
     bin_idx = meshx.searchsorted(M[1, :], side='right')
     bin_idy = meshy.searchsorted(M[2, :], side='right')
-    for k in xrange(M.shape[1] - 1):
+    for k in range(M.shape[1] - 1):
         if bin_idx[k] == xbins:
             bin_idx[k] -= 1
         if bin_idy[k] == ybins:
@@ -191,7 +193,7 @@ def idx_restrict_to_rectangles(TXY, rects=[(0,0)], xlims=(0,1), ylims=(0,1), xbi
     for rect in rects:
 		tl, tr, bl, br = map_xbins_ybins_to_cage(rectangle=rect, xbins=xbins, ybins=ybins)
 
-		for t in xrange(num_movements):
+		for t in range(num_movements):
 			if ((TXY[1, t] > tl[0]) and (TXY[1, t] < tr[0]) and (TXY[2, t] < tl[1]) and (TXY[2, t] > bl[1])):
 				idx_F_bout[t] = True
 #		print "indexed %d move events " % (sum(idx_F_bout) - tmp_sum)
