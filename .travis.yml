@@ -24,6 +24,7 @@ install:
 
 script:
   - make test
+  - make style
 
 after_success:
   - if [ "${COVERAGE}" == "1" ]; then coveralls; fi
