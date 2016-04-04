@@ -1,6 +1,6 @@
 Project 5: Application of Machine Learning Algorithms
 ===============================================
-## Project purpose
+## Project overview
 
 The mouse style research investigates mouse behaviors of different genes. The researchers hope to gain insight to human behaviors using mouse data, since experimenting directly on human is difficult. One question of interest is on whether genetic affects psychological disorders such as depression, or overeating. 
 
