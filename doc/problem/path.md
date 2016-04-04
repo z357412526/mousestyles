@@ -12,7 +12,7 @@ Project 2: Exploration & Path Diversity
 
 ## Exploratory Questions
 - What are the purposes (feeding, drinking, etc) for mice movements. Can we differentiate paths based on the purposes of movements.
--Do the kinds of mice that eat more (or drink more) also travel more (distances and frequency)?
+- Do the kinds of mice that eat more (or drink more) also travel more (distances and frequency)?
 - Can we cluster the mice based on their movement patterns? How?
 
 ## Data:
