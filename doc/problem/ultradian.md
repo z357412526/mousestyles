@@ -26,7 +26,7 @@ Ultradian rhythm is widely observed in mammalian behavioural patterns. Ultradian
 ## Method and models
 - Seasonal decomposition.
 - Longitudinal data analysis.
-- autocorrelation anslysis.
+- Autocorrelation anslysis.
 
 ## Reference
 - Lloyd, David, and Ernest L. Rossi, eds. Ultradian rhythms in life processes: An inquiry into fundamental principles of chronobiology and psychobiology. Springer Science & Business Media, 2012.
