@@ -1,5 +1,7 @@
 Project 5: Application of Machine Learning Algorithms
 ===============================================
+## Project purpose
+
 The mouse style research investigates mouse behaviors of different genes. The researchers hope to gain insight to human behaviors using mouse data, since experimenting directly on human is difficult. One question of interest is on whether genetic affects psychological disorders such as depression, or overeating. 
 
 The researchers design the experiment as follow: they have 16 different strains of mice, and each strain has 12 almost identical mice in term of genetic. If we observe that each mouse behaves very similarly to its twins, but differently from other strains of mice, we can conclude that genetic affect mouse behaviors. The researchers record the daily activities of each mouse, for example the time it spends eating, drinking, sleeping, and wondering around its habitat. 
@@ -8,7 +10,7 @@ One way to detect this relationship between genes and behaviors is to use superv
 
 From our limited understanding, the results of this research might have a meaningful implication on the way we treat psychological disorders. If it turns out that nature does influence these disorders, we can probably conclude that psychological disorders is not much different than physical disabilities. Otherwise, if nature has little influence over these disorders, we can try to find way to prevent these disorders from happening. 
 
-Some initial tasks to be done: 
+## Initial tasks 
 
 1. Clean up the existing strain_classification.py: create functions and objects.
 2. Adding new models: knn, random forests, neural networks.
