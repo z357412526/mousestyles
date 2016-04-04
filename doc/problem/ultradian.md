@@ -2,7 +2,7 @@ Project 4: Ultradian Analyses
 =============================
 ## Description
 
-Ultradian rhythm is widely observed in mammalian behavioural patterns. Ultradian analysis aims to find the time-specific patterns in behavioral records, without specifying the length of cycle in advance (but need to be within 1 hour to 1 day). Typical ultradian period for rats includes 4, 12 and 24 hours. For example, we expect rats to be inactive in the nighttime. Ingestions and movements mostly happened in the daytime. It would informative to study the ultradian cycle of the behaviour of mouse.
+Ultradian rhythm is widely observed in mammalian behavioural patterns. Ultradian analysis aims to find the time-specific patterns in behavioral records, without specifying the length of cycle in advance (but need to be within 1 hour to 1 day). Typical ultradian period for rats includes 4, 12 and 24 hours. For example, we expect rats to be inactive in the nighttime. Ingestions and movements mostly happened in the daytime. It would be informative to study the ultradian cycle of the behaviour of mouse.
 
 ## Data
 - Input:  records for each strains (total of  16), each feature of interest (food, water, distance, active_state probability ...), in a duration of 12 days (excluding 4 acclimation days) . 
