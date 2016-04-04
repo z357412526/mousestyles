@@ -31,7 +31,7 @@ Here's the long and short of it:
 
    * Create a branch for the feature you want to work on. Since the
      branch name will appear in the merge message, use a sensible name
-     such as '*your-Github-username*-issue#\ *number*' e.g.(jJasonWang-issue#14)::
+     such as '*your-Github-username*-issue#\ *number*' (e.g. `git checkout -b jJasonWang-issue#14`)::
 
       git checkout -b *your-Github-username*-issue#*number*
 
