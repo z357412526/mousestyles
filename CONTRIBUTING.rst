@@ -226,22 +226,3 @@ Bugs
 ----
 
 Please `report bugs on GitHub <https://github.com/berkeley-stat222/mousestyles/issues>`_.
-
-Working with ``np.random``
---------------------------
-
-If you need to set a random seed, do **not** use ``np.random.seed()``.  Using
-``np.random.seed()`` can produce inconsistent results.  Instead you should use
-:func:`get_prng` with your chosen seed.  Here is a tiny
-example of how you might create a function that generates random numbers::
-
-    from mousestyles.utils import get_prng
-
-    def func1(seed=None):
-        prng = get_prng(seed)
-        x = prng.randint(10)
-        return x
-
-If ``seed=None``, then ``get_prng(seed)`` will try to read data from the
-system (e.g., ``/dev/urandom`` or the system clock) to initialize the
-pseudo-random number generator.  See the docstring for more details.
