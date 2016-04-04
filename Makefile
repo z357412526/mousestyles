@@ -6,3 +6,6 @@ clean:
 	find . -name "__pycache__" -o -name ".cache" | xargs rm -rf
 	rm -rf build dist mousestyles.egg-info
 
+style:
+	py.test --pep8 --flakes mousestyles
+
