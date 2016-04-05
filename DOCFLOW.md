@@ -59,18 +59,18 @@
   - The docstring of a **function** or **method** is a phrase ending in a period. It prescribes the function or method's effect as a command ("Do this", "Return that"), not as a description; e.g. don't write "Returns the pathname ...". A multiline-docstring for a function or method should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, and restrictions on when it can be called. Optional arguments should be indicated. It should be documented whether keyword arguments are part of the interface.
   - The docstring for a **class** should summarize its behavior and list the public methods and instance variables. If the class is intended to be subclassed, and has an additional interface for subclasses, this interface should be listed separately. The class constructor should be documented in the docstring for its \__init\__ method. Individual methods should be documented by their own docstring.
 - Formatting docstrings
-  - For consistency, always use `"""triple double quotes"""` around docstrings. Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings. For Unicode docstrings, use u"""Unicode triple-quoted strings""" .
+  - For consistency, always use `"""triple double quotes"""` around docstrings. Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings. For Unicode docstrings, use `u"""Unicode triple-quoted strings"""` .
 
   ```python
   def square_root(n): 
-  	"""
+	"""
   	Return the square root of a number. 
   	Args: 
-          	n: the number to get the square root of. Returns: the square root of n. 
-  	Raises: 
-          	TypeError: if n is not a number. 
-          	ValueError: if n is negative. 
-  	""" 
+  		n: the number to get the square root of. Returns: the square root of n. 
+  	Raises:
+  		TypeError: if n is not a number. 
+  		ValueError: if n is negative.
+  	"""
   	...
   ```
 
