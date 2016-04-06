@@ -162,16 +162,16 @@
 
   ```python
   # How dows a mouse feel after it takes a shower?
-  # Squeaky clean
+  # Squeaky clean.
   # 
   # How do you save a drowning mouse?
-  # Use mouse to mouse resuscitation
+  # Use mouse to mouse resuscitation.
   not_your_cheese(marscapone, maasdam, camembert, roquefort)
   ```
 - Use inline comments sparingly
 
   ```python
-  not_your_cheese(gorgonzola, munster, limburger, doppelrhamstufel) # not your cheese, my cheese
+  not_your_cheese(gorgonzola, munster, limburger, doppelrhamstufel) # Not your cheese, my cheese.
   ```
 
 <div id='blank-lines'/>
