@@ -52,14 +52,14 @@
   - A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the \__doc\__ special attribute of that object.
 - When do we use docstrings?
   - All modules should normally have docstrings, and all functions and classes exported by a module should also have docstrings. Public methods (including the \__init\__ constructor) should also have docstrings. A package may be documented in the module docstring of the \__init\__.py file in the package directory.
-- Formatting by type
+- Formatting by type of object
   - The docstring of a **script** should be usable as its "usage" message, printed when the script is invoked with incorrect or missing arguments. Such a docstring should document the script's function and command line syntax, environment variables, and files. Usage messages should be sufficient for a new user to use the command properly, as well as a complete quick reference to all options and arguments for the sophisticated user.
   - If the stand-alone script uses another module for handling options, such as the argparse module, then option information is moved from the docstring to the module's utilities.
   - The docstring for a **module** should generally list the classes, exceptions, and functions that are exported by the module, with a one-line summary of each.
   - The docstring for a **package** (i.e., the \__init\__.py module) should also list the modules and subpackages exported by the package.
   - The docstring of a **function** or **method** is a phrase ending in a period. It prescribes the function or method's effect as a command ("Do this", "Return that"), not as a description; e.g. don't write "Returns the pathname ...". A multiline-docstring for a function or method should summarize its behavior and document its arguments, return value(s), side effects, exceptions raised, and restrictions on when it can be called. Optional arguments should be indicated. It should be documented whether keyword arguments are part of the interface.
   - The docstring for a **class** should summarize its behavior and list the public methods and instance variables. If the class is intended to be subclassed, and has an additional interface for subclasses, this interface should be listed separately. The class constructor should be documented in the docstring for its \__init\__ method. Individual methods should be documented by their own docstring.
-- Example docstrings
+- Example docstring
   - For consistency, always use `"""triple double quotes"""` around docstrings. Use `r"""raw triple double quotes"""` if you use any backslashes in your docstrings. For Unicode docstrings, use `u"""Unicode triple-quoted strings"""` .
 
 	```python
