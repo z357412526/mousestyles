@@ -28,7 +28,7 @@
  
 <div id='indentation'/> 
 ## Indentation
-- Use 1 tab per indentation level
+- Use 4 spaces per indentation level
 - Continuation lines should align wrapped elements vertically using Python's implicit line joining inside parentheses, brackets and braces 
 
     ```python 
