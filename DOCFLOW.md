@@ -208,7 +208,8 @@
 
 <div id='string-quotes'/>
 ## String Quotes
-- Use double-quotes for strings
+- Generally, use double-quotes for strings, but if a string contains a double-quote, then use single quotes 
+- Keep string quotes consistent for readability 
 
 <div id='imports'/>
 ## Imports
