@@ -10,6 +10,8 @@ The researchers design the experiment as follow: they have 16 different strains 
 
 ## Data Description
 
+We dispose of a labeled data set of 16 different strains of mice. Behavioral features are recorded for each mouse and each day. One example can be the time spent eating or drinking.  
+
 ## Methodology/ Approach Description
 
 One way to detect this relationship between genes and behaviors is to use supervised machine learning models, and see whether we can use mouse daily habit to predict its gene. If we can get high accuracy, we can conclude that there is an association between the genes and behaviors, or nature trumps nurture. In addition, we can use unsupervised machine learning models to cluster the daily mouse activities into clusters that correspond to the genes. This can highlight an even stronger relationship between genes and mouse behaviors. 
