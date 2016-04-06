@@ -235,4 +235,4 @@
   
 
 For more information, please refer to:
-[Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) and [Docstring Conventions](https://www.python.org/dev/peps/pep-0257/ )
+[Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) 
