@@ -1,4 +1,4 @@
-Project 5: Application of Machine Learning Algorithms
+Project 5: Classification
 ===============================================
 ## Statement of overall problem
 
