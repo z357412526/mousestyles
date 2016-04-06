@@ -236,4 +236,5 @@
   
 
 For more information, please refer to:
-[Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) 
+[Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) and
+[Docstring Guide](https://github.com/numpy/numpy/blob/master/doc/HOWTO_DOCUMENT.rst.txt)
