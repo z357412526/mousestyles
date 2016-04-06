@@ -12,7 +12,7 @@ def load_all_features():
     Column 0: the strain of the mouse (0-15)
     Column 1: the mouse number (number depends on strain)
     Column 2: the day number (5-16)
-    Column 3: 
+    Column 3: the 2-hour time bin (e.g., value 4 corresponds to hours 4 through 6)
 
     The remaining 9 columns are the computed features.
 
@@ -27,8 +27,7 @@ def load_all_features():
    
     # Here we begin reshaping the 3-d numpy array into a pandas 2-d dataframe
     columns = ['strain', 'mouse', 'day']
-    for i in range(11):
-        columns.append(i * 2) #Append 2-hour time bin values
+    columns += list(range((0, 24, 2)) #Append 2-hour time bin values
     
     # For each feature, unpivot its dataframe so that the 2-hour
     # time bins become a value column, rather than a dimension
