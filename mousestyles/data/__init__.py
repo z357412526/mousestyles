@@ -27,8 +27,9 @@ def load_all_features():
    
     # Here we begin reshaping the 3-d numpy array into a pandas 2-d dataframe
     columns = ['strain', 'mouse', 'day']
-    columns += list(range((0, 24, 2)) #Append 2-hour time bin values
-    
+    #Append 2-hour time bin values
+    columns += list(range(0, 22, 2))    
+
     # For each feature, unpivot its dataframe so that the 2-hour
     # time bins become a value column, rather than a dimension
     data_frames = []
