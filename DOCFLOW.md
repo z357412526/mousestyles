@@ -229,8 +229,8 @@
 - Use backslashes when implicit continuation fails 
 
   ```python
-  with open('/why/did/the/chicken/cross/the/road') as chicken, \
-       open('/to/get/to/the/other/side', 'w') as waffles:
+  with open("/why/did/the/chicken/cross/the/road") as chicken, \
+       open("/to/get/to/the/other/side", "w") as waffles:
        waffles.write(chicken.read())
   ```
   
