@@ -47,6 +47,7 @@
 
 <div id='docstrings'/>
 ## Docstrings
+- We will be following PEP0257
 - What is a Docstring?
   - A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Such a docstring becomes the \__doc\__ special attribute of that object.
 - When do we use docstrings?
