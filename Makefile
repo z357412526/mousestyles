@@ -7,5 +7,5 @@ clean:
 	rm -rf build dist mousestyles.egg-info
 
 style:
-	py.test --pep8 --flakes mousestyles
+	py.test --pep8 --flakes --pyargs mousestyles
 
