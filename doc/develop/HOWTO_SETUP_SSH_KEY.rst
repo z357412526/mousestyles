@@ -4,7 +4,7 @@ SSH, also known as Secure Socket Shell, is a network protocol that provides us w
 
 1. Checking for existing SSH keys:
 
-   * Go to your local repository and check whether you have SSH key or not:
+   * Go to your local repository and check whether you have SSH key or not::
 
       ls -al ~/.ssh
 
@@ -16,7 +16,7 @@ SSH, also known as Secure Socket Shell, is a network protocol that provides us w
 
 2. Generating a new SSH key and adding it to the ssh-agent:
 
-   * Generate a SSH key:
+   * Generate a SSH key::
 
       ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 
@@ -31,7 +31,7 @@ SSH, also known as Secure Socket Shell, is a network protocol that provides us w
       - ``Your identification has been saved in /home/oski/.ssh/id_rsa.``
       - ``Your public key has been saved in /home/oski/.ssh/id_rsa.pub.``, which means that you have SSH key now!
 
-   * Add it to the ssh-agent:
+   * Add it to the ssh-agent::
 
       eval $(ssh-agent -s)
       ssh-add ~/.ssh/id_rsa
@@ -40,11 +40,11 @@ SSH, also known as Secure Socket Shell, is a network protocol that provides us w
 
 3. Adding a new SSH key to your Github account:
 
-   * Copy the SSH key to your clipboard:
+   * Copy the SSH key to your clipboard::
 
       clip < ~/.ssh/id_rsa.pub
 
-   * Or you can use and copy the output:
+   * Or you can use and copy the output::
 
       cat ~/.ssh/id_rsa.pub
 
@@ -56,7 +56,7 @@ SSH, also known as Secure Socket Shell, is a network protocol that provides us w
 
 4. Testing your SSH connection:
 
-   * Enter:
+   * Enter::
 
       ssh -T git@github.com
 
@@ -70,7 +70,7 @@ SSH, also known as Secure Socket Shell, is a network protocol that provides us w
 
 5. Switching remote URLs from HTTPS to SSH:
 
-   * Since you probably already add your remote URL using HTTPS (check by ``git remote -v``, you need to change it into SSH:
+   * Since you probably already add your remote URL using HTTPS (check by ``git remote -v``, you need to change it into SSH::
 
       git remote set-url origin git@github.com:USERNAME/OTHERREPOSITORY.git
 
