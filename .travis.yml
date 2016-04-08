@@ -31,8 +31,8 @@ script:
   - mkdir tmp_for_tests
   - cp Makefile tmp_for_tests/.
   - cd tmp_for_tests
-  - make test
-  - make style
+  - make test-fast
+  - make style-fast
 
 after_success:
   - if [ "${COVERAGE}" == "1" ]; then coveralls; fi
