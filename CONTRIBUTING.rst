@@ -30,18 +30,16 @@ Here's the long and short of it:
       git pull upstream master
 
    * Create a branch for the feature you want to work on. Since the
-     branch name will appear in the merge message, use a sensible name
-     such as '*your-Github-username*-issue#\ *number*' (e.g. ``git checkout -b jJasonWang-issue#14``)::
+     branch name will appear in the merge message, use a sensible name based on the feature you want to improve or add such as '*feature*-issue#\ *number*' (e.g. ``git checkout -b contributing-issue#14``)::
 
-      git checkout -b *your-Github-username*-issue#*number*
-
+      git checkout -b contributing-issue#14
    * Commit locally as you progress (``git add`` and ``git commit``)
 
 3. To submit your contribution:
 
    * Push your changes back to your fork on GitHub::
 
-      git push origin *your-Github-username*-issue#*number*
+   git push origin contributing-issue#14
 
    * Go to GitHub. The new branch will show up with a green Pull Request
      button - click it.
@@ -99,7 +97,7 @@ onto master::
 
    git checkout master
    git pull upstream master
-   git checkout *your-Github-username*-issue#*number*
+   git checkout contributing-issue#14
    git rebase master
 
 If any conflicts occur in (e.g. conflict-file1 and conflict-file2), fix the according files and continue::
@@ -114,7 +112,7 @@ rebase any branch which you collaborate on with someone else.
 
 Finally, you must push your rebased branch::
 
-   git push --force origin *your-Github-username*-issue#*number*
+   git push --force origin contributing-issue#14
 
 (If you are curious, here's a further discussion on the
 `dangers of rebasing <http://tinyurl.com/lll385>`__.
