@@ -33,13 +33,14 @@ Here's the long and short of it:
      branch name will appear in the merge message, use a sensible name based on the feature you want to improve or add such as '*feature*-issue#\ *number*' (e.g. ``git checkout -b contributing-issue#14``)::
 
       git checkout -b contributing-issue#14
+
    * Commit locally as you progress (``git add`` and ``git commit``)
 
 3. To submit your contribution:
 
    * Push your changes back to your fork on GitHub::
 
-   git push origin contributing-issue#14
+      git push origin contributing-issue#14
 
    * Go to GitHub. The new branch will show up with a green Pull Request
      button - click it.
@@ -81,9 +82,7 @@ For a more detailed discussion, read these :doc:`detailed documents
     to the release notes of the upcoming version in
     ``doc/release/release_dev.rst``.
 
-.. note::
-
-   To reviewers: if it is not obvious, add a short explanation of what a branch
+.. note:: To reviewers: if it is not obvious, add a short explanation of what a branch
    did to the merge message and, if closing a bug, also add "Closes #14"
    where 14 is the issue number.
 
