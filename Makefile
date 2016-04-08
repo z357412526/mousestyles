@@ -16,8 +16,8 @@ clean:
 	find . -name "__pycache__" -o -name ".cache" | xargs rm -rf
 	rm -rf build dist mousestyles.egg-info
 
-# warning: the following targets don't ensure that the package is up-to-date
-# only use these after running make install
+# warning: the following targets don't ensure that the package is up-to-date.
+# only use these after running make install.
 
 test-fast:
 	py.test --cov=mousestyles --pyargs mousestyles
