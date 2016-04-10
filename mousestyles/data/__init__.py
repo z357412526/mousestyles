@@ -75,6 +75,11 @@ def load_intervals(feature):
     intervals : pandas.DataFrame
         All the data from the feature directory into one data frame
         columns are strain, mouse, day, start, stop
+
+    Examples
+    --------
+    >>> AS = load_intervals('AS')
+    >>> IS = load_intervals('IS')
     """
     # check input is one of the provided choices
     if feature not in {"AS", "F", "IS", "M_AS", "M_IS", "W"}:
@@ -125,6 +130,11 @@ def load_movement(strain, mouse, day):
         CT, CX, CY coordinates of the specified strain-mouse-day
         columns are t, x, y and isHB
         isHB indicates whether the point is in the home base or not
+
+    Examples
+    --------
+    >>> movement = load_movement(0, 0, 0)
+    >>> movement = load_movement(1, 2, 1)
     """
     # check if all inputs are nonnegative integers
     conditions_value = [strain < 0, mouse < 0, day < 0]
