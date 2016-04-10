@@ -76,8 +76,16 @@ def load_intervals(feature):
         All the data from the feature directory into one data frame
         columns are strain, mouse, day, start, stop
     """
+    # check input is one of the provided choices
+    if feature not in {"AS", "F", "IS", "M_AS", "M_IS", "W"}:
+        raise ValueError(
+            'Input value must be one of {"AS", "F", "IS", "M_AS", "M_IS", "W"}'
+            )
     # get all file names
     file_names = _os.listdir(_os.path.join(data_dir, "intervals", feature))
+    # check if directory is empty
+    if len(file_names) == 0:
+        raise ValueError('Directory is empty; no file found.')
     # initialized data frame
     # use for loop to load every file and concat to overall data frame
     dt = pd.DataFrame()
@@ -118,6 +126,14 @@ def load_movement(strain, mouse, day):
         columns are t, x, y and isHB
         isHB indicates whether the point is in the home base or not
     """
+    # check if all inputs are nonnegative integers
+    conditions_value = [strain < 0, mouse < 0, day < 0]
+    conditions_type = [type(strain) != int, type(mouse) != int,
+        type(day) != int]
+    if any(conditions_value):
+        raise ValueError("Input values need to be nonnegative")
+    if any(conditions_type):
+        raise TypeError("Input values need to be integer")
     # load all four files of HB, CT, CX and CY data
     HB_path = "txy_coords/C_idx_HB/C_idx_HB_strain{}_mouse{}_day{}.npy".\
         format(strain, mouse, day)
@@ -137,5 +153,4 @@ def load_movement(strain, mouse, day):
     dt["x"] = CX
     dt["y"] = CY
     dt["isHB"] = HB
-    dt = dt.sort(["t"])
     return dt
