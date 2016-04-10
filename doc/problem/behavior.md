@@ -6,6 +6,12 @@ In order to differentiate mice, we can create behavior profile to describe
 - how they drink, feed or move and 
 - how they translate between active state or inactive state. 
 
+![alt tag](http://cenzhuoyao.com/wp-content/uploads/2016/04/project1_behavior_profile.png)
+
+## Background Knowledge:
+- Mouses react differently during Active state and Inactive states and all behavioral record should be classified into 2 mutually exclusive categories, Active States (ASs) and Inactive States (ISs). To designate ISs, we examined all time intervals occurring between movement, feeding, and drinking events while the animal was outside the Home base. Those time intervals exceeding an IS Threshold (IST) duration value were classified as ISs; the set of ASs was then defined as the complement of these ISs. Equivalent mathematically, ASs can also be defined as those intervals resulting from connecting gaps between events outside the Home base of length at most IST; ISs are then defined as the complement of these ASs. (*Active State Organization of Spontaneous Behavior Patterns*, C. Hillar et al.)
+
+
 ## Behavioral Profile:
 
 For In/Active State:
@@ -23,7 +29,7 @@ Bouts: split all the time duration to several event bout
 
 ## Data Collection:
 The data we have:
-- the observations of location for each mice, $(x, y, t)$ with $\Delta t$ small.
+- the observations of location for each mice, (x, y, t) with \Delta t small.
 - the aggregated time bined features about each event and its intensity.
 
 The data we need:
@@ -31,6 +37,7 @@ The data we need:
 
 ## Algorithms:
 To get the profile for each mice aggregated in each 2 hours, here is the algorithm to fill in each features:
+
 For Event
 - Event Consumption or Distance: Already in basic time bin features.
 - AS Event Intensity: Already in basic time bin features.
