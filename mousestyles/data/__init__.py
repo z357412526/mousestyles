@@ -129,7 +129,7 @@ def load_movement(strain, mouse, day):
     # check if all inputs are nonnegative integers
     conditions_value = [strain < 0, mouse < 0, day < 0]
     conditions_type = [type(strain) != int, type(mouse) != int,
-        type(day) != int]
+                       type(day) != int]
     if any(conditions_value):
         raise ValueError("Input values need to be nonnegative")
     if any(conditions_type):

@@ -29,6 +29,6 @@ def test_movement_loader():
 
 def test_feature_load_input():
     # checking functions raise the correct errors
-    assert_raises(ValueError, load_intervals, "A")
-    assert_raises(TypeError, load_movement, 0.0, 0, 0)
-    assert_raises(ValueError, load_movement, -1, 0, 0)
+    assert_raises(ValueError, data.load_intervals, "A")
+    assert_raises(TypeError, data.load_movement, 0.0, 0, 0)
+    assert_raises(ValueError, data.load_movement, -1, 0, 0)
