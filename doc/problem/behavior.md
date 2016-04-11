@@ -12,7 +12,7 @@ We have the following key background information from the paper:
 >Mouses react differently during Active state and Inactive states and all behavioral record should be classified into 2 mutually exclusive categories, Active States (ASs) and Inactive States (ISs). To designate ISs, we examined all time intervals occurring between movement, feeding, and drinking events while the animal was outside the Home base. Those time intervals exceeding an IS Threshold (IST) duration value were classified as ISs; the set of ASs was then defined as the complement of these ISs. Equivalent mathematically, ASs can also be defined as those intervals resulting from connecting gaps between events outside the Home base of length at most IST; ISs are then defined as the complement of these ASs. (*Active State Organization of Spontaneous Behavior Patterns*, C. Hillar et al.)
 
 
-## Statement of statistical problems (including how and why it maps to the Overall Problem Statement):
+## Statement of statistical problems:
 
 The above flowchart shows the key metrics that are required by the study to capture the behavioural profile:
 
