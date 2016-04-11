@@ -20,8 +20,11 @@ The above flowchart shows the key metrics that are required by the study to capt
 
 The main focus is 3 key states of the mice i.e. [_Drinking | Feeding | Locomotion_]
 
+Each of these metrics can be seen visually in the slides referenced below. Each metric is a tree, decomposed into two child node metrics, whereby when the child nodes are multiplied together, they yield the parent metric.
+
 - [_Drinking | Feeding | Locomotion_]
     - AS [_Drinking | Feeding | Locomotion_] Intensity
+    - _A note about intensity:_ We are not entirely sure what the Tecott Lab's meaning of "intensity" is. Our current hypothesis is that intensity is defined as quantity over active state time. E.g. for drinking, intensity is the quantity consumed divided by the total amount of time the mouse is in an active state.
         - [_Drinking | Feeding | Locomotion_] Bout Size
             - [_Drinking | Feeding | Locomotion_] Bout Duration
             - [_Drinking | Feeding | Locomotion_] Bout Intensity
@@ -64,12 +67,12 @@ For In/Active State:
 ## Data Requirements Description
 The data we have:
 - a dataframe of observations of location for each mice, (x, y, t) with \Delta t small.
+- The above dataframe with a classification of strain number and mouse number at each time t (if available)
 
 The data we require:
 - The above dataframe with AS/ IS properly classified at each point t for each mouse
 - The above dataframe with a classification of drinking, feeding and locomotion for each mouse at each time t
 - The above dataframe with a classification of consumption size and moving distance with each event at each time t
-- The above dataframe with a classification of strain number and mouse number at each time t (if available)
 
 ## Methodology/ Approach Description
 We wish to create a single function that should be able to return all of the above metrics as a list:
@@ -90,6 +93,7 @@ We wish to create a single function that should be able to return all of the abo
 - Not sure yet whether the required dataframe at the most granular level can be easily constructed. This would be really useful for all projects to use so we should really consider developing it for the wider team.
 - Some of the required data metrics like consumption of food/ water at each time t may not be easy to obtain as they are provided for each interval. These may have to be prorated across each time t in some stable way in the construction of the required dataframe
 - We also believe that the metrics provided at each point are single point statistics i.e. means. We should consider outputing the actual histogram of values at each point for the given metric rather than just the single-valued mean metrics
+    - For example, we may not only be interested in the average amount of active time spent in locomotion, but the distribution of locomotion. This is a more complicated metric than those outlined in the work by the Tecott Lab's papers referenced below. With this information, we could potentially see interesting trends: the proportion of a mouse-day spent in locomotion could be the same in two time chunks, but the types of movements (distances) could form a more nuanced distribution.
 - Not sure if this is feasible, but if we had to produce the mean value we could output the time series mean value over the given interval rather than _just_ the overall mean from the given interval
 
 ## References
