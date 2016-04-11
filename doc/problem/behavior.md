@@ -7,7 +7,7 @@ In order to differentiate mice, we need to create a detailed behavior profile to
 1. how they drink, feed or move (locomotion) and
 2. how they translate between active state or inactive state.
 
-From the paper we have the following key background information from the paper:
+We have the following key background information from the paper:
 
 >Mouses react differently during Active state and Inactive states and all behavioral record should be classified into 2 mutually exclusive categories, Active States (ASs) and Inactive States (ISs). To designate ISs, we examined all time intervals occurring between movement, feeding, and drinking events while the animal was outside the Home base. Those time intervals exceeding an IS Threshold (IST) duration value were classified as ISs; the set of ASs was then defined as the complement of these ISs. Equivalent mathematically, ASs can also be defined as those intervals resulting from connecting gaps between events outside the Home base of length at most IST; ISs are then defined as the complement of these ASs. (*Active State Organization of Spontaneous Behavior Patterns*, C. Hillar et al.)
 
@@ -89,7 +89,7 @@ We wish to create a single function that should be able to return all of the abo
 ## Testing Framework Outline
 
 ## Additional Remarks
-- It is not clear exactly how the existing metrics are to be calculated in the form a single query
+- It is not clear exactly how the specified required metrics are to be calculated in the form of a single query or multiple queries. We need more clarification on what intensity means.
 - Not sure yet whether the required dataframe at the most granular level can be easily constructed. This would be really useful for all projects to use so we should really consider developing it for the wider team.
 - Some of the required data metrics like consumption of food/ water at each time t may not be easy to obtain as they are provided for each interval. These may have to be prorated across each time t in some stable way in the construction of the required dataframe
 - We also believe that the metrics provided at each point are single point statistics i.e. means. We should consider outputing the actual histogram of values at each point for the given metric rather than just the single-valued mean metrics
