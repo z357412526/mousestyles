@@ -108,7 +108,17 @@ If any conflicts occur in (e.g. conflict-file1 and conflict-file2), fix the acco
 
 Help in resolving merge conflicts is provided `here <https://help.github.com/articles/resolving-a-merge-conflict-from-the-command-line/>`__.
 
-However, you should only rebase your own branches and must generally not
+In some cases, you'll want to edit your history while rebasing. This
+can be accomplished with the ``-i`` or ``--interactive`` option of
+``git rebase``. Running ``rebase`` with this option will open a text
+editor, where you can choose to remove or edit some commits, or squash
+several together. This allows you to (for example) edit commit
+messages, or merge together repetitive small commits like "fixed
+typo." See this `tutorial
+<https://robots.thoughtbot.com/git-interactive-rebase-squash-amend-rewriting-history>`_
+for more details.
+
+Note: you should only rebase your own branches and must generally not
 rebase any branch which you collaborate on with someone else.
 
 Finally, you must push your rebased branch::
@@ -118,6 +128,7 @@ Finally, you must push your rebased branch::
 (If you are curious, here's a further discussion on the
 `dangers of rebasing <http://tinyurl.com/lll385>`__.
 Also see this `LWN article <http://tinyurl.com/nqcbkj>`__.)
+
 
 Guidelines
 ----------
