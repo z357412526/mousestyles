@@ -17,6 +17,10 @@ Based on the assumption, the problem is inherently a multiclass classification p
 ## Exploratory Analysis & Classification Models
 In 1D, box plots of each feature, say food consumption or sleeping time, of each strain can be plotted. In 2D, PCA can be preformed on the feature data set and the data are then plotted along the first and the second principal axes colored in different strains. These plots are  usedful in verifying assumptions. For instance, we could box-plot different strains of mice against food consumption to see whether different strains of mice eat distinctly. If the number of variables needed to be evaluated is large, we might also use five number summaries to study the distributions.
 
+Example boxplots:
+![EDA_features_by_strain](figure/features_boxplot_by_strain.png)
+
+
 Since each strain (each class) only has 9 to 12 mice, inputting too many features to the classification model is unwise. The exploratory data analysis will be an important step for hypothesis testing and feature selection. The process will also help us to find outliers and missing values in each behavioral variable, and we will decide how to handle those values after encountering that.
 
 ## Data Requirements Description
