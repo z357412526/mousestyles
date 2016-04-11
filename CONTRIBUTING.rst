@@ -34,7 +34,9 @@ Here's the long and short of it:
 
       git checkout -b contributing-issue#14
 
-   * Commit locally as you progress (``git add`` and ``git commit``)
+   * Commit locally as you progress (``git add`` and ``git
+     commit``). It is highly recommended that you use the provided
+     pre-commit hook (described in the `tools README <https://https://github.com/berkeley-stat222/mousestyles/blob/master/tools/README.md>`_), which automatically runs tests and style checks before every commit. This way, you can see if Travis (described below) will fail before you push.
 
 3. To submit your contribution:
 
