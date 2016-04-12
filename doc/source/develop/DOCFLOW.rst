@@ -1,23 +1,6 @@
 Documentation and Coding Standards
 ==================================
 
-Table of Contents
-=================
-
-1. `Naming Conventions <#naming-conventions>`__
-2. `Indentation <#indentation>`__
-3. `Docstrings <#docstrings>`__
-4. `Comments <#comments>`__
-5. `Blank Lines <#blank-lines>`__
-6. `Whitespace <#whitespace>`__
-7. `String Quotes <#string-quotes>`__
-8. `Imports <#imports>`__
-9. `Maximum Line Length <#maximum-line-length>`__
-
-.. raw:: html
-
-   <div id='naming-conventions'/>
-
 Naming Conventions
 ------------------
 
@@ -37,10 +20,6 @@ Naming Conventions
 -  *Constants*:
 -  Use all capital letters with underscores separating words (e.g.
    ``YELLOW_MARINE``)
-
-.. raw:: html
-
-   <div id='indentation'/>
 
 Indentation
 -----------
@@ -66,10 +45,6 @@ Indentation
            7, 8, 9,
            1, 0, 1
            ]
-
-.. raw:: html
-
-   <div id='docstrings'/>
 
 Docstrings
 ----------
@@ -215,9 +190,6 @@ Docstrings
 
            ...
 
-.. raw:: html
-
-   <div id='comments'/>
 
 Comments
 --------
@@ -290,20 +262,12 @@ cheese4=bad) return my\_cheese(r=real, i=imag) \`\`\` - Avoid compound
 statements (multiple statements on the same line) - Never put an
 if/for/while with a multi-clause statement on the same line
 
-.. raw:: html
-
-   <div id='string-quotes'/>
-
 String Quotes
 -------------
 
 -  Generally, use double-quotes for strings, but if a string contains a
    double-quote, then use single quotes
 -  Keep string quotes consistent for readability
-
-.. raw:: html
-
-   <div id='imports'/>
 
 Imports
 -------
@@ -316,10 +280,6 @@ docstrings, and before module globals and constants - Avoid wildcard
 imports ( from import \* ) as they make it unclear which names are
 present in the namespace, confusing both readers and many automated
 tools
-
-.. raw:: html
-
-   <div id='maximum-line-length'/>
 
 Maximum Line Length
 -------------------

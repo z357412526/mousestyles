@@ -51,9 +51,6 @@ Here's the long and short of it:
      <https://github.com/berkeley-stat222/mousestyles/issues/issue#*number*>`_ to explain your changes or
      to ask for review.
 
-For a more detailed discussion, read these :doc:`detailed documents
-<gitwash/index>` on how to use Git with ``mousestyles``
-(`<http://berkeley-stat222.github.io/mousestyles/dev/gitwash/index.html>`_).
 
 4. Review process:
 

@@ -1,5 +1,6 @@
 Set up SSH key
--------------------
+==============
+
 SSH, also known as Secure Socket Shell, is a network protocol that provides us with a secure way to access a remote computer. Once you set up your SSH key and add it to your Github account, you don't have to type username and password when you push your commits to the remote repository.
 
 1. Checking for existing SSH keys:

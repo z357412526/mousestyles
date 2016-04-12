@@ -1,5 +1,5 @@
-Instruction:
-------------
+Writing tests
+=============
 
 We need to create unit tests for each module and test each function of
 the module For example, suppose we have a file called *data\_utils.py*
