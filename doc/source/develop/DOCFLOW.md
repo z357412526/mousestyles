@@ -15,30 +15,30 @@
 ## Naming Conventions
 - Choose short and concise names that reflect usage
 - Never use the characters 'l' (lowercase letter el), 'O' (uppercase letter oh), or 'I' (uppercase letter eye) as single character variable names
-- *Package and Module Names*: 
+- *Package and Module Names*:
   - Use all-lowercase names
   - Use underscores when appropriate in module names but not package names
-- *Class Names*: 
+- *Class Names*:
   - Use `CapWords` convention
-- *Function and Variable Names*: 
+- *Function and Variable Names*:
   - `lower_case_with_underscores`
-  - Use a descriptive verb in function names 
-- *Constants*: 
+  - Use a descriptive verb in function names
+- *Constants*:
   - Use all capital letters with underscores separating words (e.g. `YELLOW_MARINE`)
- 
-<div id='indentation'/> 
+
+<div id='indentation'/>
 ## Indentation
 - Use 4 spaces per indentation level
-- Continuation lines should align wrapped elements vertically using Python's implicit line joining inside parentheses, brackets and braces 
+- Continuation lines should align wrapped elements vertically using Python's implicit line joining inside parentheses, brackets and braces
 
-    ```python 
+    ```python
     # Aligned with opening delimiter
     nacho_cheese = not_your_cheese(cheddar, pepperjack,
                                    provolone, brie)
     ```
 - The closing brace/bracket/parenthesis on multi-line constructs should line up under the first non-whitespace character of the last line of list
 
-    ```python 
+    ```python
     six_afraid_of_seven = [
         7, 8, 9,
         1, 0, 1
@@ -66,10 +66,10 @@
 	def foo(var1, var2, long_var_name='hi') :
 		r"""A one-line summary that does not use variable names or the
 		function name.
-		
+
 		Several sentences providing an extended description. Refer to
 		variables using back-ticks, e.g. `var`.
-		
+
 		Parameters
 		----------
 		var1 : array_like
@@ -82,7 +82,7 @@
 			detail, e.g. ``(N,) ndarray`` or ``array_like``.
 		long_var_name : {'hi', 'ho'}, optional
 			Choices in brackets, default first when optional.
-		
+
 		Returns
 		-------
 		type
@@ -91,79 +91,79 @@
 			Explanation of return value named `describe`.
 		out : type
 			Explanation of `out`.
-		
+
 		Other Parameters
 		----------------
 		only_seldom_used_keywords : type
 			Explanation
 		common_parameters_listed_above : type
 			Explanation
-		
+
 		Raises
 		------
 		BadException
 			Because you shouldn't have done that.
-		
+
 		See Also
 		--------
 		otherfunc : relationship (optional)
 		newfunc : Relationship (optional), which could be fairly long, in which
 			case the line wraps here.
 		thirdfunc, fourthfunc, fifthfunc
-		
+
 		Notes
 		-----
 		Notes about the implementation algorithm (if needed).
-		
+
 		This can have multiple paragraphs.
-		
+
 		You may include some math:
-		
+
 		.. math:: X(e^{j\omega } ) = x(n)e^{ - j\omega n}
-		
+
 		And even use a greek symbol like :math:`omega` inline.
-		
+
 		References
 		----------
 		Cite the relevant literature, e.g. [1]_.  You may also cite these
 		references in the notes section above.
-		
+
 		.. [1] O. McNoleg, "The integration of GIS, remote sensing,
 			expert systems and adaptive co-kriging for environmental habitat
 			modelling of the Highland Haggis using object-oriented, fuzzy-logic
 			and neural-network techniques," Computers & Geosciences, vol. 22,
 			pp. 585-588, 1996.
-			
+
 		Examples
 		--------
 		These are written in doctest format, and should illustrate how to
 		use the function.
-		
+
 		>>> a=[1,2,3]
 		>>> print [x + 3 for x in a]
 		[4, 5, 6]
 		>>> print "a\n\nb"
 		a
 		b
-		
+
 		"""
-		
+
 		pass
-		
+
 		...
-  	```
+	```
 
 <div id='comments'/>
 ## Comments
-- Use complete sentences; if a comment is a phrase or sentence, its first word should be capitalized, unless it is an identifier that begins with a lowercase letter 
+- Use complete sentences; if a comment is a phrase or sentence, its first word should be capitalized, unless it is an identifier that begins with a lowercase letter
 - Use two spaces after a sentence-ending period
 - Indent block comments to the same level as the code below; start each line of a block comment with a # and a single space (unless it is indented text inside the comment)
-- Separate paragraphs inside a block comment by a line containing a single # 
+- Separate paragraphs inside a block comment by a line containing a single #
 
   ```python
   # How dows a mouse feel after it takes a shower?
   # Squeaky clean.
-  # 
+  #
   # How do you save a drowning mouse?
   # Use mouse to mouse resuscitation.
   not_your_cheese(marscapone, maasdam, camembert, roquefort)
@@ -183,7 +183,7 @@
 
 <div id='whitespace'/>
 ## Whitespace
-- Avoid extraneous whitespace: 
+- Avoid extraneous whitespace:
   - Immediately inside parentheses, brackets, or braces
   - Immediately before a comma, semicolon, or colon
   - Immediately before the open parenthesis that starts the argument list of a function call
@@ -203,13 +203,13 @@
   def not_your_cheese(cheese1=smelly, cheese2=stinky, cheese3=noxious, cheese4=bad)
       return my_cheese(r=real, i=imag)
   ```
-- Avoid compound statements (multiple statements on the same line) 
+- Avoid compound statements (multiple statements on the same line)
 - Never put an if/for/while with a multi-clause statement on the same line
 
 <div id='string-quotes'/>
 ## String Quotes
-- Generally, use double-quotes for strings, but if a string contains a double-quote, then use single quotes 
-- Keep string quotes consistent for readability 
+- Generally, use double-quotes for strings, but if a string contains a double-quote, then use single quotes
+- Keep string quotes consistent for readability
 
 <div id='imports'/>
 ## Imports
@@ -224,16 +224,16 @@
 - Avoid wildcard imports ( from <module> import * ) as they make it unclear which names are present in the namespace, confusing both readers and many automated tools
 
 <div id='maximum-line-length'/>
-## Maximum Line Length 
-- Limit all lines to a maximum of 79 characters 
-- Use backslashes when implicit continuation fails 
+## Maximum Line Length
+- Limit all lines to a maximum of 79 characters
+- Use backslashes when implicit continuation fails
 
   ```python
   with open("/why/did/the/chicken/cross/the/road") as chicken, \
        open("/to/get/to/the/other/side", "w") as waffles:
        waffles.write(chicken.read())
   ```
-  
+
 
 For more information, please refer to:
 [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/) and

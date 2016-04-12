@@ -8,16 +8,16 @@ For example, suppose we have a file called *data_utils.py* with two functions *p
 - check if it returns the correct value, by
 	- prior knowledge
 	- different implementation: i.e. use R vs Python; use Var(X) vs. E(X^2) - E(X)^2
-	- theoretical derivation 
+	- theoretical derivation
 - "regression": if the function is improved (by speed, efficiency) while has same functionality, check the output is the same with older version.
-- assert errors occured: i.e. when the function takes three arguements while we only give two, make sure the function will throw an error message 
+- assert errors occured: i.e. when the function takes three arguements while we only give two, make sure the function will throw an error message
 
-## Useful Command: 
+## Useful Command:
 ```python
 from numpy.testing import assert_almost_equal, assert_equal, assert_array_equal, assert_array_almost_equal
 ```
 
-## Styles: 
+## Styles:
 - actual: the actual output of the function being tested
 - expected: the expected output according to prior knowledge or obtained through other methods
 - assert_equal(actual, expected)
