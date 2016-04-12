@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 2
 
    develop/index
-
+   api/index
 
 Indices and tables
 ==================
