@@ -228,7 +228,7 @@ def idx_restrict_to_rectangles(TXY, rects=[(0, 0)], xlims=(
             if ((TXY[1, t] > tl[0]) and (TXY[1, t] < tr[0]) and (
                     TXY[2, t] < tl[1]) and (TXY[2, t] > bl[1])):
                 idx_F_bout[t] = True
-                # print ("indexed %d move events " % (sum(idx_F_bout) - tmp_sum))
+            # print ("indexed %d move events " % (sum(idx_F_bout) - tmp_sum))
         tmp_sum += sum(idx_F_bout)
 
     # print ("Total move events: %d" % num_movements)

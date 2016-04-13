@@ -79,7 +79,7 @@ labels = data_orig_master[0, :, 0:3]
 
 # First look at data
 for AS_i, AS in enumerate(feat_arr):
-    print ("Feature %s" % AS)
+    print("Feature %s" % AS)
     data = features[AS_i]
     mice = day_to_mouse_average(features[AS_i], labels)
     plt.figure()
