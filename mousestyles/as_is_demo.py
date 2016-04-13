@@ -25,7 +25,7 @@ AS1 = IS1.complement()
 print("IS (%d):" % IS1.num(), IS1)
 print("AS (%d):" % AS1.num(), AS1)
 
-print ("IS/AS computation version 2 (mathematically equivalent)")
+print("IS/AS computation version 2 (mathematically equivalent)")
 AS2 = Events.copy().connect_gaps(ISDT)  # trim alters object
 IS2 = AS2.complement()
 print("AS2 (%d):" % AS2.num(), AS2)
