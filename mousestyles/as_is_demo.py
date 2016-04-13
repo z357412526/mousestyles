@@ -2,7 +2,7 @@
 # working with AS/IS, IS Duration Thresholds (ISDT)
 # using class intervals objects
 # C. Hillar, Jan 2016
-
+from __future__ import print_function, absolute_import, division
 import numpy as np
 from intervals import Intervals
 
@@ -14,26 +14,26 @@ ISDT = 2  # IST Threshold
 ECG = Events.copy().connect_gaps(ISDT)  # connect gaps <= ISDT
 ETm = Events.copy().trim(ISDT)  # trim inteversl <= ISDT
 
-print "Events (%d intervals):" % Events.num(), Events
-# print "Events connected gaps <= %1.3f:" % ISDT,
-#        Events.copy().connect_gaps(ISDT)
-print "Events trim intervals <= %1.3f:" % ISDT, Events.copy().trim(ISDT)
+print ("Events (%d intervals):" % Events.num(), Events)
+# print ("Events connected gaps <= %1.3f:" % ISDT,
+#        Events.copy().connect_gaps(ISDT))
+print ("Events trim intervals <= %1.3f:" % ISDT, Events.copy().trim(ISDT))
 
-print "IS/AS computation version 1"
+print ("IS/AS computation version 1")
 IS1 = Events.complement().trim(ISDT)  # complement is new object
 AS1 = IS1.complement()
-print "IS (%d):" % IS1.num(), IS1
-print "AS (%d):" % AS1.num(), AS1
+print ("IS (%d):" % IS1.num(), IS1)
+print ("AS (%d):" % AS1.num(), AS1)
 
-print "IS/AS computation version 2 (mathematically equivalent)"
+print ("IS/AS computation version 2 (mathematically equivalent)")
 AS2 = Events.copy().connect_gaps(ISDT)  # trim alters object
 IS2 = AS2.complement()
-print "AS2 (%d):" % AS2.num(), AS2
-print "IS2 (%d):" % IS2.num(), IS2
+print ("AS2 (%d):" % AS2.num(), AS2)
+print ("IS2 (%d):" % IS2.num(), IS2)
 
-print "IS/AS built into Intervals"
-print "AS1:", Events.ASs(ISDT)
-print "IS1:", Events.ISs(ISDT)
+print ("IS/AS built into Intervals")
+print ("AS1:", Events.ASs(ISDT))
+print ("IS1:", Events.ISs(ISDT))
 
 # Data set consists of 1921 Mouse days (22 hours each) from 170 Mice and
 # 16 Strains:
@@ -56,21 +56,21 @@ features = data_orig_master[:, :, 3:]
 labels = data_orig_master[0, :, 0:3]
 
 # CHECK: Events = (M_AS + F + W) gives AS correctcly
-strain_intervals = [[] for i in xrange(len(strains))]
-for i in xrange(len(strains)):
-    print "Loading Strain %d MDs" % i
+strain_intervals = [[] for i in range(len(strains))]
+for i in range(len(strains)):
+    print ("Loading Strain %d MDs" % i)
     strain_labels = labels[labels[:, 0] == i]
     mice = {}   # determine mice in strain
-    for c in xrange(strain_labels.shape[0]):
+    for c in range(strain_labels.shape[0]):
         if not mice.get(strain_labels[c, 1]):
             mice[strain_labels[c, 1]] = 1
         else:
             mice[strain_labels[c, 1]] += 1
 
-    mices = [[[] for c2 in xrange(mice[c1])] for c1 in xrange(len(mice))]
+    mices = [[[] for c2 in range(mice[c1])] for c1 in range(len(mice))]
 
-    for mouse in xrange(len(mice)):
-        for day in xrange(mice[mouse]):
+    for mouse in range(len(mice)):
+        for day in range(mice[mouse]):
             d = np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
                         (events[0], events[0], i, mouse, day))
             AS = Intervals(d)

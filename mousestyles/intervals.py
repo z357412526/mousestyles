@@ -12,6 +12,7 @@ Darren Rhea, 2012; Chris Hillar revised, April 30, 2013;
 Ram Mehta revised, 2013; Copyright (c) 2013, All rights reserved;
 Chris Hillar revised, 2015
 """
+from __future__ import print_function, absolute_import, division
 import numpy as np
 
 
@@ -43,7 +44,7 @@ class Intervals(object):
             return "EmptySet"
         ivt = self.intervals
         return " ".join(["[%s,%s]" % (ivt[i, 0], ivt[i, 1])
-                        for i in xrange(ivt.shape[0])])
+                        for i in range(ivt.shape[0])])
 
     def __add__(self, F):
         return self.union(F)
