@@ -34,8 +34,7 @@ Here's the long and short of it:
 
       git checkout -b contributing-issue#14
 
-     See `tools/bash-and-git.sh
-     <https://https://github.com/berkeley-stat222/mousestyles/blob/master/tools/bash-and-git.sh`_,
+     See `tools/bash-and-git.sh`,
      which contains useful configurations for visualizing and
      keeping track of branches more easily.
 

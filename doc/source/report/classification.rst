@@ -60,7 +60,10 @@ different strains of mice eat distinctly. If the number of variables
 needed to be evaluated is large, we might also use five number summaries
 to study the distributions.
 
-Example boxplots: |EDA\_features\_by\_strain|
+Example boxplots: 
+
+.. Not sure what to do with this.
+.. EDA\_features\_by\_strain
 
 Since each strain (each class) only has 9 to 12 mice, inputting too many
 features to the classification model is unwise. The exploratory data
