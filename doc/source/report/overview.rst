@@ -1,28 +1,8 @@
 Overview
 ========
 
-Table of Contents
-=================
-
-1. `Statement of Problem <#statement-of-problem>`__ 1.1 `Project
-   Goal <#project-goal>`__\  1.2 `Computational
-   Ethology <#computational-ethology>`__ 1.3 `Why Mice? <#why-mice>`__\ 
-2. `Methodology Description <#methodology-description>`__
-3. `Statement of Statistical
-   Problems <#statement-of-statistical-problems>`__
-4. `Glossary <#glossary>`__
-5. `References <#references>`__
-
-.. raw:: html
-
-   <div id='statement-of-problem'/>
-
 1. Statement of Problem
 -----------------------
-
-.. raw:: html
-
-   <div id='project-goal'/>
 
 1.1 Project Goal
 ~~~~~~~~~~~~~~~~
@@ -30,10 +10,6 @@ Table of Contents
 The goal of this project is to explore the effects of genetics on
 behavior in mice and extrapolate these findings to improve treatment of
 psychiatric diseases in humans.
-
-.. raw:: html
-
-   <div id='computational-ethology'/>
 
 1.2 Computational Ethology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,10 +43,6 @@ issues. Together, modern mathematics, engineering, and computer science
 have the potential to establish a causal relationship between genetics
 and behavior.
 
-.. raw:: html
-
-   <div id='why-mice'/>
-
 1.3 Why Mice?
 ~~~~~~~~~~~~~
 
@@ -90,10 +62,6 @@ behaviors. In addition, the extreme similarities of intra-strain mice,
 the space efficiency of maintaining their caged environments, and the
 speed of reproduction make mice a logical alternative to testing on
 humans.
-
-.. raw:: html
-
-   <div id='methodology-description'/>
 
 2. Methodology Description
 --------------------------
@@ -125,10 +93,6 @@ understand the importance of genetic makeup on mice behavior. We can
 then extrapolate to humans thanks to the remarkable genetic similarity
 between the two species.
 
-.. raw:: html
-
-   <div id='statement-of-statistical-problems'/>
-
 3. Statement of Statistical Problems
 ------------------------------------
 
@@ -148,10 +112,6 @@ whole project can be divided into 6 sub-projects:
    (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/classification.md)
 -  Project 6: [Power Laws and Universality]
    (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/distribution.md)
-
-.. raw:: html
-
-   <div id='glossary'/>
 
 4. Glossary
 -----------
@@ -183,16 +143,12 @@ whole project can be divided into 6 sub-projects:
 -  **Strain:** A strain here is a genetic variant or sub-type of of the
    more general mouse population.
 
-.. raw:: html
-
-   <div id='references'/>
-
 5. References
 -------------
 
 -  Laurence H Tecott. The genes and brains of mice and men. American
    Journal of Psychiatry, 2003
-    http://dx.doi.org/10.1176/appi.ajp.160.4.646.
+   http://dx.doi.org/10.1176/appi.ajp.160.4.646.
 -  David J Anderson and Pietro Perona. Toward a science of computational
    ethology. Neuron, 84(1):18-31, 2014.
-    http://www.sciencedirect.com/science/article/pii/S0896627314007934.
+   http://www.sciencedirect.com/science/article/pii/S0896627314007934.
