@@ -15,7 +15,8 @@ ECG = Events.copy().connect_gaps(ISDT)  # connect gaps <= ISDT
 ETm = Events.copy().trim(ISDT)  # trim inteversl <= ISDT
 
 print "Events (%d intervals):" % Events.num(), Events
-print "Events connected gaps <= %1.3f:" % ISDT, Events.copy().connect_gaps(ISDT)
+# print "Events connected gaps <= %1.3f:" % ISDT,
+#        Events.copy().connect_gaps(ISDT)
 print "Events trim intervals <= %1.3f:" % ISDT, Events.copy().trim(ISDT)
 
 print "IS/AS computation version 1"
@@ -37,12 +38,17 @@ print "IS1:", Events.ISs(ISDT)
 # Data set consists of 1921 Mouse days (22 hours each) from 170 Mice and
 # 16 Strains:
 strains = {0: 'C57BL6J', 1: 'BALB', 2: 'A', 3: '129S1', 4: 'DBA', 5: 'C3H',
-           6: 'AKR', 7: 'SWR', 8: 'SJL', 9: 'FVB', 10: 'WSB', 11: 'CZECH', 12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
+           6: 'AKR', 7: 'SWR', 8: 'SJL', 9: 'FVB', 10: 'WSB', 11: 'CZECH',
+           12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
 events = ['AS', 'F', 'IS', 'M_AS', 'M_IS', 'W']
 feat_arr = ['ASProbability', 'ASNumbers', 'ASDurations', 'Food', 'Water',
-            'Distance', 'ASFoodIntensity', 'ASWaterIntensity', 'MoveASIntensity']
-feat_arr_units = ['Active state probability', 'Number AS onsets', 'Total time [sec]', 'Food consumed [g]',
-                  'Water consumed [mg]', 'Distance travelled [m]', 'ASFoodIntensity', 'ASWaterIntensity', 'MoveASIntensity [cm/ASsec]']
+            'Distance', 'ASFoodIntensity', 'ASWaterIntensity',
+            'MoveASIntensity']
+feat_arr_units = ['Active state probability', 'Number AS onsets',
+                  'Total time [sec]', 'Food consumed [g]',
+                  'Water consumed [mg]', 'Distance travelled [m]',
+                  'ASFoodIntensity', 'ASWaterIntensity',
+                  'MoveASIntensity [cm/ASsec]']
 # 9 x 1921 x (3 labels + 11 feature time bins)
 data_orig_master = np.load('data/all_features_mousedays_11bins.npy')
 features = data_orig_master[:, :, 3:]
@@ -65,17 +71,24 @@ for i in xrange(len(strains)):
 
     for mouse in xrange(len(mice)):
         for day in xrange(mice[mouse]):
-            AS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
-                                   (events[0], events[0], i, mouse, day)))
-            # to load others:
-            # F = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[1], events[1], i, mouse, day)))
-            # IS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[2], events[2], i, mouse, day)))
-            # M_AS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[3], events[3], i, mouse, day)))
-            # M_IS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[4], events[4], i, mouse, day)))
-            # W = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[5], events[5], i, mouse, day)))
-            # all_move = M_AS.union(M_IS)
-            # non_homebase_events = F.union(W).union(M_AS)
-            # equal to non_homebase_events.ASs(ISDT=20 * 60)
+            d = np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
+                        (events[0], events[0], i, mouse, day))
+            AS = Intervals(d)
+
+# to load others:
+# F = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
+#      (events[1], events[1], i, mouse, day)))
+# IS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
+#      (events[2], events[2], i, mouse, day)))
+# M_AS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
+#      (events[3], events[3], i, mouse, day)))
+# M_IS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
+#      (events[4], events[4], i, mouse, day)))
+# W = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
+#      (events[5], events[5], i, mouse, day)))
+# all_move = M_AS.union(M_IS)
+# non_homebase_events = F.union(W).union(M_AS)
+# equal to non_homebase_events.ASs(ISDT=20 * 60)
             mices[mouse][day] = AS
 
     strain_intervals[i] = mices
@@ -84,4 +97,5 @@ fmfs = first_mouse_first_strain = strain_intervals[0][0]
 nd = nday_this_mouse = len(fmfs)
 
 AS = fmfs[0]
-print "First MD of ASs for first mouse for first strain (%d intervals):" % AS.num(), AS
+# print "First MD of ASs for first mouse for first strain (%d intervals):" %
+# AS.num(), AS

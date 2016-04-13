@@ -8,12 +8,17 @@ import matplotlib.pyplot as plt
 
 
 strains = {0: 'C57BL6J', 1: 'BALB', 2: 'A', 3: '129S1', 4: 'DBA', 5: 'C3H',
-           6: 'AKR', 7: 'SWR', 8: 'SJL', 9: 'FVB', 10: 'WSB', 11: 'CZECH', 12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
+           6: 'AKR', 7: 'SWR', 8: 'SJL', 9: 'FVB', 10: 'WSB', 11: 'CZECH',
+           12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
 
 feat_arr = ['ASProbability', 'ASNumbers', 'ASDurations', 'Food', 'Water',
-            'Distance', 'ASFoodIntensity', 'ASWaterIntensity', 'ASLocomotionIntensity']
-feat_arr_units = ['Active state probability', 'Number AS onsets', 'Total time [sec]', 'Food consumed [g]',
-                  'Water consumed [mg]', 'Distance travelled [m]', 'ASFoodIntensity', 'ASWaterIntensity', 'ASLocomotionIntensity [cm/ASsec]']
+            'Distance', 'ASFoodIntensity', 'ASWaterIntensity',
+            'ASLocomotionIntensity']
+feat_arr_units = ['Active state probability', 'Number AS onsets',
+                  'Total time [sec]', 'Food consumed [g]',
+                  'Water consumed [mg]', 'Distance travelled [m]',
+                  'ASFoodIntensity', 'ASWaterIntensity',
+                  'ASLocomotionIntensity [cm/ASsec]']
 
 all_data_name = 'data/all_features_mousedays_11bins.npy'
 # 9 x 1921 x (3 labels + 11 feature time bins)
@@ -66,7 +71,8 @@ variances_captured = np.zeros(v.shape[0] + 1)
 for i in xrange(Cmz.shape[0] + 1):
     if i > 0:
         variances_captured[i] = d[i - 1] / d.sum()
-    print 'component %d: %1.4f proportion of variance captured' % (i, variances_captured[i])
+    print 'component %d: %1.4f proportion of variance captured' % (
+        i, variances_captured[i])
 plt.figure()
 plt.clf()
 plt.plot(variances_captured[1:])
@@ -94,8 +100,9 @@ fourth = v[:, 3]
 
 plt.figure()
 plt.clf()
-plt.plot(first, lw=5, label='1$^{st}$ principal component: %d%% variance captured' % (
-    100 * variances_captured[1]))
+plt.plot(first, lw=5,
+         label='1$^{st}$ principal component: %d%% variance captured' %
+               (100 * variances_captured[1]))
 plt.plot(second, lw=3, label='2$^{nd}$: %d%%' % (100 * variances_captured[2]))
 plt.plot(third, lw=2, label='3$^{rd}$: %d%%' % (100 * variances_captured[3]))
 plt.plot(fourth, lw=1, label='4$^{th}$: %d%%' % (100 * variances_captured[4]))

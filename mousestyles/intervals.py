@@ -42,7 +42,8 @@ class Intervals(object):
         if self.is_empty():
             return "EmptySet"
         ivt = self.intervals
-        return " ".join(["[%s,%s]" % (ivt[i, 0], ivt[i, 1]) for i in xrange(ivt.shape[0])])
+        return " ".join(["[%s,%s]" % (ivt[i, 0], ivt[i, 1])
+                        for i in xrange(ivt.shape[0])])
 
     def __add__(self, F):
         return self.union(F)
@@ -100,7 +101,8 @@ class Intervals(object):
             return x >= self.intervals[idx, 0]
         if idx >= self.intervals.shape[0]:
             return x <= self.intervals[idx - 1, 1]
-        if (self.intervals[idx - 1, 0] <= x) and (self.intervals[idx - 1, 1] >= x):
+        if (self.intervals[idx - 1, 0] <= x) and \
+           (self.intervals[idx - 1, 1] >= x):
             return True
         if (self.intervals[idx, 0] <= x) and (self.intervals[idx, 1] >= x):
             return True
@@ -124,7 +126,8 @@ class Intervals(object):
                 return -1
             else:
                 return idx - 1
-        if (self.intervals[idx - 1, 0] <= x) and (self.intervals[idx - 1, 1] >= x):
+        if (self.intervals[idx - 1, 0] <= x) and \
+           (self.intervals[idx - 1, 1] >= x):
             return idx - 1
         if (self.intervals[idx, 0] <= x) and (self.intervals[idx, 1] >= x):
             return idx - 1
@@ -139,7 +142,8 @@ class Intervals(object):
         return self.intervals.shape[0]
 
     def union(self, F):
-        """ New Intervals object which is the union of self and Intervals F. """
+        """ New Intervals object which is the union of self and
+            Intervals F. """
         if F.is_empty():
             return self
         if self.is_empty():
@@ -147,7 +151,8 @@ class Intervals(object):
         return Intervals(np.vstack((self.intervals, F.intervals)))
 
     def intersect(self, F):
-        """ New Intervals object which is the intersection of self and Intervals F. """
+        """ New Intervals object which is the intersection of self and
+            Intervals F. """
         if F.is_empty():
             return F
         if self.is_empty():
@@ -155,11 +160,13 @@ class Intervals(object):
         return ~(~self + ~F)
 
     def intersect_with_interval(self, a, b):
-        """ returns (not a copy) Intervals object which is the intersection of self and [a, b]
+        """ returns (not a copy) Intervals object which is the intersection
+            of self and [a, b]
             (faster than intersect) """
         if self.is_empty():
             return self
-        if (self.intervals[:, 1] > a).sum() == 0 or (self.intervals[:, 0] < b).sum() == 0:
+        if (self.intervals[:, 1] > a).sum() == 0 or \
+           (self.intervals[:, 0] < b).sum() == 0:
             return Intervals()
         idx_first_gta = (self.intervals[:, 1] > a).nonzero()[0][0]
         idx_last_ltb = self.intervals.shape[
@@ -227,7 +234,8 @@ class Intervals(object):
         dim = self.intervals.shape[0]
         while i < dim:
             a = self.intervals[i, 0]
-            while i + 1 < dim and rule(self.intervals[i, 1], self.intervals[i + 1, 0]):
+            while i + 1 < dim and rule(self.intervals[i, 1],
+                                       self.intervals[i + 1, 0]):
                 i += 1
             b = self.intervals[i, 1]
             new_intervals.append([a, b])
@@ -241,7 +249,8 @@ class Intervals(object):
         return (self - other) + (other - self)
 
     def subordinate_to_array(self, arr):
-        """ returns a new Intervals object with only intervals containing elements of arr
+        """ returns a new Intervals object with only intervals containing
+            elements of arr
             (NOTE: arr is assumed sorted)
         """
         arr = np.array(arr)

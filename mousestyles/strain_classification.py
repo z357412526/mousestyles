@@ -5,19 +5,23 @@
 # Chris Hillar, Feb 8, 2016
 # Tecott Lab, UCSF
 
-import os
+# import os
+
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.ensemble import RandomForestClassifier
 from scipy.cluster.vq import whiten
 
-from data_utils import day_to_mouse_average, mouse_to_strain_average, split_data_in_half_randomly
+from data_utils import (day_to_mouse_average,
+                        mouse_to_strain_average,
+                        split_data_in_half_randomly)
 
 
-strains = {0: 'C57BL6J', 1: 'BALB', 2: 'A', 3: '129S1', 4: 'DBA', 5: 'C3H', 6: 'AKR', 7: 'SWR',
-           8: 'SJL', 9: 'FVB', 10: 'WSB', 11: 'CZECH', 12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
+strains = {0: 'C57BL6J', 1: 'BALB', 2: 'A', 3: '129S1', 4: 'DBA', 5: 'C3H',
+           6: 'AKR', 7: 'SWR', 8: 'SJL', 9: 'FVB', 10: 'WSB', 11: 'CZECH',
+           12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
 
 num_strains = len(strains)
 
@@ -32,7 +36,8 @@ AS = ''.join(['%s' % feat_arr[i] for i in use_features])
 num_bins = len(use_features) * 11
 
 all_data_orig = np.hstack([all_data_orig_master[0, :, 0:3]] +
-                          [all_data_orig_master[AS_i, :, 3:] for AS_i in use_features])
+                          [all_data_orig_master[AS_i, :, 3:]
+                          for AS_i in use_features])
 
 # classifiers
 NN_classify = np.zeros(2)  # 1st col mice | 2nd MDs
@@ -107,7 +112,22 @@ RF_classify[1] = labels_test.shape[0] * clf3.score(test, labels_test[:, 0])
 RF_classify[0] = mice_test.shape[0] * \
     clf3.score(mice_test[:, 2:], mice_test[:, 0])
 
-print "[NN] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS, NN_classify[0], mice_train.shape[0], 1. * NN_classify[0] / mice_train.shape[0], NN_classify[1], test.shape[0], 1. * NN_classify[1] / test.shape[0])
-print "[LogReg] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS, LR_classify[0], mice_train.shape[0], 1. * LR_classify[0] / mice_train.shape[0], LR_classify[1], test.shape[0], 1. * LR_classify[1] / test.shape[0])
-print "[GaussNB] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS, GNB_classify[0], mice_train.shape[0], 1. * GNB_classify[0] / mice_train.shape[0], GNB_classify[1], test.shape[0], 1. * GNB_classify[1] / test.shape[0])
-print "[RF] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS, RF_classify[0], mice_train.shape[0], 1. * RF_classify[0] / mice_train.shape[0], RF_classify[1], test.shape[0], 1. * RF_classify[1] / test.shape[0])
+# print "[NN] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS,
+#     NN_classify[0], mice_train.shape[0],
+#     1. * NN_classify[0] / mice_train.shape[0],
+#     NN_classify[1], test.shape[0], 1. * NN_classify[1] / test.shape[0])
+
+# print "[LogReg] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS,
+#    LR_classify[0], mice_train.shape[0], 1. * LR_classify[0] /
+#    mice_train.shape[0], LR_classify[1], test.shape[0],
+#    1. * LR_classify[1] / test.shape[0])
+
+# print "[GaussNB] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS,
+#    GNB_classify[0], mice_train.shape[0],
+#    1. * GNB_classify[0] / mice_train.shape[0],
+#    GNB_classify[1], test.shape[0], 1. * GNB_classify[1] / test.shape[0])
+
+# print "[RF] %s: %1.2f/%d [%1.3f] Mice | %1.2f/%d [%1.3f] MDs" % (AS,
+#     RF_classify[0], mice_train.shape[0],
+#     1. * RF_classify[0] / mice_train.shape[0],
+#     RF_classify[1], test.shape[0], 1. * RF_classify[1] / test.shape[0])
