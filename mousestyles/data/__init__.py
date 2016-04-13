@@ -66,6 +66,16 @@ def load_all_features():
 
 def load_intervals(feature):
     """
+    Return a pandas.DataFrame object of project interval data
+    for the specified feature.
+
+    There are 5 columns in the dataframe:
+    strain: the strain number of the mouse
+    mouse: the mouse number in its strain
+    day: the day number
+    start: the start time
+    stop: the stop time
+
     Parameters
     ----------
     feature: {"AS", "F", "IS", "M_AS", "M_IS", "W"}
@@ -73,8 +83,7 @@ def load_intervals(feature):
     Returns
     -------
     intervals : pandas.DataFrame
-        All the data from the feature directory into one data frame
-        columns are strain, mouse, day, start, stop
+        All data of the specified feature as a dataframe
 
     Examples
     --------
@@ -115,6 +124,15 @@ def load_intervals(feature):
 
 def load_movement(strain, mouse, day):
     """
+    Return a pandas.DataFrame object of project movement data
+    for the specified combination of strain, mouse and day.
+
+    There are 4 columns in the dataframe:
+    t: Time coordinates (in seconds)
+    x: X coordinates indicating the left-right position of the cage
+    y: Y coordinates indicating the front-back position of the cage
+    isHB: Boolean indicating whether the point is in the home base or not
+
     Parameters
     ----------
     strain: int
@@ -127,9 +145,8 @@ def load_movement(strain, mouse, day):
     Returns
     -------
     movement : pandas.DataFrame
-        CT, CX, CY coordinates of the specified strain-mouse-day
-        columns are t, x, y and isHB
-        isHB indicates whether the point is in the home base or not
+        CT, CX, CY coordinates and home base status
+        of the combination of strain, mouse and day
 
     Examples
     --------
