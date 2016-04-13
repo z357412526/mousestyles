@@ -7,7 +7,7 @@ import numpy as np
 from intervals import Intervals
 
 
-Events = Intervals([[-2, -1], [0, 1], [3,5], [8, 11]])
+Events = Intervals([[-2, -1], [0, 1], [3, 5], [8, 11]])
 
 ISDT = 2  # IST Threshold
 
@@ -34,15 +34,20 @@ print "IS/AS built into Intervals"
 print "AS1:", Events.ASs(ISDT)
 print "IS1:", Events.ISs(ISDT)
 
-# Data set consists of 1921 Mouse days (22 hours each) from 170 Mice and 16 Strains:
-strains = {0: 'C57BL6J', 1: 'BALB', 2: 'A', 3: '129S1', 4: 'DBA', 5: 'C3H', 
-    6: 'AKR', 7: 'SWR', 8: 'SJL', 9: 'FVB',10: 'WSB', 11: 'CZECH', 12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
+# Data set consists of 1921 Mouse days (22 hours each) from 170 Mice and
+# 16 Strains:
+strains = {0: 'C57BL6J', 1: 'BALB', 2: 'A', 3: '129S1', 4: 'DBA', 5: 'C3H',
+           6: 'AKR', 7: 'SWR', 8: 'SJL', 9: 'FVB', 10: 'WSB', 11: 'CZECH', 12: 'CAST', 13: 'JF1', 14: 'MOLF', 15: 'SPRET'}
 events = ['AS', 'F', 'IS', 'M_AS', 'M_IS', 'W']
-feat_arr = ['ASProbability', 'ASNumbers', 'ASDurations', 'Food', 'Water', 'Distance', 'ASFoodIntensity', 'ASWaterIntensity', 'MoveASIntensity']
-feat_arr_units = ['Active state probability', 'Number AS onsets', 'Total time [sec]', 'Food consumed [g]', 'Water consumed [mg]', 'Distance travelled [m]', 'ASFoodIntensity', 'ASWaterIntensity', 'MoveASIntensity [cm/ASsec]']
-data_orig_master = np.load('data/all_features_mousedays_11bins.npy')  # 9 x 1921 x (3 labels + 11 feature time bins)
+feat_arr = ['ASProbability', 'ASNumbers', 'ASDurations', 'Food', 'Water',
+            'Distance', 'ASFoodIntensity', 'ASWaterIntensity', 'MoveASIntensity']
+feat_arr_units = ['Active state probability', 'Number AS onsets', 'Total time [sec]', 'Food consumed [g]',
+                  'Water consumed [mg]', 'Distance travelled [m]', 'ASFoodIntensity', 'ASWaterIntensity', 'MoveASIntensity [cm/ASsec]']
+# 9 x 1921 x (3 labels + 11 feature time bins)
+data_orig_master = np.load('data/all_features_mousedays_11bins.npy')
 features = data_orig_master[:, :, 3:]
-labels = data_orig_master[0, :, 0:3]  # 1st col = strain, 2nd = mouse number, 3rd = day
+# 1st col = strain, 2nd = mouse number, 3rd = day
+labels = data_orig_master[0, :, 0:3]
 
 # CHECK: Events = (M_AS + F + W) gives AS correctcly
 strain_intervals = [[] for i in xrange(len(strains))]
@@ -60,7 +65,8 @@ for i in xrange(len(strains)):
 
     for mouse in xrange(len(mice)):
         for day in xrange(mice[mouse]):
-            AS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[0], events[0], i, mouse, day)))
+            AS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
+                                   (events[0], events[0], i, mouse, day)))
             # to load others:
             # F = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[1], events[1], i, mouse, day)))
             # IS = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[2], events[2], i, mouse, day)))
@@ -69,7 +75,8 @@ for i in xrange(len(strains)):
             # W = Intervals(np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' % (events[5], events[5], i, mouse, day)))
             # all_move = M_AS.union(M_IS)
             # non_homebase_events = F.union(W).union(M_AS)
-            mices[mouse][day] = AS  # equal to non_homebase_events.ASs(ISDT=20 * 60)
+            # equal to non_homebase_events.ASs(ISDT=20 * 60)
+            mices[mouse][day] = AS
 
     strain_intervals[i] = mices
 

@@ -3,7 +3,7 @@
 Implements a class to handle finite (disjoint) unions of intervals.
 
 * assumes that intervals are always closed and that the union is disjoint
-* open intervals remaining at the end of any operations (eg. complement) 
+* open intervals remaining at the end of any operations (eg. complement)
 * are always made closed.  e.g. [0,1]^C = [-np.inf,0] [1,np.inf]
 * end intervals being unbounded is handled using -np.inf and np.inf
 * does some okay handling for point intervals [a,a]
@@ -21,6 +21,7 @@ class Intervals(object):
     parameters
         intervals: (M x 2) numpy np.double array
     """
+
     def __init__(self, intervals=None):
         if intervals is None or len(intervals) == 0:
             self.intervals = np.array([])
@@ -60,12 +61,12 @@ class Intervals(object):
         self.intervals = np.atleast_2d(self.intervals)
         if (self.intervals is None) or (self.intervals.shape[0] < 2):
             return True
-        return ((self.intervals[:-1, 1] < self.intervals[1:, 0]).all() and \
-            (self.intervals[:, 1] >= self.intervals[:,0]).all())
+        return ((self.intervals[:-1, 1] < self.intervals[1:, 0]).all() and
+                (self.intervals[:, 1] >= self.intervals[:, 0]).all())
 
     def _make_disjoint(self):
         """ Remove intervals [a, b] with a > b """
-        good_intervals_idx = self.intervals[:, 1]>=self.intervals[:, 0]
+        good_intervals_idx = self.intervals[:, 1] >= self.intervals[:, 0]
         self.intervals = self.intervals[good_intervals_idx, :]
         # union together intervals that overlap
         tot = None
@@ -74,7 +75,7 @@ class Intervals(object):
         curr_rhs = self.intervals[curr_idx, 1]
         while curr_idx < self.intervals.shape[0]:
             while curr_rhs >= self.intervals[curr_idx, 0]:
-                curr_rhs = max(curr_rhs,self.intervals[curr_idx, 1])
+                curr_rhs = max(curr_rhs, self.intervals[curr_idx, 1])
                 curr_idx += 1
                 if curr_idx >= self.intervals.shape[0]:
                     break
@@ -99,14 +100,14 @@ class Intervals(object):
             return x >= self.intervals[idx, 0]
         if idx >= self.intervals.shape[0]:
             return x <= self.intervals[idx - 1, 1]
-        if (self.intervals[idx - 1,0] <= x) and (self.intervals[idx-1, 1] >= x):
+        if (self.intervals[idx - 1, 0] <= x) and (self.intervals[idx - 1, 1] >= x):
             return True
-        if (self.intervals[idx,0] <= x) and (self.intervals[idx, 1] >= x):
+        if (self.intervals[idx, 0] <= x) and (self.intervals[idx, 1] >= x):
             return True
         return False
 
     def index_of_first_intersection(self, x, find_nearest=False):
-        """ finds interval nearest to given number x and containing x 
+        """ finds interval nearest to given number x and containing x
             if find_nearest=False: doesn't require x to be in the interval """
         if self.is_empty():
             return -1
@@ -123,9 +124,9 @@ class Intervals(object):
                 return -1
             else:
                 return idx - 1
-        if (self.intervals[idx - 1,0] <= x) and (self.intervals[idx-1, 1] >= x):
+        if (self.intervals[idx - 1, 0] <= x) and (self.intervals[idx - 1, 1] >= x):
             return idx - 1
-        if (self.intervals[idx,0] <= x) and (self.intervals[idx, 1] >= x):
+        if (self.intervals[idx, 0] <= x) and (self.intervals[idx, 1] >= x):
             return idx - 1
         return -1
 
@@ -133,7 +134,8 @@ class Intervals(object):
         return self.intervals.shape[0] == 0
 
     def num(self):
-        if self.is_empty(): return 0
+        if self.is_empty():
+            return 0
         return self.intervals.shape[0]
 
     def union(self, F):
@@ -160,7 +162,8 @@ class Intervals(object):
         if (self.intervals[:, 1] > a).sum() == 0 or (self.intervals[:, 0] < b).sum() == 0:
             return Intervals()
         idx_first_gta = (self.intervals[:, 1] > a).nonzero()[0][0]
-        idx_last_ltb = self.intervals.shape[0] - (self.intervals[:, 0] < b)[::-1].nonzero()[0][0]
+        idx_last_ltb = self.intervals.shape[
+            0] - (self.intervals[:, 0] < b)[::-1].nonzero()[0][0]
         return Intervals(self.intervals[idx_first_gta:idx_last_ltb, :])
 
     def complement(self):
@@ -174,8 +177,8 @@ class Intervals(object):
         I = np.zeros((M - 1, 2))
         odds = range(1, (M - 1) * 2, 2)
         evens = range(0, (M - 1) * 2, 2)
-        I[:,1] = list_endpoints[1: -1][odds]
-        I[:,0] = list_endpoints[1: -1][evens]
+        I[:, 1] = list_endpoints[1: -1][odds]
+        I[:, 0] = list_endpoints[1: -1][evens]
 
         # fix complement ends
         a, b = list_endpoints[0], list_endpoints[-1]
@@ -217,7 +220,7 @@ class Intervals(object):
         parameters
             rule: Callable that takes parameters start_time and end_time.
         """
-        if self.is_empty(): 
+        if self.is_empty():
             return self
         new_intervals = []
         i = 0
@@ -233,12 +236,12 @@ class Intervals(object):
 
     def remove(self, other):
         return self.intersect(~other)
-        
+
     def symmetric_difference(self, other):
         return (self - other) + (other - self)
 
     def subordinate_to_array(self, arr):
-        """ returns a new Intervals object with only intervals containing elements of arr 
+        """ returns a new Intervals object with only intervals containing elements of arr
             (NOTE: arr is assumed sorted)
         """
         arr = np.array(arr)
@@ -247,8 +250,9 @@ class Intervals(object):
             a, b = interval[0], interval[1]
             idxa = arr.searchsorted(a)
             idxb = arr.searchsorted(b)
-            if idxa != idxb or (idxa < len(arr) and a == arr[idxa]):  # arr has a point in interval
-                F += Intervals([a,b])
+            # arr has a point in interval
+            if idxa != idxb or (idxa < len(arr) and a == arr[idxa]):
+                F += Intervals([a, b])
         return F
 
     def save(self, filename='Intervals_save'):
@@ -281,15 +285,16 @@ def intervals_from_binary(bin_array, times):
     while idx < bin_array.shape[0]:
         curr_bit = bin_array[idx]
         if curr_bit == 0:
-            idx +=1
+            idx += 1
         else:
             AS_idx = idx + 1
             start_idx = idx
             while AS_idx < bin_array.shape[0] and bin_array[AS_idx] == 1:
-                AS_idx +=1
-            F = F.union(Intervals([times[start_idx], times[AS_idx-1]]))
+                AS_idx += 1
+            F = F.union(Intervals([times[start_idx], times[AS_idx - 1]]))
             idx = AS_idx
     return F
+
 
 def binary_from_intervals(intervals, length=None):
     """ From an intervals object produce a binary sequence of size length """
@@ -304,11 +309,12 @@ def binary_from_intervals(intervals, length=None):
             binary[c] = 1
     return binary
 
+
 def timestamps_to_interval(array, eps=.01):
-	""" given a 1D array with event timestamps, returns an interval centered
-		on timestamp and eps wide. 
-		default 0.01 is half of minimum HCM sampling rate 
-	"""
-	new_arr = zip(array - eps, array + eps)
-	new_I = Intervals(new_arr)   
-	return new_I
+    """ given a 1D array with event timestamps, returns an interval centered
+            on timestamp and eps wide.
+            default 0.01 is half of minimum HCM sampling rate
+    """
+    new_arr = zip(array - eps, array + eps)
+    new_I = Intervals(new_arr)
+    return new_I
