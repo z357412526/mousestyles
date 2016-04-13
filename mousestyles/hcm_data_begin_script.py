@@ -4,6 +4,7 @@
 #
 # Script for initial foray into HCM 16-Strain Mus musculus multi-modal data set
 
+from __future__ import print_function, absolute_import, division
 import numpy as np
 from scipy.cluster.vq import whiten
 import matplotlib.pyplot as plt
@@ -78,11 +79,11 @@ labels = data_orig_master[0, :, 0:3]
 
 # First look at data
 for AS_i, AS in enumerate(feat_arr):
-    print "Feature %s" % AS
+    print("Feature %s" % AS)
     data = features[AS_i]
     mice = day_to_mouse_average(features[AS_i], labels)
     plt.figure()
-    for s in xrange(len(strains)):
+    for s in range(len(strains)):
         plt.plot(mice[mice[:, 0] == s, -11:].T, c=strain_colors[s])
     plt.plot(mice[:, -11:].mean(axis=0), linewidth=2, c='k')
     plt.xlabel('2 h Time bin')
@@ -109,7 +110,7 @@ for AS_i, AS in enumerate(feat_arr):
     tot_cor = 0
     for cnt, ms in enumerate(mice_test):
         min_dist = np.inf
-        for k in xrange(strain_centers.shape[0]):
+        for k in range(strain_centers.shape[0]):
             distance = np.sqrt(((strain_centers[k] - ms[2:]) ** 2).sum())
             if distance < min_dist:
                 guess = k
@@ -121,7 +122,7 @@ for AS_i, AS in enumerate(feat_arr):
     tot_cor = 0
     for cnt, md in enumerate(test):
         min_dist = np.inf
-        for k in xrange(strain_centers.shape[0]):
+        for k in range(strain_centers.shape[0]):
             distance = np.sqrt(((strain_centers[k] - md) ** 2).sum())
             if distance < min_dist:
                 guess = k
@@ -139,20 +140,20 @@ for AS_i, AS in enumerate(feat_arr):
 # (2) Raw Event Arrays Eexample: AS Numbers
 ##################################
 event = events[0]
-strain_intervals = [[] for i in xrange(len(strains))]
-for i in xrange(len(strains)):
+strain_intervals = [[] for i in range(len(strains))]
+for i in range(len(strains)):
     strain_labels = labels[labels[:, 0] == i]
     mice = {}   # determine mice in strain
-    for c in xrange(strain_labels.shape[0]):
+    for c in range(strain_labels.shape[0]):
         if not mice.get(strain_labels[c, 1]):
             mice[strain_labels[c, 1]] = 1
         else:
             mice[strain_labels[c, 1]] += 1
 
-    mices = [[[] for c2 in xrange(mice[c1])] for c1 in xrange(len(mice))]
+    mices = [[[] for c2 in range(mice[c1])] for c1 in range(len(mice))]
 
-    for mouse in xrange(len(mice)):
-        for day in xrange(mice[mouse]):
+    for mouse in range(len(mice)):
+        for day in range(mice[mouse]):
             arr = np.load('data/intervals/%s/%s_strain%d_mouse%d_day%d.npy' %
                           (event, event, i, mouse, day))
             mices[mouse][day] = arr

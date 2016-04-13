@@ -2,6 +2,7 @@
 # Normalized PCA anlaysis of HCM Data Features
 # C. Hillar, Dec 2015 (Tecott Lab: C. Hillar, G. Onnis, D. Rhea, L. Tecott)
 
+from __future__ import print_function, absolute_import, division
 import numpy as np
 from data_utils import day_to_mouse_average
 import matplotlib.pyplot as plt
@@ -29,7 +30,7 @@ MOUSEDAYS = False
 # Feature to study
 AS_i = 0
 AS = feat_arr[AS_i]
-print "PCA analysis for feature %s" % feat_arr[AS_i]
+print("PCA analysis for feature %s" % feat_arr[AS_i])
 features = data_orig_master[AS_i, :, 3:]
 # 1st col = strain, 2nd = mouse number, 3rd = day
 labels = data_orig_master[AS_i, :, 0:3]
@@ -49,11 +50,11 @@ v = v[:, idx]       # normalized eigenvectors
 d = d[idx]          # eigenvalues
 d = d[::-1]         # ordered largest first
 v = v[:, ::-1]
-for i in xrange(11):  # make more +s than negatives
+for i in range(11):  # make more +s than negatives
     if np.sign(v[:, i]).sum() < 0:
         v[:, i] *= - 1.
 Cmz_recon = np.dot(np.dot(v, np.diag(d)), v.T)  # check decomposition
-print np.abs(Cmz - Cmz_recon).sum()
+print(np.abs(Cmz - Cmz_recon).sum())
 
 # compute projected features
 diag = np.diag(1 / np.sqrt(d))
@@ -64,15 +65,15 @@ Cov_LF = np.dot(projected_features.T, projected_features) / \
     projected_features.shape[0]
 # check covariance of new features is identity
 I = np.identity(Cov_LF.shape[0])
-print np.abs(Cov_LF - I).sum()
+print(np.abs(Cov_LF - I).sum())
 
 # plot variance captured
 variances_captured = np.zeros(v.shape[0] + 1)
-for i in xrange(Cmz.shape[0] + 1):
+for i in range(Cmz.shape[0] + 1):
     if i > 0:
         variances_captured[i] = d[i - 1] / d.sum()
-    print 'component %d: %1.4f proportion of variance captured' % (
-        i, variances_captured[i])
+    print('component %d: %1.4f proportion of variance captured' % (
+        i, variances_captured[i]))
 plt.figure()
 plt.clf()
 plt.plot(variances_captured[1:])
@@ -115,7 +116,7 @@ plt.setp(legenda.get_texts(), fontsize=12)
 
 # show how each strain looks like in top 4 components
 strain_proj = np.zeros((len(strains), 11))
-for strain_num in xrange(16):
+for strain_num in range(16):
     strain_data = mouse_mz[mice[:, 0] == strain_num, :]
     projected_features = np.dot(strain_data, np.dot(v, diag)).mean(axis=0)
     strain_proj[strain_num] = projected_features
