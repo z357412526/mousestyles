@@ -14,12 +14,12 @@ psychiatric diseases in humans.
 1.2 Computational Ethology
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-`Ethology <#ethology>`__ is the study of animal behavior, and it
+`Ethology` is the study of animal behavior, and it
 generally follows one of two approaches. The first approach was
 developed by B.F. Skinner and relies heavily on laboratory experiments.
 Skinner postulated that since behavior is predictable, it should be
 controllable. His most prominent experiment involved training pigeons
-through `operant conditioning <#operant-conditioning>`__. He found that
+through `operant conditioning`. He found that
 the pigeons had the ability to learn new behaviors under a reward
 system. However, the setting of the experiment was incredibly artificial
 and controlled. In contrast, Konrad Lorenz believed that the only way to
@@ -38,7 +38,7 @@ collection, low dimensional data, imprecise and subjective measurements,
 and human visual and language limitations impeded data collection and
 analysis. Using modern quantitative tools for measurement, description,
 and analysis, the field of `computational
-ethology <#computational-ethology1>`__ has emerged to solve these
+ethology` has emerged to solve these
 issues. Together, modern mathematics, engineering, and computer science
 have the potential to establish a causal relationship between genetics
 and behavior.
@@ -70,17 +70,17 @@ The traditional technology to analyze behavior is time-intensive and
 labor-intensive. For example, recording data requires researchers to
 track behavior uninterruptedly. This experiment utilized a method for
 continuous high-resolution behavioral data collection and analysis. The
-`home cage monitoring (HCM) system <#hcm-system>`__ utilized is a
+`home cage monitoring (HCM) system` utilized is a
 network of photobeam feeding detection, drinking detection, and activity
-platform sensors that records mouse `active states <#active-state>`__
-and `inactive states <#inactive-state>`__ automatically and incessantly
+platform sensors that records mouse `active states`
+and `inactive states` automatically and incessantly
 over 24-hour periods where 1 hour per day was reserved for HCM
 maintenance. This facilitates objective, multi-dimensional computer
 tracking, providing a higher degree of accuracy compared to human
 observation.
 
 In this project, the HCM system tracked 170 mice, representing 16
-`strains <#strain>`__ or approximately 94% of the genome, logging
+`strains` or approximately 94% of the genome, logging
 500,000 behavioral events per mouse per day over 12 days of data
 collection after 5 days of acclimation. The scope of the study was
 limited to male mice as females tended to display cyclical changes in
@@ -100,18 +100,12 @@ This project utilized sophisticated statistical methods to process data,
 including machine learning algorithms and statistical inference. The
 whole project can be divided into 6 sub-projects:
 
--  Project 1: [Behavior Model]
-   (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/behavior.md)
--  Project 2: [Exploration and Path Diversity]
-   (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/path.md)
--  Project 3: [Dynamics of AS Patterns]
-   (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/dynamics.md)
--  Project 4: [Ultradian Analysis]
-   (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/ultradian.md)
--  Project 5: [Application of Clustering Analysis]
-   (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/classification.md)
--  Project 6: [Power Laws and Universality]
-   (https://github.com/berkeley-stat222/mousestyles/blob/master/doc/problem/distribution.md)
+-  :ref:`behavior`
+-  :ref:`path`
+-  :ref:`dynamics`
+-  :ref:`ultradian`
+-  :ref:`classification`
+-  :ref:`distribution`
 
 4. Glossary
 -----------

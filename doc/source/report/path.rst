@@ -1,3 +1,5 @@
+.. _path:
+
 Project 2: Exploration & Path Diversity
 =======================================
 

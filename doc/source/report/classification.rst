@@ -1,3 +1,5 @@
+.. _classification:
+
 Project 5: Classification and Clustering of Mice
 ================================================
 
@@ -62,8 +64,10 @@ to study the distributions.
 
 Example boxplots: 
 
-.. Not sure what to do with this.
-.. EDA\_features\_by\_strain
+.. figure:: figure/features_boxplot_by_strain.png 
+   :align:   center
+
+   Example boxplots
 
 Since each strain (each class) only has 9 to 12 mice, inputting too many
 features to the classification model is unwise. The exploratory data
@@ -152,4 +156,3 @@ Initial tasks
 References
 ----------
 
-.. |EDA\_features\_by\_strain| image:: figure/features_boxplot_by_strain.png

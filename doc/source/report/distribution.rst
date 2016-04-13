@@ -1,3 +1,5 @@
+.. _distribution:
+
 Project 6: Power Laws & Universality
 ====================================
 
@@ -43,7 +45,10 @@ Exploratory Analysis
    since xy coordinates are recorded according to time and the event is
    defined based on time.
 
-|Distribution| - Preferred choice of distribution: the power law is a
+Distribution
+http://cenzhuoyao.com/wp-content/uploads/2016/04/project6.png
+
+- Preferred choice of distribution: the power law is a
 monotone decreasing, however our plot indicates a peak, in which gamma
 distribution may fit better.
 
@@ -126,4 +131,3 @@ Reference reading:
 
 -  https://en.wikipedia.org/wiki/Power\_law
 
-.. |Distribution| image:: http://cenzhuoyao.com/wp-content/uploads/2016/04/project6.png

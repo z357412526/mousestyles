@@ -1,3 +1,5 @@
+.. _behavior:
+
 Project 1: Behavioral Model
 ===========================
 
@@ -31,10 +33,12 @@ Statement of statistical problems:
 The above flowchart shows the key metrics that are required by the study
 to capture the behavioural profile:
 
-.. figure:: http://cenzhuoyao.com/wp-content/uploads/2016/04/project1_behavior_profile.png
+http://cenzhuoyao.com/wp-content/uploads/2016/04/project1_behavior_profile.png
+
+.. figure:: figure/distance.png
    :alt: alt tag
 
-   alt tag
+   Fix
 
 The main focus is 3 key states of the mice i.e. [*Drinking \| Feeding \|
 Locomotion*\ ]
@@ -162,9 +166,3 @@ Additional Remarks
 -  Not sure if this is feasible, but if we had to produce the mean value
    we could output the time series mean value over the given interval
    rather than *just* the overall mean from the given interval
-
-References
-----------
-
-1. http://www.msri.org/people/members/chillar/files/BY/Jarrod\_class\_slides.pdf
-2. http://www.msri.org/people/members/chillar/files/BY/SS1\_manu.pdf
