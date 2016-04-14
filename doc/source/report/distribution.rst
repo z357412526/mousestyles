@@ -46,11 +46,13 @@ Exploratory Analysis
    defined based on time.
 
 Distribution
-http://cenzhuoyao.com/wp-content/uploads/2016/04/project6.png
+
+.. This figure should be added to the repo
+.. http://cenzhuoyao.com/wp-content/uploads/2016/04/project6.png
 
 - Preferred choice of distribution: the power law is a
-monotone decreasing, however our plot indicates a peak, in which gamma
-distribution may fit better.
+  monotone decreasing, however our plot indicates a peak, in which gamma
+  distribution may fit better.
 
 Data Requirements Description
 -----------------------------

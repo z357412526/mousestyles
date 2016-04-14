@@ -45,7 +45,8 @@ Statement of statistical problems:
 The above flowchart shows the key metrics that are required by the study
 to capture the behavioural profile:
 
-http://cenzhuoyao.com/wp-content/uploads/2016/04/project1_behavior_profile.png
+.. This figure should be added to the repo
+.. http://cenzhuoyao.com/wp-content/uploads/2016/04/project1_behavior_profile.png
 
 .. figure:: figure/distance.png
    :alt: alt tag
@@ -60,29 +61,29 @@ below. Each metric is a tree, decomposed into two child node metrics,
 whereby when the child nodes are multiplied together, they yield the
 parent metric.
 
--  [*Drinking \| Feeding \| Locomotion*\ ]
+-  AS [*Drinking \| Feeding \| Locomotion*\ ] Intensity
+-  *A note about intensity:* We are not entirely sure what the Tecott
+   Lab's meaning of "intensity" is. Our current hypothesis is that
+   intensity is defined as quantity over active state time. E.g. for
+   drinking, intensity is the quantity consumed divided by the total
+   amount of time the mouse is in an active state.
 
-   -  AS [*Drinking \| Feeding \| Locomotion*\ ] Intensity
-   -  *A note about intensity:* We are not entirely sure what the Tecott
-      Lab's meaning of "intensity" is. Our current hypothesis is that
-      intensity is defined as quantity over active state time. E.g. for
-      drinking, intensity is the quantity consumed divided by the total
-      amount of time the mouse is in an active state.
+   -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Size
 
-      -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Size
+      -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Duration
+      -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Intensity
 
-         -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Duration
-         -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Intensity
+         -  [*Drinking \| Feeding \| Locomotion*\ ] Bout EventRate
+         -  [*Drinking \| Feeding \| Locomotion*\ ] Event Size
 
-            -  [*Drinking \| Feeding \| Locomotion*\ ] Bout EventRate
-            -  [*Drinking \| Feeding \| Locomotion*\ ] Event Size
-
-      -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Rt
+   -  [*Drinking \| Feeding \| Locomotion*\ ] Bout Rt
 
 Additionally the following needs to be calculated for Inactive /Active
-State: - AS Probability: the probability of AS among all time period -
-AS Duration: the length of time of AS - AS Rate: the reciprocal of
-average length of time of AS
+State:
+
+- AS Probability: the probability of AS among all time period
+- AS Duration: the length of time of AS
+- AS Rate: the reciprocal of average length of time of AS
 
 Data Collection:
 ----------------

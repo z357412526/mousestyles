@@ -6,8 +6,6 @@
 Welcome to mousestyles's documentation!
 =======================================
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
