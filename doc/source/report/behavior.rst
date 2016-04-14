@@ -14,18 +14,30 @@ profile to describe:
 
 We have the following key background information from the paper:
 
-    Mouses react differently during Active state and Inactive states and
-    all behavioral record should be classified into 2 mutually exclusive
-    categories, Active States (ASs) and Inactive States (ISs). To
-    designate ISs, we examined all time intervals occurring between
-    movement, feeding, and drinking events while the animal was outside
-    the Home base. Those time intervals exceeding an IS Threshold (IST)
-    duration value were classified as ISs; the set of ASs was then
-    defined as the complement of these ISs. Equivalent mathematically,
-    ASs can also be defined as those intervals resulting from connecting
-    gaps between events outside the Home base of length at most IST; ISs
-    are then defined as the complement of these ASs. (*Active State
-    Organization of Spontaneous Behavior Patterns*, C. Hillar et al.)
+-  **Home Cage Monitoring System(HCM)** HCM cages were spatially
+   discretized into a 12 x 24 array of cells and occupancy times for
+   each MD were computed as the proportion of time spent within each of
+   the 288 cells. To determine whether animals establish a Home base,
+   HCM cages were spatially discretized into a 2 x 4 array of cells, and
+   occupancy times for each mouse day were calculated as above. In the
+   experiment, 56/158 animals displayed largest occupancy times in the
+   cell containing the niche area, which was considered to be their Home
+   base location.
+
+
+-  **Active and Inactive State** Mice react differently during
+   Active state and Inactive states and
+   all behavioral record should be classified into 2 mutually exclusive
+   categories, Active States (ASs) and Inactive States (ISs). To
+   designate ISs, we examined all time intervals occurring between
+   movement, feeding, and drinking events while the animal was outside
+   the Home base. Those time intervals exceeding an IS Threshold (IST)
+   duration value were classified as ISs; the set of ASs was then
+   defined as the complement of these ISs. Equivalent mathematically,
+   ASs can also be defined as those intervals resulting from connecting
+   gaps between events outside the Home base of length at most IST; ISs
+   are then defined as the complement of these ASs. (*Active State
+   Organization of Spontaneous Behavior Patterns*, C. Hillar et al.)
 
 Statement of statistical problems:
 ----------------------------------
