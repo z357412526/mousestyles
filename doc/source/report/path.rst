@@ -6,19 +6,18 @@ Project 2: Exploration & Path Diversity
 Statement of Problem
 --------------------
 
-The background of this problem is that the movements of each mouse,
-defined by "path",should be affected by some other relevant quantity
-including strain, TOD, DOW, physical status, or neural psychological
-attributes. These important relationships enable us to use the movement
-of mice to implement statistical analysis including prediction or
-classification. Generally speaking, our aim in this subproject is to use
-mouse locomotion patterns to make some inference about the mouse’s daily
-behavior. This behavior involves how many times did the mouse eat in
-that day and how long did it eat. As we think that mice locomotion
-patterns are fundamental aspects of behavior, we will expect that these
-are good features of strains.
+The background of this problem is that the movements of each mouse, defined by
+"path",should be affected by some other relevant quantity including strain,
+time-of-day, day-of-week, physical status, or neural psychological attributes.
+These important relationships enable us to use the movement of mice to
+implement statistical analysis including prediction or classification.
+Generally speaking, our aim in this subproject is to use mouse locomotion
+patterns to make inference about the mouse’s daily behavior. This behavior
+involves how many times did the mouse eat in that day and how long did it eat.
+As we think that mice locomotion patterns are fundamental aspects of behavior,
+we will expect that these are good features of strains.
 
-Statement of statistical problems
+Statement of Statistical Problems
 ---------------------------------
 
 Our statistical problems are essentially classified into 2 categories;
@@ -28,37 +27,41 @@ path could be very broad and obscure. If we employ classification in our
 analysis, we need to discretize the continuous paths. Also we might be
 able to quantify the paths itself by introducing some 'scores' of each
 path, which is supposed to be a representative summary of the whole path
-(e.g."efficiency score" or “exploration score.” Details are in the
+(e.g. "efficiency score" or “exploration score.” Details are in the
 following sections). Classification could be certainly one of our
 statistical interests. We are primarily interested in the link between
-the spatial habit and strain, so for example we can use the following as
+the spatial habits and strain, so for example we can use the following as
 the response variable for classification:
 
 -  Path: given the strain and certain key attributes about the mice (ex:
    time of day, time of last meal, aggregate distance traveled, etc.),
    we want to be able to predict the future movement or “path” of the
-   mice.
+   mice. It may be possible to identify types of commonly traveled paths
+   (ex: path towards food, path towards water, exploratory path, etc.)
+   and use these for prediction. 
 -  Strain: By using the path patterns as one of key features to predict
    strain, we can reveal the important relationship between those.
 
-Ideally the results of those classification should be interpretable to
-us. That is, for example, the results would show that the strains which
-determine the weight of a mouse have strong effect on the average travel
-distance in a day.
+Ideally the results of those classification should be interpretable to us.
+That is, for example, the results would show that mice strains which are
+heavier tend to travel less frequently and less distance throughout the day.
 
 Exploratory Analysis
 --------------------
 
 As we begin our analysis, we would like to explore the following points:
+
 - Daily plots of densities for each strain of mice to distinguish
-locomotive patterns amongst strains and to get a sense of day-to-day
-variations in mouse locomotive behavior or possibly detect anomalies. We
-can measure the ‘distance’ between two densities by the KL divergence in
-probability. - Summary statistics of locomotive patterns for each
-strain. This includes total distance traveled per set intervals (daily,
-hourly, etc.) - How different strains allocate their time on each path.
-- Explore impact of changing the grid size (note: the authors have used
-1 cm).
+  locomotive patterns amongst strains and to get a sense of day-to-day
+  variations in mouse locomotive behavior or possibly detect anomalies. We
+  can measure the ‘distance’ between two densities by the KL divergence in
+  probability.
+- Summary statistics of locomotive patterns for each strain. This includes
+  total distance traveled per set intervals (daily, hourly, etc.)
+- How different strains allocate their time on each path.
+- The impact of changing the grid size (note: the authors have used 1 cm).
+- Identify paths that are structurally similar by exploiting rotational
+  invariance
 
 Data Requirements
 -----------------
@@ -68,6 +71,17 @@ active states ("AS") and inactive states ("IAS") to be clearly defined
 and possibly flagged within the dataset. Additionally, we require
 behavioral attributes about the mice to be defined and flagged (ex:
 eating event, drinking event, etc.)
+
+.. figure:: figure/mice_path.png
+   :alt: alt tag
+
+   Path
+
+As we define the path, we will also need to consider how each path will be
+labeled. One possibility is to assign a number to each grid square and to
+define the path as a sequence of numbers. As an alternative, we can use binary
+classification to indicate if the mouse traveled on a particular grid square,
+resulting in a matrix of 0s and 1s.  
 
 Methodology/Approach Description
 --------------------------------
