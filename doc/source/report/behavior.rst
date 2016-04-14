@@ -43,7 +43,7 @@ Statement of statistical problems:
 ----------------------------------
 
 The above flowchart shows the key metrics that are required by the study
-to capture the behavioural profile:
+to capture the behavioral profile:
 
 .. This figure should be added to the repo
 .. http://cenzhuoyao.com/wp-content/uploads/2016/04/project1_behavior_profile.png
@@ -89,7 +89,7 @@ Data Collection:
 ----------------
 
 The data we have: - the observations of location for each mice, (x, y,
-t) with t small. - the aggregated time bined features about each event
+t) with t small. - the aggregated time binned features about each event
 and its intensity.
 
 The data we need: - the observation of consumption size and moving
@@ -108,7 +108,7 @@ the path. - Event Bout Size or Distance: Use observation of consumption
 size and moving distance data. - Event Bout Duration: Use event
 intervals data. - Event Bout Intensity: Use Event Consumption or
 Distance over minute of AS time - Event Size: Use interval to get the
-number of event happened in bined time - Event Bout Rate: Use Event Size
+number of event happened in binned time - Event Bout Rate: Use Event Size
 over AS time.
 
 For In/Active State: - AS Probability: Already in basic time bin
