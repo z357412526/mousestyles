@@ -1,7 +1,7 @@
 .. _dynamics:
 
-Project 3: Dynamics of AS Patterns
-==================================
+Dynamics of AS Patterns
+=======================
 
 Statement of Problem
 --------------------

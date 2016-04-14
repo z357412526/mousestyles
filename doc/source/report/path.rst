@@ -1,7 +1,7 @@
 .. _path:
 
-Project 2: Exploration & Path Diversity
-=======================================
+Exploration & Path Diversity
+============================
 
 Statement of Problem
 --------------------

@@ -1,7 +1,7 @@
 .. _behavior:
 
-Project 1: Behavioral Model
-===========================
+Behavioral Model
+================
 
 Statement of Problem:
 ---------------------

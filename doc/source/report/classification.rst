@@ -1,7 +1,7 @@
 .. _classification:
 
-Project 5: Classification and Clustering of Mice
-================================================
+Classification and Clustering of Mice
+=====================================
 
 Statement of overall problem
 ----------------------------

@@ -1,7 +1,7 @@
 .. _distribution:
 
-Project 6: Power Laws & Universality
-====================================
+Power Laws & Universality
+=========================
 
 Statement of Problem:
 ---------------------

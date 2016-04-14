@@ -1,7 +1,7 @@
 .. _ultradian:
 
-Project 4: Ultradian Analysis
-=============================
+Ultradian Analysis
+==================
 
 Statement of problem
 --------------------
