@@ -108,32 +108,28 @@ Methodology/Approach Description
    decomposition is to estimate seasonal effects that can be used to
    create and present seasonally adjusted values.
 
-Two basic structures are commonly used:
-
-::
+Two basic structures are commonly used::
 
     1. Additive:  x_t = Trend + Seasonal + Random
 
     2. Multiplicative:  x_t= Trend * Seasonal * Random
 
-The “Random” term is often called “Irregular” in software for
+The "Random" term is often called "Irregular" in software for
 decompositions.
 
-Basic steps:
-
-::
+Basic steps::
 
     1. Estimate the trend
 
-    2. “De-trend” the data
+    2. "De-trend" the data
 
-    3. Estimate seasonal factors by using the “de-trended” series
+    3. Estimate seasonal factors by using the "de-trended" series
 
-    4. Determine the “random” term
+    4. Determine the "random" term
 
 -  Longitudinal data analysis.
 
-   -  Attempts for mixed models：
+   -  Attempts for mixed models
 
       -  The mixed model is frequently used for longitudinal analysis.
          We should specify the random effects and fixed effects first,
