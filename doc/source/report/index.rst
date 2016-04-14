@@ -1,5 +1,5 @@
-Final Report
-============
+Project Report
+==============
 
 .. toctree::
    :maxdepth: 2
@@ -11,3 +11,4 @@ Final Report
    ultradian
    classification
    distribution
+   zreferences

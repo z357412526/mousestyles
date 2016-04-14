@@ -1,7 +1,7 @@
 .. _distribution:
 
-Project 6: Power Laws & Universality
-====================================
+Power Laws & Universality
+=========================
 
 Statement of Problem:
 ---------------------
@@ -20,7 +20,7 @@ statistics, power law, also known as a scaling law, is a functional
 relationship between two quantities, where a relative change in one
 quantity results in a proportional relative change in the other
 quantity, independent of the initial size of those quantities: one
-quantity varies as a power of another. :math:`F(x)=kx^{-a}`. This power
+quantity varies as a power of another. $F(x)=kx^{-a}$. This power
 law decay only works for monotone decreasing distribution. - If the
 distribution is not monotone decreasing, power function may not be
 realistic. In this case, the distribution is left skewed with one peak
@@ -45,10 +45,10 @@ Exploratory Analysis
    since xy coordinates are recorded according to time and the event is
    defined based on time.
 
-Distribution
+.. figure:: figure/project6.png
+   :alt: alt tag
 
-.. This figure should be added to the repo
-.. http://cenzhuoyao.com/wp-content/uploads/2016/04/project6.png
+   Distribution
 
 - Preferred choice of distribution: the power law is a
   monotone decreasing, however our plot indicates a peak, in which gamma
@@ -69,18 +69,24 @@ Methodology/ Approach Description
 
 Given the estimated parameter for each distribution, we can learn more
 about its distribution and the information lies mainly in the decay rate
-of the tail. Here are our algorithms: - Draw the histogram for our data.
-Observe the distribution and intuitively figure out whether our
-distribution assumption makes sense. - Estimate parameters based on MoM
-or MLE. - Add the density function to our histogram, see the fitness of
-our distribution. - Conduct statistical test to quantitatively analysis
-the fitness (Pearson chi square test). For testing the hypothetical
-distributions of a given array, there are several existing commonly used
-methods. However, each approach has their pros and cons. Following is a
-short overview of these testing framework. We recommend that all the
-methods are to be tried to get a comprehensive understanding of the
-inter-event step distributions. - Pearson Chi-square test - Fisher’s
-exact test - KS test
+of the tail.
+
+Here are our algorithms:
+
+- Draw the histogram for our data.  Observe the distribution and intuitively
+  figure out whether our distribution assumption makes sense.
+- Estimate parameters based on MoM or MLE.
+- Add the density function to our histogram, see the fitness of
+  our distribution.
+- Conduct statistical test to quantitatively analysis the fitness (Pearson chi
+  square test). For testing the hypothetical distributions of a given array,
+  there are several existing commonly used methods. However, each approach has
+  their pros and cons. Following is a short overview of these testing framework.
+  We recommend that all the methods are to be tried to get a comprehensive
+  understanding of the inter-event step distributions.
+- Pearson Chi-square test
+- Fisher’s exact test
+- KS test
 
 Testing Framework Outline
 -------------------------

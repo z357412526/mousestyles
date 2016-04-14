@@ -1,7 +1,7 @@
 .. _path:
 
-Project 2: Exploration & Path Diversity
-=======================================
+Exploration & Path Diversity
+============================
 
 Statement of Problem
 --------------------
@@ -75,7 +75,7 @@ eating event, drinking event, etc.)
 .. figure:: figure/mice_path.png
    :alt: alt tag
 
-   Path
+   Path (image courtesy of Tecott Lab)
 
 As we define the path, we will also need to consider how each path will be
 labeled. One possibility is to assign a number to each grid square and to

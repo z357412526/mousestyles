@@ -1,7 +1,7 @@
 .. _dynamics:
 
-Project 3: Dynamics of AS Patterns
-==================================
+Dynamics of AS Patterns
+=======================
 
 Statement of Problem
 --------------------
@@ -31,7 +31,7 @@ Exploratory Analysis
 
    -  Original Classification:
 
-   -  Improved Classificatoin:
+   -  Improved Classification:
 
 -  EDA on their result to get a rough idea of the expectation: Summary
    statistics and plots can serve starting points to answer our
@@ -40,7 +40,7 @@ Exploratory Analysis
 
    -  Food Consumed:
 
-   -  Distance Travelled:
+   -  Distance Traveled:
 
 Data Requirements Description
 -----------------------------
@@ -72,7 +72,7 @@ Methodology/ Approach Description
 
    -  IST vs AS numbers:
 
-3. Third Step: Use markov chain to model the transition between events:
+3. Third Step: Use Markov chain to model the transition between events:
 
    .. math:: P(food_{t+1} | drink_{t})
 
