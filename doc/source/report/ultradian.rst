@@ -8,12 +8,12 @@ Statement of problem
 
 Ultradian rhythm is widely observed in mammalian behavioral patterns.
 Ultradian analysis aims to find the time-specific patterns in behavioral
-records, without specifying the length of cycle in advance (but need to
-be within 1 hour to 1 day). Typical ultradian period for rats includes
-4, 12 and 24 hours. For example, we expect rats to be inactive in the
-nighttime. Ingestions and movements mostly happened in the daytime. It
-would be informative to study the ultradian cycle of the behavior of
-mouse and we need to answer the following questions for this study:
+records, without specifying the length of cycle in advance (but need to be
+within 1 hour to 1 day). Typical ultradian period for rats includes 4, 12 and
+24 hours. For example, we expect rats to be inactive in the nighttime.
+Ingestions and movements mostly happened in the daytime. It would be
+informative to study the ultradian cycle of the behavior of mouse and we need
+to answer the following questions for this study:
 
 What is the variable of interest for the periodic patterns? 
 
@@ -46,69 +46,68 @@ What is the connection with other subprojects?
 Statement of statistical problem
 --------------------------------
 
--  How to determine the optimal bin intervals for constructing the time
-   series?
+How to determine the optimal bin intervals for constructing the time series?
 
-   -  The bin interval may vary according to the frequency. Bin interval
-      examples: 5 min, 30 min, 1 hour etc. Need to look into the data.
+-  The bin interval may vary according to the frequency. Bin interval
+   examples: 5 min, 30 min, 1 hour etc. Need to look into the data.
 
--  How to test the autocorrelation coefficient for the data and assess
-   the model?
+How to test the autocorrelation coefficient for the data and assess the model?
 
-   -  Use the AIC to select best time lags for the time series model and
-      the K statistics to test the goodness of fit.
+-  Use the AIC to select best time lags for the time series model and
+   the K statistics to test the goodness of fit.
 
--  For longitudinal data analysis, how to build the model? Which is the
-   fixed effect or random effect?
+For longitudinal data analysis, how to build the model? Which is the fixed
+effect or random effect?
 
 Exploratory Analysis
 --------------------
 
--  Data investigation
+Data investigation
 
-   -  Think about known/expected cycles - time to digest, IS/AS cycle,
-      etc.
-   -  Try to investigate cycles that are greater than 24 hours to avoid
-      missing cycles.
-   -  During the acclimatization period, investigate difference in
-      cycles.
+-  Think about known/expected cycles - time to digest, IS/AS cycle,
+   etc.
+-  Try to investigate cycles that are greater than 24 hours to avoid
+   missing cycles.
+-  During the acclimatization period, investigate difference in
+   cycles.
 
--  Plots
+Plots
 
-   -  Plots for determining optimal bin intervals for constructing the
-      time series.
-   -  Plots for discovering the frequency or period.
-   -  General time series plots for getting intuitions for each
-      variables.
+-  Plots for determining optimal bin intervals for constructing the
+   time series.
+-  Plots for discovering the frequency or period.
+-  General time series plots for getting intuitions for each
+   variables.
 
--  Models
+Models
 
-   -  Usage of Lomb-Scargle (LS) periodogram spectral analysis
-      technique, a widely used tool in period detection and frequency
-      analysis
+-  Usage of Lomb-Scargle (LS) periodogram spectral analysis
+   technique, a widely used tool in period detection and frequency
+   analysis
 
 Data Requirements Description
 -----------------------------
 
--  Input: records for each strains (total of 16), each feature of
-   interest (food, water, distance, active\_state probability ...), in a
-   duration of 12 days (excluding 4 acclimation days) .
--  Processed: using one-minute time bins of movement records to binary
-   score the activity into 0 (IS: inactive state) and 1 (AS: active
-   state); using thirty-minute bins of food records to calculate the
-   amount of chows consumed by mice; using LS periodogram technique to
-   select the appropriate time bins for above.
--  Output: different patterned visualization for each feature, with the
-   appropriate time bins that presents the most significant ultradian
-   pattern.
+Input: records for each strains (total of 16), each feature of interest (food,
+water, distance, active\_state probability, ...), in a duration of 12 days
+(excluding 4 acclimation days).
+
+Processed: using one-minute time bins of movement records to binary score the
+activity into 0 (IS: inactive state) and 1 (AS: active state); using
+thirty-minute bins of food records to calculate the amount of chows consumed by
+mice; using LS periodogram technique to select the appropriate time bins for
+above.
+
+Output: different patterned visualization for each feature, with the
+appropriate time bins that presents the most significant ultradian pattern.
 
 Methodology/Approach Description
 --------------------------------
 
--  Seasonal decomposition. Seasonal decomposition is a very common
-   method used in time series analysis. One of the main objectives for a
-   decomposition is to estimate seasonal effects that can be used to
-   create and present seasonally adjusted values.
+Seasonal decomposition. Seasonal decomposition is a very common method used in
+time series analysis. One of the main objectives for a decomposition is to
+estimate seasonal effects that can be used to create and present seasonally
+adjusted values.
 
 Two basic structures are commonly used::
 
@@ -116,8 +115,7 @@ Two basic structures are commonly used::
 
     2. Multiplicative:  x_t= Trend * Seasonal * Random
 
-The "Random" term is often called "Irregular" in software for
-decompositions.
+The "Random" term is often called "Irregular" in software for decompositions.
 
 Basic steps::
 
@@ -129,38 +127,39 @@ Basic steps::
 
     4. Determine the "random" term
 
--  Longitudinal data analysis.
+Longitudinal data analysis.
 
-   -  Attempts for mixed models
+-  Attempts for mixed models
 
-      -  The mixed model is frequently used for longitudinal analysis.
-         We should specify the random effects and fixed effects first,
-         such as the IS/AS condition, the purpose of the active: like
-         food or water and any other important features. Then we can use
-         linear mixed model to get the pattern of the movements in
-         different time period.
-      -  Statsmodels.api package can be used to decompose the dataset we
-         have.
+   -  The mixed model is frequently used for longitudinal analysis.
+      We should specify the random effects and fixed effects first,
+      such as the IS/AS condition, the purpose of the active: like
+      food or water and any other important features. Then we can use
+      linear mixed model to get the pattern of the movements in
+      different time period.
+   -  Statsmodels.api package can be used to decompose the dataset we
+      have.
 
--  Autocorrelation analysis.
+Autocorrelation analysis.
 
-   -  Implement numpy.correlate functions to investigate autocorrelation
-      in several variables for features of interest (food, water,
-      distance, active\_state probability ...)
-   -  Explore different kinds of autocorrelation models (spatial
-      analysis, regression analysis) on variables generated by other
-      subprojects.
+-  Implement numpy.correlate functions to investigate autocorrelation
+   in several variables for features of interest (food, water,
+   distance, active\_state probability ...)
+-  Explore different kinds of autocorrelation models (spatial
+   analysis, regression analysis) on variables generated by other
+   subprojects.
 
 Testing Framework Outline
 -------------------------
 
-Step 1: Generating random samples for testing: - Split the data based on
-the Mouse Day Cycle - Number the splits and use numpy.random to subset
-from these splits
+Step 1: Generating random samples for testing:
 
-Step 2: Conduct Lomb-Scargle (LS) test to detect the period. Implement
-the three different models onto the certain period and get the patterns/
-estimated coefficients for the model.
+- Split the data based on the Mouse Day Cycle
+- Number the splits and use numpy.random to subset from these splits
+
+Step 2: Conduct Lomb-Scargle (LS) test to detect the period. Implement the
+three different models onto the certain period and get the patterns/ estimated
+coefficients for the model.
 
 Step 3: Compare the result with our hypothesis.
 

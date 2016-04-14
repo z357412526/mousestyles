@@ -45,13 +45,10 @@ Statement of statistical problems:
 The above flowchart shows the key metrics that are required by the study
 to capture the behavioral profile:
 
-.. This figure should be added to the repo
-.. http://cenzhuoyao.com/wp-content/uploads/2016/04/project1_behavior_profile.png
-
-.. figure:: figure/distance.png
+.. figure:: figure/project1_behavior_profile.png
    :alt: alt tag
 
-   Fix
+   Behavioral Profile (image courtesy of Tecott Lab)
 
 The main focus is 3 key states of the mice i.e. [*Drinking \| Feeding \|
 Locomotion*\ ]
@@ -88,12 +85,14 @@ State:
 Data Collection:
 ----------------
 
-The data we have: - the observations of location for each mice, (x, y,
-t) with t small. - the aggregated time binned features about each event
-and its intensity.
+The data we have:
 
-The data we need: - the observation of consumption size and moving
-distance with each event.
+- the observations of location for each mice, $(x, y, t)$ with $t$ small.
+- the aggregated time binned features about each event and its intensity.
+
+The data we need:
+
+- the observation of consumption size and moving distance with each event.
 
 Exploratory Analysis
 --------------------
@@ -101,49 +100,65 @@ Exploratory Analysis
 Based on the data requirements being provided, we will need to start
 plotting the following metrics:
 
-For Event - Event Consumption or Distance: Already in basic time bin
-features. - AS Event Intensity: Already in basic time bin features. - AS
-Bout Routine: Use txy\_coords within each event intervals to generate
-the path. - Event Bout Size or Distance: Use observation of consumption
-size and moving distance data. - Event Bout Duration: Use event
-intervals data. - Event Bout Intensity: Use Event Consumption or
-Distance over minute of AS time - Event Size: Use interval to get the
-number of event happened in binned time - Event Bout Rate: Use Event Size
-over AS time.
+For Event
 
-For In/Active State: - AS Probability: Already in basic time bin
-features. - AS Duration: Already in basic time bin features. - AS Rate:
-Use AS Number over AS Duration.
+- Event Consumption or Distance: Already in basic time bin features.
+- AS Event Intensity: Already in basic time bin features.
+- AS Bout Routine: Use `txy_coords` within each event intervals to generate
+  the path.
+- Event Bout Size or Distance: Use observation of consumption size and
+  moving distance data.
+- Event Bout Duration: Use event intervals data.
+- Event Bout Intensity: Use Event Consumption or Distance over minute of AS time
+- Event Size: Use interval to get the number of event happened in binned time
+- Event Bout Rate: Use Event Size over AS time.
+
+For In/Active State
+
+- AS Probability: Already in basic time bin features.
+- AS Duration: Already in basic time bin features.
+- AS Rate: Use AS Number over AS Duration.
 
 Data Requirements Description
 -----------------------------
 
-The data we have: - a dataframe of observations of location for each
-mice, (x, y, t) with t small. - The above dataframe with a
-classification of strain number and mouse number at each time t (if
-available)
+The data we have:
 
-The data we require: - The above dataframe with AS/ IS properly
-classified at each point t for each mouse - The above dataframe with a
-classification of drinking, feeding and locomotion for each mouse at
-each time t - The above dataframe with a classification of consumption
-size and moving distance with each event at each time t
+- a dataframe of observations of location for each mice, $(x, y, t)$
+  with $t$ small.
+- The above dataframe with a classification of strain number and mouse
+  number at each time $t$ (if available)
+
+The data we require:
+
+- The above dataframe with AS/ IS properly classified at each point $t$ for
+  each mouse
+- The above dataframe with a classification of drinking, feeding and
+  locomotion for each mouse at each time $t$
+- The above dataframe with a classification of consumption size and moving
+  distance with each event at each time $t$
 
 Methodology/ Approach Description
 ---------------------------------
 
 We wish to create a single function that should be able to return all of
-the above metrics as a list: - Key inputs are: - mouse/ strain as string
-- starting time - ending time - a dictionary containing the rectangular
-vertices marking the area to restrict the movement to i.e. x\_lower,
-x\_upper, y\_lower, y\_upper. - [*Drinking \| Feeding \| Locomotion*\ ]
-state specification - The main output is a list containing the key
-metrics stated in ``Statement of statistical problems`` section
+the above metrics as a list:
 
--  Key idea is that if we have the most granular dataframe in
-   ``Data Requirements Description`` then the python code is really just
-   a SQL (in ``pandas`` form) filtering/ grouping query to generate the
-   required output metrics (from flowchart) in the form of a list
+Key inputs are:
+
+- mouse/ strain as string
+- starting time
+- ending time
+- a dictionary containing the rectangular vertices marking the area to
+  restrict the movement to i.e. x\_lower, x\_upper, y\_lower, y\_upper.
+- [*Drinking \| Feeding \| Locomotion*\ ] state specification
+- The main output is a list containing the key metrics stated in
+  ``Statement of statistical problems`` section
+
+- Key idea is that if we have the most granular dataframe in
+  ``Data Requirements Description`` then the Python code is really just
+  a SQL (in ``pandas`` form) filtering/ grouping query to generate the
+  required output metrics (from flowchart) in the form of a list
 
 Testing Framework Outline
 -------------------------
@@ -151,31 +166,31 @@ Testing Framework Outline
 Additional Remarks
 ------------------
 
--  It is not clear exactly how the specified required metrics are to be
-   calculated in the form of a single query or multiple queries. We need
-   more clarification on what intensity means.
--  Not sure yet whether the required dataframe at the most granular
-   level can be easily constructed. This would be really useful for all
-   projects to use so we should really consider developing it for the
-   wider team.
--  Some of the required data metrics like consumption of food/ water at
-   each time t may not be easy to obtain as they are provided for each
-   interval. These may have to be prorated across each time t in some
-   stable way in the construction of the required dataframe
--  We also believe that the metrics provided at each point are single
-   point statistics i.e. means. We should consider outputing the actual
-   histogram of values at each point for the given metric rather than
-   just the single-valued mean metrics
+- It is not clear exactly how the specified required metrics are to be
+  calculated in the form of a single query or multiple queries. We need
+  more clarification on what intensity means.
+- Not sure yet whether the required dataframe at the most granular
+  level can be easily constructed. This would be really useful for all
+  projects to use so we should really consider developing it for the
+  wider team.
+- Some of the required data metrics like consumption of food/ water at
+  each time t may not be easy to obtain as they are provided for each
+  interval. These may have to be prorated across each time t in some
+  stable way in the construction of the required dataframe
+- We also believe that the metrics provided at each point are single
+  point statistics i.e. means. We should consider outputing the actual
+  histogram of values at each point for the given metric rather than
+  just the single-valued mean metrics
 
-   -  For example, we may not only be interested in the average amount
-      of active time spent in locomotion, but the distribution of
-      locomotion. This is a more complicated metric than those outlined
-      in the work by the Tecott Lab's papers referenced below. With this
-      information, we could potentially see interesting trends: the
-      proportion of a mouse-day spent in locomotion could be the same in
-      two time chunks, but the types of movements (distances) could form
-      a more nuanced distribution.
+   - For example, we may not only be interested in the average amount
+     of active time spent in locomotion, but the distribution of
+     locomotion. This is a more complicated metric than those outlined
+     in the work by the Tecott Lab's papers referenced below. With this
+     information, we could potentially see interesting trends: the
+     proportion of a mouse-day spent in locomotion could be the same in
+     two time chunks, but the types of movements (distances) could form
+     a more nuanced distribution.
 
--  Not sure if this is feasible, but if we had to produce the mean value
-   we could output the time series mean value over the given interval
-   rather than *just* the overall mean from the given interval
+- Not sure if this is feasible, but if we had to produce the mean value
+  we could output the time series mean value over the given interval
+  rather than *just* the overall mean from the given interval

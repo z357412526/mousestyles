@@ -1,5 +1,5 @@
-Final Report
-============
+Project Report
+==============
 
 .. toctree::
    :maxdepth: 2
