@@ -73,7 +73,7 @@ behavioral attributes about the mice to be defined and flagged (ex:
 eating event, drinking event, etc.)
 
 .. figure:: figure/mice_path.png
-      :alt: alt tag
+   :alt: alt tag
 
    Path
 
