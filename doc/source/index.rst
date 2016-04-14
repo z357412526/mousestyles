@@ -1,10 +1,9 @@
-.. mousestyles documentation master file, created by
-   sphinx-quickstart on Tue Apr 12 12:58:52 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Mousestyles
+===========
 
-Welcome to mousestyles's documentation!
-=======================================
+.. only:: html
+
+   The 2016 final project for UC Berkeley's Statistics MA Capstone Project.
 
 .. toctree::
    :maxdepth: 2

@@ -4,6 +4,17 @@ Overview
 1. Statement of Problem
 -----------------------
 
+For this project, our primary data source is mouse behavioral data from the
+Tecott Lab at UCSF. [#f1]_ The lab has recently developed a method for
+continuous high-resolution behavioral data collection and analysis, which
+enables them to observe and study the structure of spontaneous patterns of
+behavior ("Lifestyles") in the mouse
+:cite:`tecott2003genes,tecott2004neurobehavioral,goulding2008robust,anderson2014toward`.
+They have found that using this method: 1) reveals a set of fundamental
+principles of behavioral organization that have not been previously reported,
+2) permits classification by genotype with unprecedented accuracy, and 3)
+enables fine dissection of behavioral patterns.
+
 1.1 Project Goal
 ~~~~~~~~~~~~~~~~
 
@@ -31,7 +42,7 @@ the first moving object that it perceives in order to better recognize
 its own species. This experiment was conducted in a more natural setting
 to minimize human manipulation.
 
-This project adopts Lorenz's approach--observing the whole spectrum of
+This project adopts Lorenz's approach---observing the whole spectrum of
 animal behavior in their natural state. Previous approaches relied on
 human observation to score animal behavior. However, slow data
 collection, low dimensional data, imprecise and subjective measurements,
@@ -50,10 +61,10 @@ Although the human genome was first sequenced over a decade ago, the
 relationship between genetics and behavior is still not well understood.
 For ethical reasons, genes cannot be systematically manipulated in
 humans. Therefore, the familiar scientific testing approach must be
-edited -- enter mice. There are several reasons the mouse has become the
+edited---enter mice. There are several reasons the mouse has become the
 mammal of choice in human behavioral studies. Chief among them is the
 fact that "approximately 99% of mouse genes have human
-counterparts--conversely, mouse versions (orthologs) can be identified
+counterparts---conversely, mouse versions (orthologs) can be identified
 for 99% of human genes." Additionally, the brain organization and
 behavioral responses of humans and mice display many similarities. For
 example, both mammals display complex processes like hunger and fear.
@@ -146,3 +157,7 @@ whole project can be divided into 6 sub-projects:
 -  David J Anderson and Pietro Perona. Toward a science of computational
    ethology. Neuron, 84(1):18-31, 2014.
    http://www.sciencedirect.com/science/article/pii/S0896627314007934.
+
+.. rubric:: Footnotes
+
+.. [#f1] http://www.neuroscience.ucsf.edu/neurograd/faculty/tecott.html

@@ -77,7 +77,7 @@ Here are our algorithms:
   figure out whether our distribution assumption makes sense.
 - Estimate parameters based on MoM or MLE.
 - Add the density function to our histogram, see the fitness of
-our distribution.
+  our distribution.
 - Conduct statistical test to quantitatively analysis the fitness (Pearson chi
   square test). For testing the hypothetical distributions of a given array,
   there are several existing commonly used methods. However, each approach has
