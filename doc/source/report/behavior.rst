@@ -138,6 +138,18 @@ The data we require:
 - The above dataframe with a classification of consumption size and moving
   distance with each event at each time $t$
 
+A graphic view of the above is as below:
+
+======  =====  ======  =====  =======  ======
+strain  mouse   time   IS/AS  D/F/L/S  Consn.
+======  =====  ======  =====  =======  ======
+0       1      1.1     IS     S        0
+0       1      1.4     AS     F        4
+1       2      1.1     AS     D        5
+1       2      1.3     AS     D        3
+1       2      1.6     IS     S        0
+======  =====  ======  =====  =======  ======
+
 Methodology/ Approach Description
 ---------------------------------
 
@@ -159,6 +171,9 @@ Key inputs are:
   ``Data Requirements Description`` then the Python code is really just
   a SQL (in ``pandas`` form) filtering/ grouping query to generate the
   required output metrics (from flowchart) in the form of a list
+
+An example of a metric calculation for `Drinking` is as follows:
+$\frac{Drinking}{Total\ Time}=\frac{Drink\ Consumed}{AS\ Time}\times \frac{AS\ Time}{Total\ Time}$
 
 Testing Framework Outline
 -------------------------
