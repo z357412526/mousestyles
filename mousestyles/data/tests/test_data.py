@@ -43,6 +43,11 @@ def test_feature_load_input():
         data.load_movement(0.0, 0, 0)
     assert excinfo.value.args[0] == "Input values need to be integer"
 
+    with pytest.raises(ValueError) as excinfo:
+        data.load_movement(1000, 1000, 1000)
+    expected = "No data exists for strain 1000, mouse 1000, day 1000"
+    assert excinfo.value.args[0] == expected
+
 
 def test_load_movement_and_intervals():
     m1 = data.load_movement(1, 1, 1)

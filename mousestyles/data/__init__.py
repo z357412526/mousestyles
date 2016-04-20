@@ -173,10 +173,14 @@ def load_movement(strain, mouse, day):
         format(strain, mouse, day)
     CY_path = "txy_coords/CY/CY_strain{}_mouse{}_day{}.npy".\
         format(strain, mouse, day)
-    HB = ~ np.load(_os.path.join(data_dir, NHB_path))
-    CT = np.load(_os.path.join(data_dir, CT_path))
-    CX = np.load(_os.path.join(data_dir, CX_path))
-    CY = np.load(_os.path.join(data_dir, CY_path))
+    try:
+        HB = ~ np.load(_os.path.join(data_dir, NHB_path))
+        CT = np.load(_os.path.join(data_dir, CT_path))
+        CX = np.load(_os.path.join(data_dir, CX_path))
+        CY = np.load(_os.path.join(data_dir, CY_path))
+    except IOError:
+        raise ValueError("No data exists for strain {}, mouse {}, day {}".
+                         format(strain, mouse, day))
     # make data frame
     dt = pd.DataFrame()
     dt["t"] = CT
@@ -184,10 +188,6 @@ def load_movement(strain, mouse, day):
     dt["y"] = CY
     dt["isHB"] = HB
     return dt
-
-
-def _in_interval(t, interval):
-    return interval['start'] < t and t < interval['stop']
 
 
 def _lookup_intervals(times, intervals):
