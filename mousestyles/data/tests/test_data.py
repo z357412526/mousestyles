@@ -8,6 +8,7 @@ import pytest
 
 import mousestyles.data as data
 import numpy as np
+import pandas as pd
 
 
 def test_all_features_loader():
@@ -47,6 +48,14 @@ def test_feature_load_input():
         data.load_movement(1000, 1000, 1000)
     expected = "No data exists for strain 1000, mouse 1000, day 1000"
     assert excinfo.value.args[0] == expected
+
+
+def test_lookup_intervals():
+    t = pd.Series([1.5, 2.5, 3.5])
+    ints = pd.DataFrame({'start': [1, 2], 'stop': [1.99, 2.99]})
+    in_intervals = data._lookup_intervals(t, ints)
+    assert t.shape == in_intervals.shape
+    assert np.all(in_intervals == pd.Series([True, True, False]))
 
 
 def test_load_movement_and_intervals():
