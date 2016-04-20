@@ -7,6 +7,7 @@ from __future__ import (absolute_import, division, print_function,
 import pytest
 
 import mousestyles.data as data
+import numpy as np
 
 
 def test_all_features_loader():
@@ -41,3 +42,13 @@ def test_feature_load_input():
     with pytest.raises(TypeError) as excinfo:
         data.load_movement(0.0, 0, 0)
     assert excinfo.value.args[0] == "Input values need to be integer"
+
+
+def test_load_movement_and_intervals():
+    m1 = data.load_movement(1, 1, 1)
+    m2 = data.load_movement_and_intervals(
+        1, 1, 1, [])  # don't add any features
+    assert np.all(m1 == m2)
+    m3 = data.load_movement_and_intervals(1, 1, 1, ['AS'])
+    assert m3.shape[1] == m1.shape[1] + 1  # adds one column
+    assert m3.shape[0] == m1.shape[0]  # same number of rows
