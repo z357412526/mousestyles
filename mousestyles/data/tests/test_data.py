@@ -64,5 +64,15 @@ def test_load_movement_and_intervals():
         1, 1, 1, [])  # don't add any features
     assert np.all(m1 == m2)
     m3 = data.load_movement_and_intervals(1, 1, 1, ['AS'])
+    m4 = data.load_movement_and_intervals(1, 1, 1, 'AS')
     assert m3.shape[1] == m1.shape[1] + 1  # adds one column
     assert m3.shape[0] == m1.shape[0]  # same number of rows
+    assert np.all(m3 == m4)
+
+
+def test_load_movement_and_intervals_error():
+    with pytest.raises(ValueError) as excinfo:
+        # bad value for `features`
+        data.load_movement_and_intervals(1, 1, 1, 10)
+    expected = "features must be a string or iterable of strings"
+    assert excinfo.value.args[0] == expected

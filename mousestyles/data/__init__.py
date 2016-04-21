@@ -7,6 +7,9 @@ import pandas as pd
 
 from mousestyles import data_dir
 from mousestyles.intervals import Intervals
+import collections
+
+from matplotlib.externals import six
 
 INTERVAL_FEATURES = ["AS", "F", "IS", "M_AS", "M_IS", "W"]
 
@@ -275,6 +278,10 @@ def load_movement_and_intervals(strain, mouse, day,
     30  56448.653 -5.509  34.173   True   True
     31  56449.273 -5.048  33.284   True   True
     """
+    if isinstance(features, six.string_types):
+        features = [features]
+    elif not isinstance(features, collections.Iterable):
+        raise ValueError('features must be a string or iterable of strings')
     movements = load_movement(strain, mouse, day)
     for f in features:
         intervals = load_intervals(feature=f)
