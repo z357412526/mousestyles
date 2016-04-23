@@ -140,15 +140,15 @@ The data we require:
 
 A graphic view of the above is as below:
 
-======  =====  ======  =====  =======  ======
+======  =====  ======  =====  ========  =======
 strain  mouse   time   IS/AS  D/F/L/S*  Consn.
-======  =====  ======  =====  =======  ======
-0       1      1.1     IS     S        0
-0       1      1.4     AS     F        4
-1       2      1.1     AS     D        5
-1       2      1.3     AS     D        3
-1       2      1.6     IS     S        0
-======  =====  ======  =====  =======  ======
+======  =====  ======  =====  ========  =======
+0       1      1.1     IS     S         0
+0       1      1.4     AS     F         4
+1       2      1.1     AS     D         5
+1       2      1.3     AS     D         3
+1       2      1.6     IS     S         0
+======  =====  ======  =====  ========  =======
 
 \*\ **``D/F/L/S``** above is a flag for **D**\ rinking/ **F**\ eeding/
 **L**\ ocomotion/ **S**\ tationary
