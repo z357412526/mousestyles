@@ -30,7 +30,7 @@ def extract_distances(strain, mouse, day, step=1e2):
 
     Examples
     --------
-    extract_distances(0, 0, 0)
+    >>> extract_distances(0, 0, 0)
     """
     movement = load_movement(strain, mouse, day)
     # Compute distance between samples
@@ -70,7 +70,7 @@ def extract_distances_bymouse(strain, mouse, step=1e2, verbose=False):
 
     Examples
     --------
-    extract_distances_bymouse(0, 0, 0)
+    >>> extract_distances_bymouse(0, 0, 0)
     """
     day = 0
     res = []
@@ -103,7 +103,7 @@ def extract_distances_bystrain(strain, step=1e2, verbose=False):
 
     Examples
     --------
-    extract_distances_bystrain(0, 0, 0)
+    >>> extract_distances_bystrain(0, 0, 0)
     """
     mouse = 0
     res = []
