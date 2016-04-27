@@ -1,29 +1,27 @@
 from __future__ import print_function, absolute_import, division
 
 import numpy as np
-import pandas as pd
 
-from mousestyles import data
 
 def path_index(movement, stop_threshold, min_path_length):
     r"""
-    Return a list object containing start and end indices 
-    for a specific movement. Each element in the list is 
-    a list containing two indices: the first element is 
+    Return a list object containing start and end indices
+    for a specific movement. Each element in the list is
+    a list containing two indices: the first element is
     the start index and the second element is the end index.
 
     Parameters
     ----------
     movement : pandas.DataFrame
-        CT, CX, CY coordinates and homebase status 
+        CT, CX, CY coordinates and homebase status
         for the unique combination of strain, mouse and day
     stop_threshold : int
         positive integer indicating the path cutoff criteria
-        if the time difference between two observations is 
+        if the time difference between two observations is
         less than this threhold, they will be in the same path
 
     min_path_length : int
-        positive integer indicating how many observations in 
+        positive integer indicating how many observations in
         a path
 
     Returns
@@ -50,7 +48,7 @@ def path_index(movement, stop_threshold, min_path_length):
     # Calculate time differences
     TD = np.diff(T)
     path = []
-    
+
     # index
     i = 0
     while i < len(TD):
@@ -59,16 +57,18 @@ def path_index(movement, stop_threshold, min_path_length):
         # start to track the index in this path
         while TD[i] < stop_threshold:
             i += 1
-            if TD[i] == len(TD): break
+            if TD[i] == len(TD):
+                break
         end_index = i
-        
+
         # Check whether start index is equal to end index
         # If they are equal jump to next index
-        if start_index == end_index: next
+        if start_index == end_index:
+            next
         else:
             path.append([start_index, end_index])
-        
+
         i += 1
     path = [p for p in path if (p[1] - p[0]) > min_path_length]
-    
+
     return(path)
