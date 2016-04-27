@@ -15,8 +15,8 @@ def path_index(movement, stop_threshold, min_path_length):
     movement : pandas.DataFrame
         CT, CX, CY coordinates and homebase status
         for the unique combination of strain, mouse and day
-    stop_threshold : int
-        positive integer indicating the path cutoff criteria
+    stop_threshold : float
+        positive number indicating the path cutoff criteria
         if the time difference between two observations is
         less than this threhold, they will be in the same path
 
@@ -31,17 +31,16 @@ def path_index(movement, stop_threshold, min_path_length):
     Examples
     --------
     >>> movement = data.load_movement(1, 2, 1)
-    >>> paths = path_index(movement, 1, 1)
+    >>> paths = path_index(movement, 1, 1)[:5]
     [[0, 2], [6, 8], [107, 113], [129, 131], [144, 152]]
     """
     # check if all inputs are positive integers
     conditions_value = [stop_threshold <= 0, min_path_length <= 0]
-    conditions_type = [type(stop_threshold) != int,
-                       type(min_path_length) != int]
+    conditions_type = type(min_path_length) != int
     if any(conditions_value):
         raise ValueError("Input values need to be positive")
-    if any(conditions_type):
-        raise TypeError("Input values need to be integer")
+    if conditions_type:
+        raise TypeError("min_path_length needs to be integer")
 
     # Pull out time variable
     T = movement['t'].ravel()
