@@ -1,5 +1,8 @@
 # coding: utf-8
 
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
 from mousestyles.data import load_movement
 import numpy as np
 import pandas as pd
@@ -30,14 +33,21 @@ def extract_distances(strain, mouse, day, step=1e2):
 
     Examples
     --------
-    >>> extract_distances(0, 0, 0)
+    >>> extract_distances(0,0,0, step=1e2)[0]
+    0
+    >>> np.int(np.sum(extract_distances(1,2,3, step=1e2)))
+    60789
     """
     movement = load_movement(strain, mouse, day)
     # Compute distance between samples
     dist = np.empty((movement.shape[0]-1, 2))
     x = np.array(movement["x"])
     y = np.array(movement["y"])
+    # dist[:, 0] contains the distances between two
+    # consecutive points 
     dist[:, 0] = np.sqrt((x[1:] - x[:-1])**2 + (y[1:] - y[:-1])**2)
+    # dist[:, 1] contains the recorded times for which
+    # the distances have been computed
     dist[:, 1] = np.array(movement['t'])[1:]
     dist[:, 1] = dist[:, 1] - dist[0, 1]
     tf = dist[dist.shape[0] - 1, 1]
@@ -70,7 +80,10 @@ def extract_distances_bymouse(strain, mouse, step=1e2, verbose=False):
 
     Examples
     --------
-    >>> extract_distances_bymouse(0, 0, 0)
+    >>> extract_distances_bymouse(0, 0)[0]
+    0
+    >>> np.int(sum(extract_distances_bymouse(0, 0)))
+    493313
     """
     day = 0
     res = []
@@ -103,7 +116,10 @@ def extract_distances_bystrain(strain, step=1e2, verbose=False):
 
     Examples
     --------
-    >>> extract_distances_bystrain(0, 0, 0)
+    >>> extract_distances_bystrain(0)[0]
+    0
+    >>> np.int(np.sum(extract_distances_bystrain(0)))
+    2088230
     """
     mouse = 0
     res = []
