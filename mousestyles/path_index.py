@@ -57,7 +57,7 @@ def path_index(movement, stop_threshold, min_path_length):
         # start to track the index in this path
         while TD[i] < stop_threshold:
             i += 1
-            if TD[i] == len(TD):
+            if i == len(TD):
                 break
         end_index = i
 
