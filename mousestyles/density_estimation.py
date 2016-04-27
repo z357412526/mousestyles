@@ -44,7 +44,7 @@ def extract_distances(strain, mouse, day, step=1e2):
     x = np.array(movement["x"])
     y = np.array(movement["y"])
     # dist[:, 0] contains the distances between two
-    # consecutive points 
+    # consecutive points
     dist[:, 0] = np.sqrt((x[1:] - x[:-1])**2 + (y[1:] - y[:-1])**2)
     # dist[:, 1] contains the recorded times for which
     # the distances have been computed
@@ -93,7 +93,7 @@ def extract_distances_bymouse(strain, mouse, step=1e2, verbose=False):
             day = day + 1
             if verbose:
                 print('day %s done.' % day)
-        except IOError:
+        except ValueError:
             break
     res = pd.DataFrame(res)
     return(np.array(res.sum(axis=0)))
