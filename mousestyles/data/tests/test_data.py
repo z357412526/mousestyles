@@ -76,3 +76,10 @@ def test_load_movement_and_intervals_error():
         data.load_movement_and_intervals(1, 1, 1, 10)
     expected = "features must be a string or iterable of strings"
     assert excinfo.value.args[0] == expected
+
+
+def test_start_time_end_time_loader():
+    # Test for strain 0, mouse 0, day 0
+    times = data.load_start_time_end_time(0, 0, 0)
+    assert len(times) == 2
+    assert times[1] - times[0] > 0

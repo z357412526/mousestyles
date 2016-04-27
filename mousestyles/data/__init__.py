@@ -291,3 +291,34 @@ def load_movement_and_intervals(strain, mouse, day,
         movements[f] = _lookup_intervals(movements['t'], mouse_intervals)
 
     return movements
+
+
+def load_start_time_end_time(strain, mouse, day):
+    """
+    Returns the start and end times recorded
+    for the mouse-day. The first number indicates
+    the number of seconds elapsed since midnight,
+    the second number indicates when the cage is
+    closed for cleaning. In other words, this is
+    the interval for which all sensors are active.
+
+    Parameters
+    ----------
+    strain: int
+        nonnegative integer indicating the strain number
+    mouse: int
+        nonnegative integer indicating the mouse number
+    day: int
+        nonnegative integer indicating the day number
+
+    Returns
+    -------
+    times: a tuple of (float, float)
+        the start time and end time
+    """
+    file_name = 'recordingStartTimeEndTime_strain{}_mouse{}_day{}.npy'.\
+                format(strain, mouse, day)
+    path_to_file = _os.path.join(data_dir, 'txy_coords',
+                                 'recordingStartTimeEndTime',
+                                 file_name)
+    return tuple(np.load(path_to_file))
