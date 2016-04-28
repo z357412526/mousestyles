@@ -69,6 +69,7 @@ if __name__ == "__main__":
 
           packages=["mousestyles", "mousestyles.tests", "mousestyles.data", 
               "mousestyles.data.tests", "mousestyles.classification", 
-              "mousestyles.classification.tests"],
+              "mousestyles.classification.tests", "mousestyles.path_diversity",
+			  "mousestyles.path_diversity.tests"],
           package_data={'mousestyles.data': ['*.npy', '*/*/*.npy']}
           )
