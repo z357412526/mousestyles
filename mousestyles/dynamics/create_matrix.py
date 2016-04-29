@@ -1,4 +1,4 @@
-## Please do it under ../mousestyles/mousestyles 
+## Please do it under ../mousestyles/ 
 
 import matplotlib.pyplot as plt
 import pandas as pd
