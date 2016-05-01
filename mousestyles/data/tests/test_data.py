@@ -23,8 +23,10 @@ def test_mouseday_features_loader():
     mouseday_features1 = data.load_mouseday_features(["Food", "Water",
                                                       "Distance"])
     mouseday_features2 = data.load_mouseday_features(["Food", "Water"])
+    mouseday_features3 = data.load_mouseday_features()
     assert mouseday_features1.shape == (1921, 36)
     assert mouseday_features2.shape == (1921, 25)
+    assert mouseday_features3.shape == (1921, 102)
 
 
 def test_intervals_loader():

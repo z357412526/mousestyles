@@ -70,7 +70,7 @@ def load_all_features():
     return pd.concat(other_features, axis=1)
 
 
-def load_mouseday_features(features):
+def load_mouseday_features(features=None):
     """
     Returns a (1921, 3+11*n) size pandas.DataFrame object corresponding to
     each 2-hour time bin of the n inputted features over each mouse.
@@ -85,11 +85,12 @@ def load_mouseday_features(features):
 
     Parameters
     ----------
-    features: list
+    features: list, optional
         A list of one or more features chosen from
         {"ASProbability", "ASNumbers", "ASDurations",
         "Food", "Water", "Distance",
         "ASFoodIntensity", "ASWaterIntensity", "MoveASIntensity"}
+        Default all features when optional
 
     Returns
     -------
@@ -106,6 +107,9 @@ def load_mouseday_features(features):
         "ASFoodIntensity",
         "ASWaterIntensity",
         "MoveASIntensity"]
+
+    if features is None:
+        features = features_list
 
     fea_str = "{"
     for item in features_list:
