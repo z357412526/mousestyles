@@ -96,6 +96,12 @@ def load_mouseday_features(features=None):
     -------
     features_data_frame : pandas.DataFrame
         A dataframe of computed features.
+
+    Examples
+    --------
+    >>> mouseday = load_mouseday_features()
+    >>> mouseday = load_mouseday_features(["Food"])
+    >>> mouseday = load_mouseday_features(["Food", "Water", "Distance"])
     """
     features_list = [
         "ASProbability",
