@@ -17,6 +17,16 @@ def test_all_features_loader():
     assert all_features.shape == (21131, 13)
 
 
+def test_mouseday_features_loader():
+    # Checking load_mouseday_features returns a data frame of
+    # the correct dimension
+    mouseday_features1 = data.load_mouseday_features(["Food", "Water",
+                                                      "Distance"])
+    mouseday_features2 = data.load_mouseday_features(["Food", "Water"])
+    assert mouseday_features1.shape == (1921, 36)
+    assert mouseday_features2.shape == (1921, 25)
+
+
 def test_intervals_loader():
     # Checking load_intervals returns a data frame of the correct dimension
     AS = data.load_intervals('AS')
@@ -47,6 +57,20 @@ def test_feature_load_input():
     with pytest.raises(ValueError) as excinfo:
         data.load_movement(1000, 1000, 1000)
     expected = "No data exists for strain 1000, mouse 1000, day 1000"
+    assert excinfo.value.args[0] == expected
+
+
+def test_mouseday_load_input():
+    with pytest.raises(ValueError) as excinfo:
+        data.load_mouseday_features(["Food", "Water", "Distances"])
+    fea_list = ["ASProbability", "ASNumbers", "ASDurations",
+                "Food", "Water", "Distance",
+                "ASFoodIntensity", "ASWaterIntensity", "MoveASIntensity"]
+    fea_str = "{"
+    for item in fea_list:
+        fea_str += '"' + item + '", '
+    fea_str = fea_str[:-2] + "}"
+    expected = "Input value must be chosen from " + fea_str + "."
     assert excinfo.value.args[0] == expected
 
 
