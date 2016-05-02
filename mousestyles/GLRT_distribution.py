@@ -11,9 +11,9 @@ def powerlaw_pdf(x, a):
     Parameters
     ----------
     x : int
-        x in formula p(x)=(alpha-1)*x^(-alpha).
+        x in formula p(x) = (alpha-1)*x^(-alpha).
     a : int>1
-        alpha in formula p(x)=(alpha-1)*x^(-alpha).
+        alpha in formula p(x) = (alpha-1)*x^(-alpha).
 
     Returns
     -------
@@ -25,7 +25,7 @@ def powerlaw_pdf(x, a):
     >>> powerlaw_pdf (2,2)
     0.25
     """
-    return((a-1)*x**(-a))
+    return((a - 1) * x**(-a))
 
 
 def exp_pdf(x, l):
@@ -35,9 +35,9 @@ def exp_pdf(x, l):
     Parameters
     ----------
     x : int
-        x in formula p(x)=lambda*exp(-lambda*x).
+        x in formula p(x) = lambda*exp(-lambda*x).
     l : int
-        lambda in formula p(x)=lambda*exp(-lambda*x).
+        lambda in formula p(x) = lambda*exp(-lambda*x).
 
     Returns
     -------
@@ -46,10 +46,10 @@ def exp_pdf(x, l):
 
     Examples
     --------
-    >>> exp_pdf
-    0.36787944117144233
+    >>> exp_pdf(2,2)
+    0.2706705664732254
     """
-    return(l*np.exp(-l*(x-1)))
+    return(l * np.exp(-l * (x - 1)))
 
 
 def random_powerlaw(n, a):
@@ -74,7 +74,7 @@ def random_powerlaw(n, a):
     array([  1.18097435,   1.04584078,   1.4650779 ,  36.03967524])
     """
     y = np.random.sample(n)
-    return((1-y)**(-1/(a-1)))
+    return((1 - y)**(-1 / (a - 1)))
 
 
 def random_exp(n, l):
@@ -98,8 +98,8 @@ def random_exp(n, l):
     >>> random_exp(4,2)
     array([ 1.07592496,  1.19789646,  1.19759663,  1.03993227])
     """
-    y = np.random.exponential(1.0/l, n)
-    return(y+1)
+    y = np.random.exponential(1.0 / l, n)
+    return(y + 1)
 
 
 def hypo_powerLaw_null(strain, mouse, day, law_est=0):
@@ -119,9 +119,8 @@ def hypo_powerLaw_null(strain, mouse, day, law_est=0):
 
     Returns
     -------
-    Rejected or Not : True or False
-        Whether we should reject the null under alpha = 0.05. 
-        TRUE is rejected and FALSE is not.
+    p_value:
+        the probablity under null reject.
 
     Examples
     --------
@@ -131,29 +130,30 @@ def hypo_powerLaw_null(strain, mouse, day, law_est=0):
     df = data.load_movement(strain, mouse, day)
     xcood = df["x"]
     ycood = df["y"]
-    distance_vector = np.sqrt(np.diff(xcood)**2+np.diff(ycood)**2)
+    distance_vector = np.sqrt(np.diff(xcood)**2 + np.diff(ycood)**2)
     msk = distance_vector > 1
     cut_dist = distance_vector[msk]
     if law_est == 0:
-        law_est = 1+len(cut_dist)*1/(np.sum(np.log(cut_dist/np.min(cut_dist))))
+        law_est = 1 + len(cut_dist) * 1 / \
+                          (np.sum(np.log(cut_dist / np.min(cut_dist))))
     n = len(cut_dist)
     log_cut = np.log(cut_dist)
     sum_cut = np.sum(log_cut)
-    test_stat = n*(np.log(sum_cut-n)-np.log(sum_cut)) - law_est * sum_cut
+    test_stat = n * (np.log(sum_cut - n) - np.log(sum_cut)) - law_est * sum_cut
     sample_stat = []
     for i in range(1000):
-        sample = random_powerlaw(len(cut_dist),law_est)
+        sample = random_powerlaw(len(cut_dist), law_est)
         sum_sam = np.sum(sample)
         log_sam = np.log(sample)
         sum_log_sam = np.log(np.sum(log_sam))
-        tmp = n*(np.log(sum_sam-n)-sum_log_sam-law_est*np.sum(log_sam)
+        tmp = n*(np.log(sum_sam-n)-sum_log_sam) - law_est*np.sum(log_sam)
         sample_stat.append(tmp)
     # critical_value = ss.mstats.mquantiles(sample_stat, prob = 0.05)[0]
-    p_value = np.sum(sample_stat > test_stat)/len(sample_stat)
+    p_value = np.sum(sample_stat > test_stat) / len(sample_stat)
     return (p_value)
 
 
-def hypo_exp_null (strain, mouse, day, law_est=0, exp_est = 0):
+def hypo_exp_null(strain, mouse, day, law_est=0, exp_est=0):
     """
     Return the outcome from GLRT with null hypothesis law distribution.
 
@@ -172,37 +172,40 @@ def hypo_exp_null (strain, mouse, day, law_est=0, exp_est = 0):
 
     Returns
     -------
-    Rejected or Not : True or False
-        Whether we should reject the null under alpha = 0.05. TRUE is rejected and FALSE is not.
+    p_value:
+        the probablity under null reject.
 
     Examples
     --------
     >>> hypo_exp_null (0, 0, 0)
     1.0
     """
-    df  = data.load_movement(strain, mouse, day)
+    df = data.load_movement(strain, mouse, day)
     xcood = df["x"]
     ycood = df["y"]
-    distance_vector = np.sqrt(np.diff(xcood)**2+np.diff(ycood)**2)
+    distance_vector = np.sqrt(np.diff(xcood)**2 + np.diff(ycood)**2)
     msk = distance_vector > 1
     cut_dist = distance_vector[msk]
     if law_est == 0:
-        law_est = 1+len(cut_dist)*1/(np.sum(np.log(cut_dist/np.min(cut_dist))))
+        law_est = 1 + len(cut_dist) * 1 / \
+                        (np.sum(np.log(cut_dist / np.min(cut_dist))))
     if exp_est == 0:
-        exp_est = len(cut_dist)/(np.sum(cut_dist)-len(cut_dist))
+        exp_est = len(cut_dist) / (np.sum(cut_dist) - len(cut_dist))
     n = len(cut_dist)
     sum_cut = np.sum(cut_dist)
     log_cut = np.log(cut_dist)
     sum_log_cut = np.sum(log_cut)
-    test_stat = n*(np.log(sum_cut-n)-np.log(sum_log_cut))-law_est * sum_log_cut
+    test_stat = n * (np.log(sum_cut - n) - np.log(sum_log_cut)) - \
+        law_est * sum_log_cut
     sample_stat = []
     for i in range(1000):
-        sample = random_exp(len(cut_dist),exp_est)
+        sample = random_exp(len(cut_dist), exp_est)
         sum_sam = np.sum(sample)
         log_sam = np.log(sample)
         sum_log_sam = np.sum(log_sam)
-        tmp = n*(np.log(sum_sam-n)-np.log(sum_log_sam))-law_est*sum_log_sam
+        tmp = n * (np.log(sum_sam - n) - np.log(sum_log_sam)) - \
+            law_est * sum_log_sam
         sample_stat.append(tmp)
     # critical_value = ss.mstats.mquantiles(sample_stat, prob = 0.95)[0]
-    p_value = np.sum(sample_stat <= test_stat)/len(sample_stat)
+    p_value = np.sum(sample_stat <= test_stat) / len(sample_stat)
     return (p_value)
