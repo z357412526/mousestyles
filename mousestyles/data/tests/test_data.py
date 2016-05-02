@@ -72,8 +72,13 @@ def test_mouseday_load_input():
     for item in fea_list:
         fea_str += '"' + item + '", '
     fea_str = fea_str[:-2] + "}"
-    expected = "Input value must be chosen from " + fea_str + "."
-    assert excinfo.value.args[0] == expected
+    expected1 = "Input value must be chosen from " + fea_str + "."
+    assert excinfo.value.args[0] == expected1
+
+    with pytest.raises(TypeError) as excinfo:
+        data.load_mouseday_features(("Food", "Water", "Distances"))
+    expected2 = "Input value must be a list."
+    assert excinfo.value.args[0] == expected2
 
 
 def test_lookup_intervals():

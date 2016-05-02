@@ -117,12 +117,21 @@ def load_mouseday_features(features=None):
     if features is None:
         features = features_list
 
+    if type(features) is str:
+        features = [features]
+
     fea_str = "{"
     for item in features_list:
         fea_str += '"' + item + '", '
     fea_str = fea_str[:-2] + "}"
 
-    # Check if inputs are expected features
+    # Check if input is a list
+    if type(features) is not list:
+        raise TypeError(
+            "Input value must be a list."
+        )
+
+    # Check if input values are expected features
     for feature in features:
         if feature not in features_list:
             raise ValueError(
