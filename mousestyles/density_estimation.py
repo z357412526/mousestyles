@@ -4,12 +4,11 @@ from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
 import numpy as np
-import pandas as pd
 
 from mousestyles.data import load_movement
 
 
-def extract_distances(strain, mouse, day, step=1e2):
+def distances(strain, mouse, day, step=50):
     """
     Return a numpy array object of project movement data
     for the specified combination of strain, mouse and day.
@@ -41,6 +40,7 @@ def extract_distances(strain, mouse, day, step=1e2):
         nonnegative integer indicating the day number
     step: float
         positive float defining the time between two observations
+        default corresponds to 1 second
 
     Returns
     -------
@@ -48,7 +48,7 @@ def extract_distances(strain, mouse, day, step=1e2):
 
     Examples
     --------
-    >>> dist = extract_distances(0, 0, 0, step=1e2)
+    >>> dist = distances(0, 0, 0, step=1e2)
     """
     movement = load_movement(strain, mouse, day)
     # Compute distance between samples
@@ -65,20 +65,16 @@ def extract_distances(strain, mouse, day, step=1e2):
     return(aggregate)
 
 
-def extract_distances_bymouse(strain, mouse, step=1e2, verbose=False):
+def distances_bymouse(strain, mouse, step=50, verbose=False):
     """
-    Aggregates extract_distances for all days of recorded data for
-    one particular mouse. Then returns the mean of the aggregated data.
+    Aggregates 'distances' for all days of recorded data for
+    one particular mouse.
 
     More specifically:
 
     - let d^1,...,d^D be the sequence of distances for one particular
     mouse for days 1 to D.
-    - let d^mouse the empty sequence of length the maximal length of
-    d^1,...,d^D, defined as follow:
-    for each index i in d^mouse, d^mouse[i] is equal to the mean
-    over j of the existing d^j[i].
-    - The function returns the sequence d^mouse.
+    - The function returns the concatenation of the d^i.
 
     Parameters
     ----------
@@ -88,6 +84,7 @@ def extract_distances_bymouse(strain, mouse, step=1e2, verbose=False):
         nonnegative integer indicating the mouse number
     step: float
         positive float defining the time between two observations
+        default corresponds to 1 second
 
     Returns
     -------
@@ -95,36 +92,32 @@ def extract_distances_bymouse(strain, mouse, step=1e2, verbose=False):
 
     Examples
     --------
-    >>> dist = extract_distances_bymouse(0, 0, step=1e2)
+    >>> dist = distances_bymouse(0, 0, step=1e2)
     """
     day = 0
-    res = []
+    res = np.array([])
     while True:
         try:
-            res.append(list(extract_distances(strain, mouse, day, step=step)))
-            day = day + 1
+            res = np.append(res, distances(strain, mouse, day,
+                                           step=step))
+            day += 1
             if verbose:
                 print('day %s done.' % day)
         except ValueError:
             break
-    res = pd.DataFrame(res)
-    return(np.array(res.mean(axis=0)))
+    return(res)
 
 
-def extract_distances_bystrain(strain, step=1e2, verbose=False):
+def distances_bystrain(strain, step=50, verbose=False):
     """
-    Aggregates extract_distances_bymouse for all mice in one given
+    Aggregates distances_bymouse for all mice in one given
     strain.
 
     More specifically:
 
     - let d^1,...,d^M be the sequence of distances for one particular
     strain for mouses 1 to M.
-    - let d^strain the empty sequence of length the maximal length of
-    d^1,...,d^M, defined as follow:
-    for each index i in d^mouse, d^strain[i] is equal to the mean
-    over j of the existing d^j[i].
-    - The function returns the sequence d^strain.
+    - The function returns the sequence concatenation of the d^i.
 
     Parameters
     ----------
@@ -132,6 +125,7 @@ def extract_distances_bystrain(strain, step=1e2, verbose=False):
         nonnegative integer indicating the strain number
     step: float
         positive float defining the time between two observations
+        default corresponds to 1 second
 
     Returns
     -------
@@ -139,16 +133,16 @@ def extract_distances_bystrain(strain, step=1e2, verbose=False):
 
     Examples
     --------
-    >>> dist = extract_distances_bystrain(0, step=1e2)
+    >>> dist = distances_bystrain(0, step=1e2)
     """
     mouse = 0
-    res = []
-    e = np.array([0])
-    while e.size > 0:
-        e = extract_distances_bymouse(strain, mouse, step=step)
-        res.append(list(e))
-        mouse = mouse + 1
+    res = np.array([])
+    dist = np.array([0])
+    while dist.size > 0:
+        dist = distances_bymouse(strain, mouse,
+                                 step=step)
+        res = np.append(res, dist)
+        mouse += 1
         if verbose:
             print('mouse %s done.' % mouse)
-    res = pd.DataFrame(res)
-    return(np.array(res.mean(axis=0)))
+    return(res)
