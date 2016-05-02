@@ -4,7 +4,7 @@ from __future__ import (absolute_import, division, print_function, unicode_liter
 
 import numpy
 
-from mousestyles.powerlaw import (powerlaw_pdf,exp_pdf)
+from mousestyles.distribution_plot import (powerlaw_pdf,exp_pdf)
 
 def test_powerlaw_pdf():
 	assert (powerlaw_pdf(2,2) == 0.25)
