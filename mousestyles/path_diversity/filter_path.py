@@ -12,6 +12,8 @@ def filter_paths(movement, paths, time_threshold):
     movement : pandas.DataFrame
         CT, CX, CY coordinates and homebase status
         for the unique combination of strain, mouse and day
+    paths: list
+        a list containing the indices for all paths
     time_threshold : float
         positive number indicating the time threshold
 
