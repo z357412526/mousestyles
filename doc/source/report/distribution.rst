@@ -152,6 +152,13 @@ Result
 .. figure:: figure/project6_sample.png
    :alt: alt tag
 
+-  Fitting power law distribution and gamma distribution for strain 0, mouse 0,
+   and day 0; fitting by Maximum Likelihood, and by minimizing Kolmogorov
+   CDF distances:
+
+.. plot:: report/plots/hist_kolmogorov.py
+
+   Histogram of distances travelled in 20ms by strain 0, mouse 0, day 0.
 
 Reference reading:
 ------------------
