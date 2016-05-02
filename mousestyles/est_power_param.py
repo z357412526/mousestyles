@@ -1,16 +1,14 @@
 from __future__ import print_function, absolute_import, division
 
 import numpy as np
-import matplotlib.pyplot as plt
-import scipy.stats as ss
-import statistics as stat
 import pandas as pd
 from mousestyles import data
 
 
 def getdistance(strain, mouse, day):
     """
-    Return the distance of each two consecutive points among coordinates which is bigger than 1cm(truncated).
+    Return the distance of each two consecutive points among coordinates
+    which is bigger than 1cm(truncated).
 
     Parameters
     ----------
@@ -100,7 +98,8 @@ def fit_exponential(strain, mouse, day):
 
 def fit():
     """
-    Return the estimators of truncated power law and exponential for each mouse day.
+    Return the estimators of truncated power law and exponential for each
+    mouse day.
 
     Parameters
     ----------
