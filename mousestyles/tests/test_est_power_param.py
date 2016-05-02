@@ -1,4 +1,4 @@
-from __future__ import (absolute_import, division, print_function, unicode_literals)
+from __future__ import (absolute_import, division, print_function, unicode_literals)
 
 import numpy as np
 from mousestyles.powerlaw import (fit_powerLaw,fit_exponential,fit)
