@@ -1,5 +1,6 @@
 from __future__ import print_function, absolute_import, division
-import numpy as np 
+
+import numpy as np
 
 
 def get_dist_speed(movement, start, end):
@@ -53,5 +54,4 @@ def get_dist_speed(movement, start, end):
 
     dist = sum(np.sqrt((x[1:] - x[:-1])**2 + (y[1:] - y[:-1])**2))
     speed = dist / time
-
     return(dist, speed)
