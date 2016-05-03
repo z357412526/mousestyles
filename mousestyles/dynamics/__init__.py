@@ -108,5 +108,5 @@ def create_time_matrix(combined_gap=4, time_gap=1):
     # format data frame
     matrix = pd.DataFrame(matrix, columns=columns)
     title = pd.DataFrame(days, columns=['strain', 'mouse', 'day'])
-    time = pd.concat([title, matrix], axis=1)
-    return(time)
+    time_matrix = pd.concat([title, matrix], axis=1)
+    return(time_matrix)
