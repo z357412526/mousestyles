@@ -1,8 +1,11 @@
 import matplotlib.pyplot as plt
 import numpy as np
+
+
 def plot_powerlaw(estimation):
     """
-    Return the histogram of all estimators of power law to check the distribution.
+    Return the histogram of all estimators of power law
+    to check the distribution.
 
     Parameters
     ----------
@@ -22,12 +25,13 @@ def plot_powerlaw(estimation):
 
 def plot_expoential(estimation):
     """
-    Return the histogram of all estimators of exponential to check the distribution.
+    Return the histogram of all estimators of exponential
+    to check the distribution.
 
     Parameters
     ----------
     estimation: dataframe
-        dataframe of strain, mouse, day and the estimator    
+        dataframe of strain, mouse, day and the estimator
 
     Returns
     -------
@@ -38,6 +42,7 @@ def plot_expoential(estimation):
     plt.hist(list(estimation.ix[estimation["strain"] == 1, 4]))
     plt.hist(list(estimation.ix[estimation["strain"] == 2, 4]))
     plt.title("Histogram: Exponential parameters distribution by strain")
+
 
 def plot_fitted(strain, mouse, day):
     """
@@ -64,7 +69,9 @@ def plot_fitted(strain, mouse, day):
     alpha = fit_powerLaw(strain, mouse, day)
     lamb = fit_exponential(strain, mouse, day)
     Cut_dist = getdistance(strain, mouse, day)
-    ax.plot(x, powerlaw_pdf(x, alpha), 'r-', lw = 2, alpha = 2, label = 'powerlaw pdf')
-    ax.plot(x, exp_pdf(x, lamb), 'y-', lw = 2, alpha = 2, label = 'expon pdf')
+    ax.plot(x, powerlaw_pdf(x, alpha), 'r-', lw=2, alpha=2,
+            label='powerlaw pdf')
+    ax.plot(x, exp_pdf(x, lamb), 'y-', lw=2, alpha=2,
+            label='exp pdf')
     weights = np.ones_like(Cut_dist) / len(Cut_dist) * (alpha - 1)
-    ax.hist(Cut_dist, weights = weights)
+    ax.hist(Cut_dist, weights=weights)
