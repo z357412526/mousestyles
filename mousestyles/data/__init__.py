@@ -554,4 +554,3 @@ def distances_bystrain(strain, step=50, verbose=False):
         if verbose:
             print('mouse %s done.' % mouse)
     return(res)
-
