@@ -193,8 +193,9 @@ def get_prob_matrix_list(time_df, interval_length=1000):
 
     time_array = np.array(time_df)[:, 3:]
     n = ceil(time_array.shape[1]/interval_length)
-    matrix_list = [None] * n
+    matrix_list = [None] * int(n)
     for i in np.arange(n):
+        i = int(i)
         ind = [(i * interval_length), ((i+1) * interval_length)]
         small_time_array = time_array[:, ind[0]:ind[1]]
         small_time_list = list(small_time_array)
@@ -239,6 +240,7 @@ def get_prob_matrix_small_interval(string_list):
     # check all the inputs
     condition_string_list = (type(string_list) == list)
     condition_list_item = (type(string_list[0]) == str)
+    print(string_list[0])
     if not condition_string_list:
         raise ValueError("string_list should be a list")
     if not condition_list_item:
@@ -246,11 +248,14 @@ def get_prob_matrix_small_interval(string_list):
 
     M = np.zeros(4*4).reshape(4, 4)
     for i in np.arange(4):
+        i = int(i)
         for j in np.arange(4):
+            j = int(j)
             ijth = str(i) + str(j)
             M[i, j] = sum([string.count(ijth) for string
                           in string_list])
     for k in np.arange(4):
+        k = int(k)
         if sum(M[k, :]) != 0:
             M[k, :] = M[k, :]/sum(M[k, :])
     return M
