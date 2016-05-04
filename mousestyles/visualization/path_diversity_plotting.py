@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 
 
-def plot_box(list_of_arrays, title="Box Plot of Distribution"):
+def plot_box(list_of_arrays, title="Box Plot of Distribution", width=4,
+             height=4):
     r"""
     Make a box plot of the desired metric (path length, speed, angle, etc)
     per mouse, day or strain.
@@ -16,6 +17,12 @@ def plot_box(list_of_arrays, title="Box Plot of Distribution"):
     title : str
         desired title of the plot
 
+    width : int
+        first argument in figure size specifying width of plot
+
+    height : int
+        second argument in figure size specifying height of plot
+
     Returns
     -------
     box plot : box plot of the desired metric combinations
@@ -29,6 +36,7 @@ def plot_box(list_of_arrays, title="Box Plot of Distribution"):
     xlab = list(range(len(list_of_arrays)))
     plt.boxplot(list_of_arrays, labels=xlab)
     plt.title(title)
+    plt.figure(figsize=(width, height))
     plt.show()
 
 
