@@ -35,13 +35,15 @@ def test_array_bystrain():
 
 
 def max_speed():
-	# Max speed of a mouse should be less than 40 km/h
-	assert max(distances(0, 0, 0,step=50) * 3.6 / 100) < 40
+    # Max speed of a mouse should be less than 40 km/h
+    assert max(distances(0, 0, 0, step=50) * 3.6 / 100) < 40
+
 
 def max_speed_bymouse():
-	# Max speed of a mouse should be less than 40 km/h
-	assert max(distances_bymouse(0, 0, step=50) * 3.6 / 100) < 40
+    # Max speed of a mouse should be less than 40 km/h
+    assert max(distances_bymouse(0, 0, step=50) * 3.6 / 100) < 40
+
 
 def max_speed_bystrain():
-	# Max speed of a mouse should be less than 40 km/h
-	assert max(distances_bystrain(0, step=50) * 3.6 / 100) < 40
+    # Max speed of a mouse should be less than 40 km/h
+    assert max(distances_bystrain(0, step=50) * 3.6 / 100) < 40
