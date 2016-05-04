@@ -5,7 +5,7 @@ import numpy as np
 from mousestyles import data
 
 
-def create_time_matrix(combined_gap=4, time_gap=1):
+def create_time_matrix(combined_gap=4, time_gap=1, days_index=137):
     r"""
     Return a time matrix for estimate the MLE parobability.
     The rows are 137 mousedays. The columns are time series
@@ -15,10 +15,14 @@ def create_time_matrix(combined_gap=4, time_gap=1):
 
     Parameters
     ----------
-    combined_gap: float or int
-        The threshold for combining small intervals.
-    time_gap: float or int
-        The time gap for create the columns time series.
+    combined_gap: nonnegative float or int
+        The threshold for combining small intervals. If next start time
+        minus last stop time is smaller than combined_gap than combined
+        these two intervals.
+    time_gap: positive float or int
+        The time gap for create the columns time series
+    days_index: nonnegative int
+        The number of days to process, from day 0 to day days_index.
 
     Returns
     -------
@@ -41,14 +45,19 @@ def create_time_matrix(combined_gap=4, time_gap=1):
         48013     0
         Name: 0, dtype: float64
     """
-    # check all the inputs are float or int
-    condition_combined_gap = (type(combined_gap) == int or
-                              type(combined_gap) == float)
-    condition_time_gap = (type(time_gap) == int or type(time_gap) == float)
+    # check all the inputs
+    condition_combined_gap = ((type(combined_gap) == int or
+                              type(combined_gap) == float) and
+                              combined_gap >= 0)
+    condition_time_gap = ((type(time_gap) == int or type(time_gap) ==
+                           float) and time_gap > 0)
+    condition_days_index = (type(days_index) == int and days_index >= 0)
     if not condition_time_gap:
-        raise ValueError("time_gap input should be int or float")
+        raise ValueError("time_gap should be nonnegative int or float")
     if not condition_combined_gap:
-        raise ValueError("combined_gap input should be int or float")
+        raise ValueError("combined_gap should be nonnegative int or float")
+    if not condition_days_index:
+        raise ValueError("days_index should be nonnegative int")
 
     intervals_AS = data.load_intervals('AS')
     intervals_F = data.load_intervals('F')
@@ -105,6 +114,8 @@ def create_time_matrix(combined_gap=4, time_gap=1):
                     matrix[i, j] = 3  # others
         # give you the precent of matrix has been processed
         print(i / days.shape[0], 'has been processed')
+        if i > days_index:
+            break
     # format data frame
     matrix = pd.DataFrame(matrix, columns=columns)
     title = pd.DataFrame(days, columns=['strain', 'mouse', 'day'])
