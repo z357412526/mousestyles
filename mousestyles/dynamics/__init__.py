@@ -134,7 +134,7 @@ def get_prob_matrix_list(time_df, interval_length=1000):
     fault parameters. The output is a list of numpy
     arrays, each being a transition matrix characterizing
     one small time interval. The interval length could
-    be chose.
+    be chosen.
 
     Parameters
     ----------
@@ -142,22 +142,24 @@ def get_prob_matrix_list(time_df, interval_length=1000):
         a huge data frame containing info on strain, mouse
         no., mouse day, and different states at chosen time
         points.
-    interval_length: int or float
+    interval_length: int
         an integer specifying the desired length of each
-        small time interval
+        small time interval.
 
     Returns
     -------
     matrix_list: list
         a list of the mle estimations of the probability tran-
         sition matrices for each small time interval stored in
-        the format of numpy array.
+        the format of numpy array. Each element of this list
+        is a numpy array matrix.
 
     Examples
     --------
     >>> row_i = np.hstack((np.zeros(13), np.ones(10),
                             np.ones(10)*2, np.ones(10)*3))
     >>> time_df_eg = np.vstack((row_i, row_i,row_i))
+    >>> time_df_eg = pd.DataFrame(time_df_eg)
     >>> mat_list = get_prob_matrix_list(time_df_eg,
                                         interval_length=10)
     >>> mat_list[0]
@@ -189,7 +191,7 @@ def get_prob_matrix_list(time_df, interval_length=1000):
     if not condition_time_df:
         raise ValueError("time_df should be pandas DataFrame")
     if not condition_interval_length:
-        raise ValueError("combined_gap should be positive int")
+        raise ValueError("interval_length should be positive int")
 
     time_array = np.array(time_df)[:, 3:]
     n = ceil(time_array.shape[1]/interval_length)
@@ -225,7 +227,9 @@ def get_prob_matrix_small_interval(string_list):
     -------
     M: numpy.ndarray
         the MLE estimation of the probability tran-
-        sition matrix.
+        sition matrix. Each entry M_ij represents the
+        probability of transiting from state i to state
+        j.
 
     Examples
     --------
@@ -246,16 +250,16 @@ def get_prob_matrix_small_interval(string_list):
     if not condition_list_item:
         raise ValueError("items in string_list should be str")
 
-    M = np.zeros(4*4).reshape(4, 4)
+    Mat_prob = np.zeros(4*4).reshape(4, 4)
     for i in np.arange(4):
         i = int(i)
         for j in np.arange(4):
             j = int(j)
             ijth = str(i) + str(j)
-            M[i, j] = sum([string.count(ijth) for string
-                          in string_list])
+            Mat_prob[i, j] = sum([string.count(ijth) for string
+                                 in string_list])
     for k in np.arange(4):
         k = int(k)
-        if sum(M[k, :]) != 0:
-            M[k, :] = M[k, :]/sum(M[k, :])
-    return M
+        if sum(Mat_prob[k, :]) != 0:
+            Mat_prob[k, :] = Mat_prob[k, :]/sum(Mat_prob[k, :])
+    return Mat_prob

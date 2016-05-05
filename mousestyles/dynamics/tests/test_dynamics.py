@@ -56,11 +56,11 @@ def test_get_prob_matrix_list_input():
     time_df_eg = pd.DataFrame(time_df_eg)
     with pytest.raises(ValueError) as excinfo:
         get_prob_matrix_list(time_df=time_df_eg, interval_length=0)
-    assert excinfo.value.args[0] == "combined_gap should be positive int"
+    assert excinfo.value.args[0] == "interval_length should be positive int"
     # interval_length is not int
     with pytest.raises(ValueError) as excinfo:
         get_prob_matrix_list(time_df=time_df_eg, interval_length=0.5)
-    assert excinfo.value.args[0] == "combined_gap should be positive int"
+    assert excinfo.value.args[0] == "interval_length should be positive int"
 
 
 def test_get_prob_matrix_list():
