@@ -263,3 +263,74 @@ def get_prob_matrix_small_interval(string_list):
         if sum(Mat_prob[k, :]) != 0:
             Mat_prob[k, :] = Mat_prob[k, :]/sum(Mat_prob[k, :])
     return Mat_prob
+
+
+def mcmc_simulation(mat_list, n_per_int):
+    r"""
+    This function gives the Monte Carlo simulation
+    of the stochastic process modeling the dynamic
+    changes of states of the mice behavior. The in-
+    put of this function is a list of probability
+    transition matrices and an integer indicates
+    how many outputs for each matrix. This number
+    is related to the interval_length parameter in
+    function get_prob_matrix_list. The output is an
+    array of numbers, each indicate one state.
+
+    Parameters
+    ----------
+    mat_list: List
+        a list of numpy arrays storing the probabi-
+        lity transition matrices for each small time
+        interval chosen.
+    n_per_int: int or float
+        an integer specifying the desired output
+        length of each probability transition matrix.
+
+    Returns
+    -------
+    simu_result: numpy.array
+        an array of integers indicating the simulated
+        states given a list of probability transition
+        matrices.
+
+    Examples
+    --------
+    >>> mat0 = np.zeros(16).reshape(4, 4)
+    >>> np.fill_diagonal(mat0, val=1)
+    >>> mat1 = np.zeros(16).reshape(4, 4)
+    >>> mat1[0, 1] = 1
+    >>> mat1[1, 0] = 1
+    >>> mat1[2, 2] = 1
+    >>> mat1[3, 3] = 1
+    >>> mat_list_example = [mat0, mat1]
+    >>> mcmc_simulation(mat_list_example, 10)
+    >>> array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                1, 0, 1, 0, 1, 0, 1, 0, 1, 0])
+    """
+    # check all the inputs
+    condition_mat_list = (type(mat_list) == list)
+    condition_list_item = (type(mat_list[0]) == np.ndarray)
+    condition_n_per_int = (type(n_per_int) == int and n_per_int >= 0)
+    if not condition_mat_list:
+        raise ValueError("mat_list should be a list")
+    if not condition_list_item:
+        raise ValueError("items in mat_list should be numpy array")
+    if not condition_n_per_int:
+        raise ValueError("n_per_int should be nonnegative int")
+
+    n = len(mat_list)
+    simu_result = np.zeros(n * n_per_int)
+    for i in np.arange(n):
+        for j in np.arange(n_per_int):
+            index = int(i * n_per_int + j)
+            if index == 0:
+                simu_result[index] = 0
+            state_i = simu_result[int(index-1)]
+            prob_trans = mat_list[i][int(state_i), :]
+            prob_trans = np.cumsum(prob_trans)
+            rand = np.random.uniform()
+            state_j = sum(rand > prob_trans)
+            simu_result[index] = int(state_j)
+    simu_result = np.array(simu_result, dtype=int)
+    return simu_result

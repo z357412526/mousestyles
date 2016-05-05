@@ -8,6 +8,7 @@ import pandas as pd
 from mousestyles.dynamics import create_time_matrix
 from mousestyles.dynamics import get_prob_matrix_list
 from mousestyles.dynamics import get_prob_matrix_small_interval
+from mousestyles.dynamics import mcmc_simulation
 
 
 def test_creat_time_matrix_input():
@@ -97,3 +98,49 @@ def test_get_prob_matrix_small_interval():
     assert example[0, 2] == 0.2
     assert example[1, 2] == 1.
     assert sum(example[0, :]) == 1.
+
+
+def test_mcmc_simulation_input():
+    # checking functions raise the correct errors for wrong input
+    # mat_list is not list
+    with pytest.raises(ValueError) as excinfo:
+        mcmc_simulation(mat_list=np.array([1, 2]), n_per_int=10)
+    assert excinfo.value.args[0] == "mat_list should be a list"
+    # items in mat_list is not string
+    time_list = [0, 1, 2]
+    with pytest.raises(ValueError) as excinfo:
+        mcmc_simulation(mat_list=time_list, n_per_int=10)
+    assert excinfo.value.args[0] == "items in mat_list should be numpy array"
+    # n_per_int is not integer
+    mat0 = np.zeros(16).reshape(4, 4)
+    np.fill_diagonal(mat0, val=1)
+    mat1 = np.zeros(16).reshape(4, 4)
+    mat1[0, 1] = 1
+    mat1[1, 0] = 1
+    mat1[2, 2] = 1
+    mat1[3, 3] = 1
+    mat_list_example = [mat0, mat1]
+    with pytest.raises(ValueError) as excinfo:
+        mcmc_simulation(mat_list=mat_list_example, n_per_int=0.5)
+    assert excinfo.value.args[0] == "n_per_int should be nonnegative int"
+    # n_per_int negative integer
+    with pytest.raises(ValueError) as excinfo:
+        mcmc_simulation(mat_list=mat_list_example, n_per_int=-1)
+    assert excinfo.value.args[0] == "n_per_int should be nonnegative int"
+
+
+def test_mcmc_simulation():
+    # Checking functions output the array
+    mat0 = np.zeros(16).reshape(4, 4)
+    np.fill_diagonal(mat0, val=1)
+    mat1 = np.zeros(16).reshape(4, 4)
+    mat1[0, 1] = 1
+    mat1[1, 0] = 1
+    mat1[2, 2] = 1
+    mat1[3, 3] = 1
+    mat_list_example = [mat0, mat1]
+    example = mcmc_simulation(mat_list_example, 10)
+    assert sum(example[:10]) == 0.
+    assert sum(example[10:]) == 5.
+    assert example[10] == 1.
+    assert example[11] == 0.
