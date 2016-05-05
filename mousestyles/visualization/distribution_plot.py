@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from mousestypes.est_power_param import (fit_powerLaw,fit_exponential,
-    getdistance,powerlaw_pdf,exp_pdf)
+from mousestypes.est_power_param import (fit_powerLaw, fit_exponential,
+                                         getdistance, powerlaw_pdf, exp_pdf)
+
 
 def plot_powerlaw(estimation):
     """
