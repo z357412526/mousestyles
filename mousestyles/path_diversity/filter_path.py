@@ -3,9 +3,9 @@ from __future__ import print_function, absolute_import, division
 
 def filter_paths(movement, paths, time_threshold):
     r"""
-    Return a list object containing start and end indices
-    for a specific movement which the time spending on the
-    movement is larger than a time threshold
+    Return a list object containing start and end indices for
+    movements lasting equal to or longer than the specified time
+    threshold
 
     Parameters
     ----------
@@ -35,17 +35,17 @@ def filter_paths(movement, paths, time_threshold):
     if conditions_value:
         raise ValueError("Input values need to be positive")
 
-    # Variable that store paths larger than time threshold
+    # Variable that store paths equal to or larger than time threshold
     pass_paths = []
 
     # Pull out time variable
     T = movement['t']
 
     # Run through each path and check whether the time spending
-    # on the path is larger than the time threshold
+    # on the path is equal to or larger than the time threshold
     for path in paths:
         start_time, end_time = T[path].ravel()
-        if (end_time - start_time) > time_threshold:
+        if (end_time - start_time) >= time_threshold:
             pass_paths.append(path)
 
     return(pass_paths)
