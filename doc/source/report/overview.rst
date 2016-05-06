@@ -178,3 +178,7 @@ The txy_coords directory has 5 sub-directories,all sub-directories have about 33
 -  **CY,CX,CY:** records the position (x,y) in time t for a certain strain and a certain day.
 -  **C_idx_HB:** indicates whether the mouse is in HB or not at time t.
 -  **recordingStartTimeEndTime:** records the start and stop time of tracking (x,y,t) for a certain strain and a certain day.
+
+.. rubric:: Footnotes
+
+.. [#f1] http://www.neuroscience.ucsf.edu/neurograd/faculty/tecott.html
