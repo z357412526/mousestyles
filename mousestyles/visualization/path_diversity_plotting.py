@@ -33,8 +33,7 @@ def plot_box(list_of_arrays, title="Box Plot of Distribution", width=4,
         raise TypeError("Title must be a string")
     if type(list_of_arrays) != list:
         raise TypeError("List of arrays must be a list")
-    xlab = list(range(len(list_of_arrays)))
-    plt.boxplot(list_of_arrays, labels=xlab)
+    plt.boxplot(list_of_arrays)
     plt.title(title)
     plt.figure(figsize=(width, height))
     plt.show()
