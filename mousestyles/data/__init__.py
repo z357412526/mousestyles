@@ -428,15 +428,15 @@ def distances(strain, mouse, day, step=50):
     More specifically:
 
     - let delta_t be the step parameter.
-    - let t_n be the sequance of non negative numbers such
-    that t_0 = 0 and t_(n+1) = t_n + delta_t. The sequence
-    is defined for all n such that n>=0 and t_n <= time
-    of the experiment
-    - let d_n be the sequence of non negative numbers such
-    that d_0 = 0 and d_n equals the position of the mouse
-    at a particular day at time t_n. d_n is then defined
-    on the same set of integers as the sequence t_n.
-    - The function returns the sequence d_n.
+    - let $t_n$ be the sequance of non negative numbers such
+      that $t_0 = 0$ and $t_(n+1) = t_n + delta_t$. The sequence
+      is defined for all $n$ such that $n>=0$ and $t_n <= time$
+      of the experiment
+    - let $d_n$ be the sequence of non negative numbers such
+      that $d_0 = 0$ and $d_n$ equals the position of the mouse
+      at a particular day at time $t_n$. $d_n$ is then defined
+      on the same set of integers as the sequence $t_n$.
+    - The function returns the sequence $d_n$.
 
     Parameters
     ----------
@@ -480,9 +480,9 @@ def distances_bymouse(strain, mouse, step=50, verbose=False):
 
     More specifically:
 
-    - let d^1,...,d^D be the sequence of distances for one particular
-    mouse for days 1 to D.
-    - The function returns the concatenation of the d^i.
+    - let $d^1,...,d^D$ be the sequence of distances for one particular
+      mouse for days $1$ to $D$.
+    - The function returns the concatenation of the $d^i$.
 
     Parameters
     ----------
@@ -523,9 +523,9 @@ def distances_bystrain(strain, step=50, verbose=False):
 
     More specifically:
 
-    - let d^1,...,d^M be the sequence of distances for one particular
-    strain for mouses 1 to M.
-    - The function returns the sequence concatenation of the d^i.
+    - let $d^1,...,d^M$ be the sequence of distances for one particular
+      strain for mouses $1$ to $M$.
+    - The function returns the sequence concatenation of the $d^i$.
 
     Parameters
     ----------
