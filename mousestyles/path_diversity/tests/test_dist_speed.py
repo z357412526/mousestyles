@@ -1,7 +1,7 @@
 from __future__ import (absolute_import, division, print_function,
                         unicode_literals)
 
-
+import pandas as pd
 import pytest
 
 
@@ -33,7 +33,9 @@ def test_dist_speed_input():
 
 
 def test_dist_speed():
-    movement = data.load_movement(0, 0, 0)
+    movement = pd.DataFrame([[1, 1, 1], [2, 2, 1], [3, 2, 3]])
+    movement.columns = ['t', 'x', 'y']
     # Check if function produces the correct outputs.
-    dist, speed = get_dist_speed.get_dist_speed(movement, 0, 500)
-    assert dist == 540.850932793882 and speed == 0.68200564013190335
+    dist, speed = get_dist_speed.get_dist_speed(movement, 0, 2)
+    assert dist[0] == 1.0 and dist[1] == 2.0 and speed[0] == 1.0 and\
+        speed[1] == 2.0

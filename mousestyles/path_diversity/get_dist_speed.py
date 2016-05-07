@@ -3,10 +3,10 @@ from __future__ import print_function, absolute_import, division
 import numpy as np
 
 
-def get_dist_speed(movement, start, end):
+def get_dist_speed(movement, start, end, return_array=True):
     r"""
-    Return a tuple containing distance covered in a path and
-    average speed within a path.
+    Return a list containing distance(s) covered in a path and
+    average speed(s) within a path.
 
     Parameters
     ----------
@@ -20,17 +20,30 @@ def get_dist_speed(movement, start, end):
     end : int
         positive integer indicating the end index of a path
 
+    return_array : bool
+        boolean indicating whether an array of distances and
+        average speeds are returned or the summation of those
+        distances and speeds
+
     Returns
     -------
-    dist : distance travelled along a path
+    dist : distance(s) travelled along a path
 
-    speed : average speed along a path
+    speed : average speed(s) along a path
 
     Examples
     --------
     >>> movement = data.load_movement(1, 2, 1)
-    >>> dist, speed = get_dist_speed(movement, 0, 500)
-    (554.5573324808769, 0.080910098911799441)
+    >>> dist, speed = get_dist_speed(movement, 0, 3)
+    >>> print(dist)
+    [0.0, 0.17999999999999972, 0.19446593532030554]
+    >>> print(speed)
+    [0.0, 0.9999999999983815, 0.055246004352409776]
+    >>> dist, speed = get_dist_speed(movement, 0, 3, return_array=False)
+    >>> print(dist)
+    0.37446593532030525
+    >>> print(speed)
+    0.096661315260887087
     """
 
     # Check whether inputs are valid.
@@ -49,9 +62,16 @@ def get_dist_speed(movement, start, end):
 
     x = movement['x'][start:(end+1)].ravel()
     y = movement['y'][start:(end+1)].ravel()
-    t = movement['t']
-    time = t[end] - t[start]
 
-    dist = sum(np.sqrt((x[1:] - x[:-1])**2 + (y[1:] - y[:-1])**2))
-    speed = dist / time
-    return(dist, speed)
+    if return_array:
+        t = movement['t'][start:(end+1)].ravel()
+        time = np.diff(t)
+        dist = np.sqrt((x[1:] - x[:-1])**2 + (y[1:] - y[:-1])**2).tolist()
+        speed = (dist / time).tolist()
+    else:
+        t = movement['t']
+        time = t[end] - t[start]
+        dist = sum(np.sqrt((x[1:] - x[:-1])**2 + (y[1:] - y[:-1])**2))
+        speed = dist / time
+
+    return([dist, speed])
