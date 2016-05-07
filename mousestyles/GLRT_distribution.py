@@ -4,57 +4,15 @@ import numpy as np
 from mousestyles import data
 
 
-def powerlaw_pdf(x, a):
-    """
-    The probability density function of truncated power law.
-
-    Parameters
-    ----------
-    x : int
-        x in formula p(x) = (alpha-1)*x^(-alpha).
-    a : int>1
-        alpha in formula p(x) = (alpha-1)*x^(-alpha).
-
-    Returns
-    -------
-    probability density : a float number
-        The probability density of power law at x.
-
-    Examples
-    --------
-    >>> powerlaw_pdf (2,2)
-    0.25
-    """
-    return((a - 1) * x**(-a))
-
-
-def exp_pdf(x, l):
-    """
-    The probability density function of truncated exponential.
-
-    Parameters
-    ----------
-    x : int
-        x in formula p(x) = lambda*exp(-lambda*x).
-    l : int
-        lambda in formula p(x) = lambda*exp(-lambda*x).
-
-    Returns
-    -------
-    probability density : a float number
-        The probability density of power law at x.
-
-    Examples
-    --------
-    >>> exp_pdf(2,2)
-    0.2706705664732254
-    """
-    return(l * np.exp(-l * (x - 1)))
-
-
-def random_powerlaw(n, a):
+def random_powerlaw(n, a, seed=-1):
     """
     Random generate points of truncated power law.
+
+    Description
+    -----------
+    The method we generate is to inverse Cumulative Density Function
+    of truncated powerlaw function, and put random number draw from
+    Unif[0,1]. The theory behind it is F^{-1}(U)~F.
 
     Parameters
     ----------
@@ -73,13 +31,24 @@ def random_powerlaw(n, a):
     >>> random_powerlaw(4,2)
     array([  1.18097435,   1.04584078,   1.4650779 ,  36.03967524])
     """
+    if seed != -1:
+        np.random.seed(seed)
     y = np.random.sample(n)
     return((1 - y)**(-1 / (a - 1)))
 
 
-def random_exp(n, l):
+def random_exp(n, l, seed=-1):
     """
     Random generate points of truncated exponential.
+
+    Description
+    -----------
+    The method we generate is to use the memorylessness property
+    of exponential distribution. As the survival function of
+    exponential distribution is always the same, for truncated
+    exponential distribution, it is just the same to draw from
+    regular exponential distribtion and shift the truncated
+    value.
 
     Parameters
     ----------
@@ -98,13 +67,39 @@ def random_exp(n, l):
     >>> random_exp(4,2)
     array([ 1.07592496,  1.19789646,  1.19759663,  1.03993227])
     """
+    if seed != -1:
+        np.random.seed(seed)
     y = np.random.exponential(1.0 / l, n)
     return(y + 1)
 
 
-def hypo_powerLaw_null(strain, mouse, day, law_est=0):
+def hypo_powerLaw_null(strain, mouse, day, law_est=0, seed=-1):
     """
     Return the outcome from GLRT with null hypothesis law distribution.
+
+    Description
+    -----------
+    This function used the Generalized Likelihood Ratio Test to test the
+    goodness of fit: in other words, which distribution is more likely.
+
+    In this function, we choose the powerLaw distributin to be the null
+    and exponential distribution to be the alternative. We derived the
+    test statistics by theory and pluged in MLE as our estimation of
+    best parameters.
+
+    After we calculated the paramters, we need to find the rejection
+    region, critical value or pvalue. To get a more general test, we
+    want to use pvalue, instead of critical value under certain
+    significance level.
+
+    To find the p-value, we use simulation methods, and all random
+    numbers are drawn from previous functions. Therefore, although
+    p value should be a constant given data, it is not a constant in
+    our function, if we did not set the seed.
+
+    In general, in this function, if the p value is too small, then we
+    will reject the null, and we say powerlaw is not a better fit
+    compared to exponential distribution.
 
     Parameters
     ----------
@@ -127,6 +122,8 @@ def hypo_powerLaw_null(strain, mouse, day, law_est=0):
     >>> hypo_law_null (0, 0, 0)
     0.0070000000000000001
     """
+    if seed != -1:
+        np.random.seed(seed)
     df = data.load_movement(strain, mouse, day)
     xcood = df["x"]
     ycood = df["y"]
@@ -153,9 +150,33 @@ def hypo_powerLaw_null(strain, mouse, day, law_est=0):
     return (p_value)
 
 
-def hypo_exp_null(strain, mouse, day, law_est=0, exp_est=0):
+def hypo_exp_null(strain, mouse, day, law_est=0, exp_est=0, seed=-1):
     """
     Return the outcome from GLRT with null hypothesis law distribution.
+
+    Description
+    -----------
+    This function also used the Generalized Likelihood Ratio Test to test
+    goodness of fit: in other words, which distribution is more likely.
+
+    In this function, we choose the exponential distributin to be the null
+    and powerlaw distribution to be the alternative. We derived the
+    test statistics by theory and pluged in MLE as our estimation of
+    best parameters.
+
+    After we calculated the paramters, we need to find the rejection
+    region, critical value or pvalue. To get a more general test, we
+    want to use pvalue, instead of critical value under certain
+    significance level.
+
+    To find the p-value, we use simulation methods, and all random
+    numbers are drawn from previous functions. Therefore, although
+    p value should be a constant given data, it is not a constant in
+    our function, if we did not set the seed.
+
+    In general, in this function, if the p value is too small, then we
+    will reject the null, and we say exponential is not a better fit
+    compared to exponential distribution.
 
     Parameters
     ----------
@@ -180,6 +201,8 @@ def hypo_exp_null(strain, mouse, day, law_est=0, exp_est=0):
     >>> hypo_exp_null (0, 0, 0)
     1.0
     """
+    if seed != -1:
+        np.random.seed(seed)
     df = data.load_movement(strain, mouse, day)
     xcood = df["x"]
     ycood = df["y"]
