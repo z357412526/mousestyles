@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from mousestypes.est_power_param import (fit_powerLaw, fit_exponential,
+from mousestypes.est_power_param import (fit_powerlaw, fit_exponential,
                                          getdistance, powerlaw_pdf, exp_pdf)
 
 
@@ -49,7 +49,7 @@ def plot_expoential(estimation):
 
 def plot_fitted(strain, mouse, day):
     """
-    Return the plot of one signle mouse day
+    Return the plot of one single mouse day
     -histogram of distance
     -fitted power law
     -fitted exponential
@@ -69,12 +69,12 @@ def plot_fitted(strain, mouse, day):
     """
     fig, ax = plt.subplots(1, 1)
     x = np.arange(1, 2.7, 0.01)
-    alpha = fit_powerLaw(strain, mouse, day)
+    alpha = fit_powerlaw(strain, mouse, day)
     lamb = fit_exponential(strain, mouse, day)
-    Cut_dist = getdistance(strain, mouse, day)
+    cut_dist = getdistance(strain, mouse, day)
     ax.plot(x, powerlaw_pdf(x, alpha), 'r-', lw=2, alpha=2,
             label='powerlaw pdf')
     ax.plot(x, exp_pdf(x, lamb), 'y-', lw=2, alpha=2,
             label='exp pdf')
     weights = np.ones_like(Cut_dist) / len(Cut_dist) * (alpha - 1)
-    ax.hist(Cut_dist, weights=weights)
+    ax.hist(cut_dist, weights=weights)
