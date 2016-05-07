@@ -96,7 +96,7 @@ def fit_exponential(strain, mouse, day):
     return ret_mle
 
 
-def fit():
+def fit_dist_all():
     """
     Return the estimators of truncated power law and exponential for each
     mouse day.
