@@ -2,7 +2,8 @@ from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
 
 import pandas
-from mousestyles.est_power_param import (fit_powerlaw, fit_exponential, fit_dist_all)
+from mousestyles.est_power_param import (fit_powerlaw, fit_exponential,
+	fit_dist_all)
 
 
 def test_fit_powerlaw():
