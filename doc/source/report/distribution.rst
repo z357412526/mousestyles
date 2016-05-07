@@ -149,7 +149,6 @@ Result
 
 -  The histogram of data and fitted curve for strain 0, mouse 2, day 5:
 
-download:`pdf <doc/mypdf.pdf>`
 .. figure:: figure/project6_sample.png
    :alt: alt tag
 
