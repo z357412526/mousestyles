@@ -275,7 +275,7 @@ def mcmc_simulation(mat_list, n_per_int):
     how many outputs for each matrix. This number
     is related to the interval_length parameter in
     function get_prob_matrix_list. The output is an
-    array of numbers, each indicate one state.
+    array of numbers, each indicates one state.
 
     Parameters
     ----------
@@ -283,9 +283,12 @@ def mcmc_simulation(mat_list, n_per_int):
         a list of numpy arrays storing the probabi-
         lity transition matrices for each small time
         interval chosen.
-    n_per_int: int or float
+    n_per_int: int
         an integer specifying the desired output
         length of each probability transition matrix.
+        This is the same as the parameter
+        interval_length used in the function
+        get_prob_matrix_small_interval
 
     Returns
     -------
@@ -311,13 +314,13 @@ def mcmc_simulation(mat_list, n_per_int):
     # check all the inputs
     condition_mat_list = (type(mat_list) == list)
     condition_list_item = (type(mat_list[0]) == np.ndarray)
-    condition_n_per_int = (type(n_per_int) == int and n_per_int >= 0)
+    condition_n_per_int = (type(n_per_int) == int and n_per_int > 0)
     if not condition_mat_list:
         raise ValueError("mat_list should be a list")
     if not condition_list_item:
         raise ValueError("items in mat_list should be numpy array")
     if not condition_n_per_int:
-        raise ValueError("n_per_int should be nonnegative int")
+        raise ValueError("n_per_int should be positive int")
 
     n = len(mat_list)
     simu_result = np.zeros(n * n_per_int)

@@ -122,11 +122,11 @@ def test_mcmc_simulation_input():
     mat_list_example = [mat0, mat1]
     with pytest.raises(ValueError) as excinfo:
         mcmc_simulation(mat_list=mat_list_example, n_per_int=0.5)
-    assert excinfo.value.args[0] == "n_per_int should be nonnegative int"
+    assert excinfo.value.args[0] == "n_per_int should be positive int"
     # n_per_int negative integer
     with pytest.raises(ValueError) as excinfo:
         mcmc_simulation(mat_list=mat_list_example, n_per_int=-1)
-    assert excinfo.value.args[0] == "n_per_int should be nonnegative int"
+    assert excinfo.value.args[0] == "n_per_int should be positive int"
 
 
 def test_mcmc_simulation():
