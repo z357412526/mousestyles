@@ -39,7 +39,7 @@ def getdistance(strain, mouse, day):
     return(cut_dist)
 
 
-def fit_powerLaw(strain, mouse, day):
+def fit_powerlaw(strain, mouse, day):
     """
     Return the estimator of truncated power law.
 
@@ -59,7 +59,7 @@ def fit_powerLaw(strain, mouse, day):
 
     Examples
     --------
-    >>> fit_powerLaw (0, 0, 0)
+    >>> fit_powerlaw (0, 0, 0)
     9.4748705008269827
     """
     cut_dist = getdistance(strain, mouse, day)
@@ -119,7 +119,7 @@ def fit_dist_all():
         for j in range(4):
             for k in range(12):
                 try:
-                    temp1 = fit_powerLaw(i, j, k)
+                    temp1 = fit_powerlaw(i, j, k)
                     temp2 = fit_exponential(i, j, k)
                     esti_df["strain"].append(i)
                     esti_df["mouse"].append(j)
