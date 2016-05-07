@@ -76,5 +76,5 @@ def plot_fitted(strain, mouse, day):
             label='powerlaw pdf')
     ax.plot(x, exp_pdf(x, lamb), 'y-', lw=2, alpha=2,
             label='exp pdf')
-    weights = np.ones_like(Cut_dist) / len(Cut_dist) * (alpha - 1)
+    weights = np.ones_like(cut_dist) / len(cut_dist) * (alpha - 1)
     ax.hist(cut_dist, weights=weights)
