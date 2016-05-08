@@ -7,4 +7,4 @@ def test_powerlaw_pdf():
 
 
 def test_exp_pdf():
-    assert (abs(exp_pdf(2, 1) - 0.367879 <= 1e-7))
+    assert (exp_pdf(2, 1) == 0.36787944117144233)
