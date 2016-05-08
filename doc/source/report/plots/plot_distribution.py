@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
-from mousestyles. import data
-from mousestypes.est_power_param import fit()
+from mousestyles import data
+from mousestypes.est_power_param import fit
 
 Estimation=fit()
 
