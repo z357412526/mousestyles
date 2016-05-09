@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def plot_path(movement, paths, title='example plot of path', alpha=.1,
-    xlim = [-16.24, 3.76], ylim = [0.9, 43.5]):
+
+def plot_path(movement, sep_points, title='example plot of path', alpha=.1,
+              xlim=[-16.24, 3.76], ylim=[0.9, 43.5]):
     r"""
     Plot the lines along paths.
 
@@ -11,9 +12,10 @@ def plot_path(movement, paths, title='example plot of path', alpha=.1,
     movement : pandas.DataFrame
         CX, CY coordinates. Must have length greater than 1.
 
-    paths: list
-        a list containing the indices for all paths
-    
+    sep_points : list
+        list of path indicies.
+        Expecting the output of path_index.
+
     title : str
         the title of the plot. Default is 'example plot of path'
 
@@ -43,12 +45,12 @@ def plot_path(movement, paths, title='example plot of path', alpha=.1,
 
     if len(movement) <= 1:
         raise ValueError("movement must contain at least 2 rows")
-    
-    if not isinstance(paths, list):
-        raise TypeError("paths must be a list")
 
-    if len(paths) == 0:
-        raise ValueError("length of paths is 0")
+    if not isinstance(sep_points, list):
+        raise TypeError("sep_points must be a list")
+
+    if len(sep_points) == 0:
+        raise ValueError("length of sep_points is 0")
 
     if not isinstance(title, str):
         raise TypeError("title must be a string")
@@ -56,9 +58,9 @@ def plot_path(movement, paths, title='example plot of path', alpha=.1,
     if not isinstance(alpha, float):
         raise TypeError("alpha must be float")
 
-    for sep in pahts:
-        path = movement[sep[0]:sep[1]+1]
-        plt.plot(path['x'], path['y'], 'b', alpha = alpha)
+    for sep in sep_points:
+        path = movement[sep[0]:sep[1] + 1]
+        plt.plot(path['x'], path['y'], 'b', alpha=alpha)
         plt.xlabel('x-coordinate')
         plt.xlim(xlim[0], xlim[1])
         plt.ylabel('y-coordinate')
