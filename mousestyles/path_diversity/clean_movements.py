@@ -1,11 +1,11 @@
 import pandas as pd
 
-def clean_movements(movements, keep_index=None):
+def clean_movements(movements, keep_index=False):
     r"""
     Returns a list of cleaned movement objects.
 
     For each element of the input `movements` object, detects the existence of
-    rows which have i) same x,y-coordinates, or ii) same timestamps.
+    adjacent rows which have i) same x,y-coordinates, or ii) same timestamps.
     For case i), and removes the duplicated rows except for the first.
     For case ii), raises value error.
 
@@ -16,7 +16,7 @@ def clean_movements(movements, keep_index=None):
         CT, CX, CY coordinates.
         Should have length greater than 1.
 
-    kee_index : boolean
+    keep_index : boolean
         whether or not keep the original index.
         Deafalt is False.
         If false, cleaned movement object is re-indexed.
@@ -33,7 +33,7 @@ def clean_movements(movements, keep_index=None):
     >>> day_nums = [0,11,0,11,0,11]
     >>> movements = [data.load_movement(strain_num, mouse_num, day_num) for \
     >>> strain_num, mouse_num, day_num in zip(strain_nums, mouse_nums, day_nums)]
-    >>> cleaned_movements, num_same_locs = cleaning_movements(movements)
+    >>> cleaned_movements = clean_movements(movements)
     """
     
     if type(movements) is not list:
@@ -42,9 +42,6 @@ def clean_movements(movements, keep_index=None):
     if len(movements) == 0:
         raise ValueError("movements must contain at least 1 movement object")
     
-    if keep_index == None:
-        keep_index = False
-
     if type(keep_index) is not bool:
         raise TypeError("keep_index must be bool")
     
