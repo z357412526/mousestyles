@@ -134,6 +134,25 @@ guide of testing:
    wrong(e.g. gamma) distributions. Compare the p-values with given
    threshold (e.g. alpha = 95%)
 
+Result
+--------------------
+
+-  The histogram of estimators from powerlaw:
+
+.. figure:: figure/project6_powerlaw.png
+   :alt: alt tag
+
+-  The histogram of estimators from exponential:
+
+.. figure:: figure/project6_exponential.png
+   :alt: alt tag
+
+-  The histogram of data and fitted curve for strain 0, mouse 2, day 5:
+
+.. figure:: figure/project6_sample.png
+   :alt: alt tag
+
+
 Reference reading:
 ------------------
 
