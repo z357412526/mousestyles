@@ -1,6 +1,6 @@
 import pytest
 import pandas as pd
-from mousetyles.path_diversty import clean_movements
+from mousestyles.path_diversity import clean_movements
 
 
 def test_clean_movements_input():
