@@ -13,7 +13,7 @@ def plot_path(movement, paths, title='example plot of path', alpha=.1,
         CX, CY coordinates. Must have length greater than 1.
 
     paths: list
-		a list containing the indices for all paths.
+        a list containing the indices for all paths.
 
     title : str
         the title of the plot. Default is 'example plot of path'
@@ -23,8 +23,9 @@ def plot_path(movement, paths, title='example plot of path', alpha=.1,
         line. Default is .1.
 
     linewidth : numeric
-    	graphical parameter which determines the width of each
-    	line. Default is 1.
+        graphical parameter which determines the width of each
+        line. Default is 1.
+
     xlim, ylim : list
         list of length 2 indicating the end points of the plot.
 
@@ -66,7 +67,7 @@ def plot_path(movement, paths, title='example plot of path', alpha=.1,
     for sep in paths:
         path = movement[sep[0]:sep[1] + 1]
         plt.plot(path['x'], path['y'], 'b',
-        linewidth=linewidth, alpha=alpha)
+                 linewidth=linewidth, alpha=alpha)
         plt.xlabel('x-coordinate')
         plt.xlim(xlim[0], xlim[1])
         plt.ylabel('y-coordinate')
