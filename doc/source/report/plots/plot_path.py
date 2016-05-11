@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from mousestyles.data import load_movement
-from mousestyles.paht_diversity import path_index
+from mousestyles.path_diversity import path_index
 
 movement = load_movement(0, 0, 0)
 paths = path_index(movement, 1, 1)
@@ -19,3 +19,5 @@ for sep in paths:
     plt.ylabel('y-coordinate')
     plt.ylim(ylim[0], ylim[1])
     plt.title("Example of path plot")
+
+plt.show()

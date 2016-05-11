@@ -65,11 +65,12 @@ As we begin our analysis, we would like to explore the following points:
 - How different strains allocate their time on each path.
 - The impact of changing the grid size (note: the authors have used 1 cm).
 - Identify paths that are structurally similar by exploiting rotational
-  invariance
+ invariance
 
 .. plot:: report/plots/plot_path.py
 
    Example of path plot.
+
 
 Data Requirements
 -----------------
