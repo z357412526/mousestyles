@@ -54,6 +54,7 @@ Exploratory Analysis
   monotone decreasing, however our plot indicates a peak, in which gamma
   distribution may fit better.
 
+
 Data Requirements Description
 -----------------------------
 
@@ -139,18 +140,21 @@ Result
 
 -  The histogram of estimators from powerlaw:
 
-.. figure:: figure/project6_powerlaw.png
-   :alt: alt tag
+.. plot:: report/plots/plot_powerlaw.py
+
+   Histogram of the parameters of powerlaw.
 
 -  The histogram of estimators from exponential:
 
-.. figure:: figure/project6_exponential.png
-   :alt: alt tag
+.. plot:: report/plots/plot_exponential.py
+
+   Histogram of the parameters of exponential.
 
 -  The histogram of data and fitted curve for strain 0, mouse 2, day 5:
 
-.. figure:: figure/project6_sample.png
-   :alt: alt tag
+.. plot:: report/plots/plot_fitted.py
+
+   Histogram and fitted curve for strain 0, mouse 2, day 5.
 
 -  Fitting power law distribution and gamma distribution for strain 0, mouse 0,
    and day 0; fitting by Maximum Likelihood, and by minimizing Kolmogorov
