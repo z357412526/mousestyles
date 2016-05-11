@@ -6,7 +6,6 @@ env:
     - DEPENDS="requirements.txt"
 
 python:
-  - 3.4
   - 3.5
 
 matrix:

@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-from mousestypes.est_power_param import (fit_powerlaw, fit_exponential,
-                                         getdistance, powerlaw_pdf, exp_pdf)
+from mousestyles.distribution import powerlaw_pdf, exp_pdf
+from mousestyles.est_power_param import (fit_powerlaw, fit_exponential,
+                                         getdistance)
 
 
 def plot_powerlaw(estimation):
@@ -26,7 +27,7 @@ def plot_powerlaw(estimation):
     plt.title("Histogram: Power Law parameters distribution by strain")
 
 
-def plot_expoential(estimation):
+def plot_exponential(estimation):
     """
     Return the histogram of all estimators of exponential
     to check the distribution.
