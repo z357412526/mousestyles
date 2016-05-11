@@ -67,6 +67,10 @@ As we begin our analysis, we would like to explore the following points:
 - Identify paths that are structurally similar by exploiting rotational
   invariance
 
+.. plot:: report/plots/plot_path.py
+
+   Example of path plot.
+
 Data Requirements
 -----------------
 
