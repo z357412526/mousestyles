@@ -131,20 +131,22 @@ of the tail.
 
 Here are our algorithms:
 
-- Draw the histogram for our data.  Observe the distribution and intuitively
-  figure out whether our distribution assumption makes sense.
-- Estimate parameters based on MoM or MLE.
-- Add the density function to our histogram, see the fitness of
-  our distribution.
-- Conduct statistical test to quantitatively analysis the fitness (Pearson chi
-  square test). For testing the hypothetical distributions of a given array,
-  there are several existing commonly used methods. However, each approach has
-  their pros and cons. Following is a short overview of these testing framework.
-  We recommend that all the methods are to be tried to get a comprehensive
-  understanding of the inter-event step distributions.
-- Pearson Chi-square test
-- Fisher’s exact test
-- KS test
+- Draw the histogram for our data. For each mouse day,  observe the distribution and explore whether our distribution assumption makes sense.
+- Estimate parameters based on MLE of powerlaw and exponential.
+- Add the density function to our histogram, see the fitness of our distribution.
+- Conduct statistical test to quantitatively analysis the fitness. For testing the hypothetical distributions of a given array, there are several existing commonly used methods:
+   - Kolmogorov–Smirnov test
+   - Cramér–von Mises criterion
+   - Anderson–Darling test
+   - Shapiro–Wilk test
+   - Chi-squared test
+   - Akaike information criterion
+   - Hosmer–Lemeshow test
+  However, each approach has their pros and cons. We adopt KS test since the Kolmogorov–Smirnov statistic quantifies a distance between
+  the empirical distribution function of the sample and the cumulative distribution function of the reference distribution. We recommend
+  that all the methods are to be tried to get a comprehensive understanding of the inter-event step distributions.
+- Conduct Generalized Likehood Ratio Test to compare the fitness of powerlaw and exponential.
+
 
 Testing Framework Outline
 -------------------------
