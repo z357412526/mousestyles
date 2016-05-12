@@ -6,14 +6,16 @@ Power Laws & Universality
 Statement of Problem:
 ---------------------
 
-- Construct Statistical Model for Locomotion Distribution:
+**Construct Statistical Model for Locomotion Distribution**
+
 To take a closer look at the tail property of locomotion, we analyze the
 moving distance distribution for each string. Fitting those distributions 
 using some prior knowledge and obtain estimator for each mouse. With 
 expectation, it is possible to cluster mice by the their unique distribution 
 estimator, and further figure figure out with strain they belong to.
 
-There are some smaller questions to answer:
+**Main Questions to Answer**
+
    - What is the distribution model we could use to fit?
    - How can we estimate parameters for our distribution?
    - How can we do clustering strains based on model parameters?
@@ -39,13 +41,13 @@ a close look at the distance distribution. This power law decay
 only works for monotone decreasing distribution. While it is not 
 for our case. Therefore, two methods are designed to handle this.
 
-Only estimate the powerlaw on the tail of distribution. Namely,
-truncate the small unstable distances on the left tail of distribution.
-
-If the distribution is not monotone decreasing, power function may
-not be realistic. In this case, the distribution is left skewed with 
-one peak (see exploratory analysis). Thus we can make more general 
-assumption, such as exponential distribution.
+First of all, we proposed to only estimate the powerlaw on the tail 
+of distribution. Namely, truncate the small unstable distances on 
+the left tail of distribution. Secondly, the power function may
+not be realistic by nature as the observed distribution is not 
+monotone decreasing. In this case, the distribution is left skewed 
+with one peak (see exploratory analysis). Thus we can make more 
+general assumption, such as exponential distribution.
 
 **Fitness Comparsion**
 
@@ -71,43 +73,41 @@ random number from our fitted model.
 
 Exploratory Analysis
 --------------------
+The difference between “home base” and “non home base”: "home base",
+which means a favored location at which long periods of inactivity
+(ISs) occur, is a post defined characteristic of the mouse and it is
+classified by its behavior. For instance, if one mice spend about 80%
+of the time outside of the nest, then we may conclude it is not home
+base and we will cluster it as non-home based mouse. This classification
+is not done by one specific mouse, but a strain of mouse. By the 
+Exploratory Analysis, we will find significant difference between two
+classes and hopefully we can make connection about the speed of mice and
+its home based or non home based property.
 
--  The difference between “home base” and “non home base”: "home base",
-   which means a favored location at which long periods of inactivity
-   (ISs) occur, is a post defined characteristic of the mouse and it is
-   classified by its behavior. For instance, if one mice spend about 80%
-   of the time outside of the nest, then we may conclude it is not home
-   base and we will cluster it as non-home based mouse. This classification
-   is not done by one specific mouse, but a strain of mouse. By the 
-   Exploratory Analysis, we will find significant difference between two
-   classes and hopefully we can make connection about the speed of mice and
-   its home based or non home based property.
-   
--  The definition of inter-event distance: literally, inter-event
-   distance is the distance within one single event. Investigating the
-   data of the distance between each two consecutive points recorded by
-   the detector of one mouse day, we found the shape of the histogram is
-   similar to the plot on the slide, except the value of frequency is
-   bigger. This inconsistency gives us the motivation to calculate the
-   inter event distance instead of the distance between each two points.
-   For this purpose, we need a vector of the index of events for each
-   mouse day. In particular, the mapping vector is connected by time
-   since xy coordinates are recorded according to time and the event is
-   defined based on time.
+The definition of inter-event distance: literally, inter-event
+distance is the distance within one single event. Investigating the
+data of the distance between each two consecutive points recorded by
+the detector of one mouse day, we found the shape of the histogram is
+similar to the plot on the slide, except the value of frequency is
+bigger. This inconsistency gives us the motivation to calculate the
+inter event distance instead of the distance between each two points.
+For this purpose, we need a vector of the index of events for each
+mouse day. In particular, the mapping vector is connected by time
+since xy coordinates are recorded according to time and the event is
+defined based on time.
 
 .. figure:: figure/project6.png
    :alt: alt tag
 
--  Preferred choice of distribution: the power law is a monotone decreasing, 
-   however our plot indicates a peak. Therefore, we can either choose
-   differernt parametric distribution family, such as gamma distribution, or
-   choose a threshold to make our distribution monotonic decreasing. Based on
-   what Chris said about the sensor, as it will only detect when a mice moves
-   more than 1cm within in 20ms. It does not make sense to have observations
-   less than 1cm and outliers needs to be cleaned up. After we put a threshold
-   with 1cm, we find the distribution is monotonic decreasing and we can fit
-   power law distribution, as well as exponential distribution.
-
+Preferred choice of distribution: the power law is a monotone decreasing, 
+however our plot indicates a peak. Therefore, we can either choose
+differernt parametric distribution family, such as gamma distribution, or
+choose a threshold to make our distribution monotonic decreasing. Based on
+what Chris said about the sensor, as it will only detect when a mice moves
+more than 1cm within in 20ms. It does not make sense to have observations
+less than 1cm and outliers needs to be cleaned up. After we put a threshold
+with 1cm, we find the distribution is monotonic decreasing and we can fit
+power law distribution, as well as exponential distribution.
 
 Data Requirements Description
 -----------------------------
