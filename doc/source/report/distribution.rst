@@ -243,6 +243,22 @@ Small, next to 0.0005. This is a strong evidence that we should not think
 power law is a better fit than exponential. Thus, we conclude that we should
 use exponential to fit and do further research.
 
+Further Work:
+-------------
+Here are some further research we could do. However, because of 
+Incomplete sample we have, we cannot do it for now, but it is easy 
+to fix the function
+- K means clustering: One major goal of this project is to measure 
+similarity between different strain and hopefully make clusters based 
+on our data. But one difficulty is that we cannot plug in the information 
+we have to a known machine learning clustering algorithm. However, 
+as truncated exponential to be a good fit. We can use the parameters
+to measure the similarity and transform our sample data to one scalar. 
+One classic unsupervised learning algorithm is K-means and we can
+definitely use it to make clusters. However, one drawback is the distance
+between our parameters is not uniform but as long as there exists
+significant difference, it will not harm that much.
+
 Reference reading:
 ------------------
 
