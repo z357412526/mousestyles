@@ -22,7 +22,7 @@ There are some smaller questions to answer:
 Statement of Statistical Problem:
 ---------------------------------
 
-** Select Distribution **
+**Distribution Selection**
 
 The major statistical question is how to choose fitted distribution
 family. Based on conventions and data we have, we propose two
@@ -47,7 +47,7 @@ not be realistic. In this case, the distribution is left skewed with
 one peak (see exploratory analysis). Thus we can make more general 
 assumption, such as exponential distribution.
 
-** Compare the fitness **
+**Fitness Comparsion**
 
 Previously we proposed two different parametric families and each of
 them make sense but we need to have more quantitative evidence to see
@@ -82,6 +82,7 @@ Exploratory Analysis
    Exploratory Analysis, we will find significant difference between two
    classes and hopefully we can make connection about the speed of mice and
    its home based or non home based property.
+   
 -  The definition of inter-event distance: literally, inter-event
    distance is the distance within one single event. Investigating the
    data of the distance between each two consecutive points recorded by
@@ -97,11 +98,15 @@ Exploratory Analysis
 .. figure:: figure/project6.png
    :alt: alt tag
 
-   Distribution
-
-- Preferred choice of distribution: the power law is a
-  monotone decreasing, however our plot indicates a peak, in which gamma
-  distribution may fit better.
+-  Preferred choice of distribution: the power law is a monotone decreasing, 
+   however our plot indicates a peak. Therefore, we can either choose
+   differernt parametric distribution family, such as gamma distribution, or
+   choose a threshold to make our distribution monotonic decreasing. Based on
+   what Chris said about the sensor, as it will only detect when a mice moves
+   more than 1cm within in 20ms. It does not make sense to have observations
+   less than 1cm and outliers needs to be cleaned up. After we put a threshold
+   with 1cm, we find the distribution is monotonic decreasing and we can fit
+   power law distribution, as well as exponential distribution.
 
 
 Data Requirements Description
