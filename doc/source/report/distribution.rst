@@ -18,6 +18,8 @@ figure out with strain they belong to.
 Statement of Statistical Problem:
 ---------------------------------
 
+** Select Distribution **
+
 The major statistical question is how to choose fitted distribution
 family. Based on conventions and data we have, we propose two
 distributions: law decay distribution and gamma distribution: - In
@@ -25,12 +27,21 @@ statistics, power law, also known as a scaling law, is a functional
 relationship between two quantities, where a relative change in one
 quantity results in a proportional relative change in the other
 quantity, independent of the initial size of those quantities: one
-quantity varies as a power of another. $F(x)=kx^{-a}$. This power
-law decay only works for monotone decreasing distribution. - If the
-distribution is not monotone decreasing, power function may not be
-realistic. In this case, the distribution is left skewed with one peak
-(see exploratory analysis). Thus we can make more general assumption,
-gamma distribution.
+quantity varies as a power of another. $F(x)=kx^{-a}$. 
+
+There is a problem with power law or pareto distribution when took 
+a close look at the distance distribution. This power law decay 
+only works for monotone decreasing distribution. While it is not 
+for our case. Therefore, two methods are designed to handle this.
+
+- Only estimate the powerlaw on the tail of distribution. Namely, 
+truncate the small unstable distances on the left tail of 
+distribution.
+
+- If the distribution is not monotone decreasing, power function 
+may not be realistic. In this case, the distribution is left skewed 
+with one peak (see exploratory analysis). Thus we can make more 
+general assumption, gamma distribution.
 
 Exploratory Analysis
 --------------------
