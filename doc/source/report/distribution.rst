@@ -197,7 +197,12 @@ three possible outcomes.
    - Exponential null rejected but power law null not rejected. In this case, we conclude power law is better than exponential.
    - Power law null rejected but exponential null not rejected. In this case, we conclude exponential is better than power law.
    - Both two tests not rejected. In this case, we conclude both two fits similarly and there is no one significantly better than another.
-
+Although theoretically we should consider the case when both two tests 
+are rejected, it is highly unlikely this thing happens. Because rejecting 
+both two means we have enough evidence to say exponential is better 
+and power law is also better, while not rejecting two might happen, as 
+we tends to protect the null and if they react similarly, we don’t have 
+enough evidence to reject any of them.
 
 Reference reading:
 ------------------
