@@ -161,15 +161,16 @@ alpha and lambda. Draw histogram of the estimator where red, blue and green stan
 
 We want to check the fitted curve with the original histogram of distance so we write of function to draw the power law and exponential
 curve with corresponding estimator with the original histogram of distance with the input of strain, mouse and day. Here is an example of
-strain 0, mouse 2, day 5.
+strain 0, mouse 2, day 5. From the plot we can see the fitting is pretty well.
 
 -  The histogram of data and fitted curve for strain 0, mouse 2, day 5:
 
 .. plot:: report/plots/plot_fitted.py
 
    Histogram and fitted curve for strain 0, mouse 2, day 5.
-   
-   
+
+After visualize the fitting, we want to evaluate our fitting in statistical ways. There are several tests to quantify the performance and
+we adopt the KS test to evaluate the goodness of fit and GLRT test to compare fitness.
 
 -  Fitting power law distribution and gamma distribution for strain 0, mouse 0,
    and day 0; fitting by Maximum Likelihood, and by minimizing Kolmogorov
