@@ -166,6 +166,20 @@ Result
    
 - Comparsion Between truncated Exponential and Powerlaw (Pareto) distribution.
 
+One major question we want to answer: which distribution fits better, 
+truncated exponential or truncated power law, aka pareto, distribution. 
+To measure the distribution of the speed, the major difference is the 
+tail distribution. You can also see it from the fitted plot. Both exponential 
+distribution and pareto distribution fits quite well and they are actually 
+very similar with each other, and the difference is barely noticeable.
+Therefore, it is hard to simply tell which distribution fits better. However, 
+although the distribution is quite similar at the beginning, it diverse in 
+the tail distribution. For exponential distribution, the tail decays with 
+the rate e^{-x}, which is much faster than that of pareto distribution 
+x^{-a}. Therefore, the goodness of fit is mainly determined by the tail 
+distribution. We tried Kolmogorov test to determine whether our sample 
+fits the theoretical distribution, but it does not compare two distributions.
+
 Reference reading:
 ------------------
 
