@@ -28,21 +28,21 @@ The major statistical question is how to choose fitted distribution
 family. Based on conventions and data we have, we propose two
 distributions: law decay distribution and exponenital distribution:
 
-- In statistics, power law, also known as a pareto, is a functional
+In statistics, power law, also known as a pareto, is a functional
 relationship between two quantities, where a relative change in one
 quantity results in a proportional relative change in the other
 quantity, independent of the initial size of those quantities: one
 quantity varies as a power of another. $F(x)=kx^{-a}$. 
 
-- There is a problem with power law or pareto distribution when took 
+There is a problem with power law or pareto distribution when took 
 a close look at the distance distribution. This power law decay 
 only works for monotone decreasing distribution. While it is not 
 for our case. Therefore, two methods are designed to handle this.
 
-- Only estimate the powerlaw on the tail of distribution. Namely,
+Only estimate the powerlaw on the tail of distribution. Namely,
 truncate the small unstable distances on the left tail of distribution.
 
-- If the distribution is not monotone decreasing, power function may
+If the distribution is not monotone decreasing, power function may
 not be realistic. In this case, the distribution is left skewed with 
 one peak (see exploratory analysis). Thus we can make more general 
 assumption, such as exponential distribution.
