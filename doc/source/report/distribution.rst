@@ -185,6 +185,20 @@ x^{-a}. Therefore, the goodness of fit is mainly determined by the tail
 distribution. We tried Kolmogorov test to determine whether our sample 
 fits the theoretical distribution, but it does not compare two distributions.
 
+To make comparison between two distributions, we used Generalized 
+Likelihood Ratio Test to do hypothesis testing. As we cannot actually
+treat different distribution equally, with that being said, to do hypothesis
+testing, we must have null hypothesis and alternative hypothesis, where
+we tend to protect it and only reject when the we have strong evidence
+against it. Thus, we will conduct two hypothesis testings, with null being
+either exponential or power law distribution. We will expect there to be 
+three possible outcomes.
+
+   - Exponential null rejected but power law null not rejected. In this case, we conclude power law is better than exponential.
+   - Power law null rejected but exponential null not rejected. In this case, we conclude exponential is better than power law.
+   - Both two tests not rejected. In this case, we conclude both two fits similarly and there is no one significantly better than another.
+
+
 Reference reading:
 ------------------
 
