@@ -43,6 +43,14 @@ may not be realistic. In this case, the distribution is left skewed
 with one peak (see exploratory analysis). Thus we can make more 
 general assumption, gamma distribution.
 
+** Compare the fitness **
+
+The check of fitness is in need after obtaining the parameter. 
+Kolmogorov–Smirnov test enable us to test the fitness of power 
+law and exponential distribution. After that, to further compare 
+these two distribution's capability of capturing the pattern of 
+distances, we conducted a generalized likelihood ratio test. 
+
 Exploratory Analysis
 --------------------
 
