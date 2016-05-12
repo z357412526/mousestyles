@@ -26,29 +26,48 @@ Statement of Statistical Problem:
 
 The major statistical question is how to choose fitted distribution
 family. Based on conventions and data we have, we propose two
-distributions: law decay distribution and gamma distribution: - In
-statistics, power law, also known as a scaling law, is a functional
+distributions: law decay distribution and exponenital distribution:
+
+- In statistics, power law, also known as a pareto, is a functional
 relationship between two quantities, where a relative change in one
 quantity results in a proportional relative change in the other
 quantity, independent of the initial size of those quantities: one
 quantity varies as a power of another. $F(x)=kx^{-a}$. 
 
-There is a problem with power law or pareto distribution when took 
+- There is a problem with power law or pareto distribution when took 
 a close look at the distance distribution. This power law decay 
 only works for monotone decreasing distribution. While it is not 
 for our case. Therefore, two methods are designed to handle this.
 
-- Only estimate the powerlaw on the tail of distribution. Namely, truncate the small unstable distances on the left tail of distribution.
+- Only estimate the powerlaw on the tail of distribution. Namely,
+truncate the small unstable distances on the left tail of distribution.
 
-- If the distribution is not monotone decreasing, power function may not be realistic. In this case, the distribution is left skewed with one peak (see exploratory analysis). Thus we can make more general assumption, gamma distribution.
+- If the distribution is not monotone decreasing, power function may
+not be realistic. In this case, the distribution is left skewed with 
+one peak (see exploratory analysis). Thus we can make more general 
+assumption, such as exponential distribution.
 
 ** Compare the fitness **
 
-The check of fitness is in need after obtaining the parameter. 
+Previously we proposed two different parametric families and each of
+them make sense but we need to have more quantitative evidence to see
+the fittness or, hopefully, compare their goodness of fit.
+
+The check of fitness is in needed after obtaining the parameter. 
 Kolmogorov–Smirnov test enable us to test the fitness of power 
-law and exponential distribution. After that, to further compare 
-these two distribution's capability of capturing the pattern of 
-distances, we conducted a generalized likelihood ratio test. 
+law and exponential distribution. For them, we choose the null
+to be selected distribution, and if we reject K-S test, we will
+conclude the the sample distribution is not familiar with theoretical
+distribution; thus, we have enough evidence against our null.
+
+After that, to further compare these two distribution's capability 
+of capturing the pattern of distances, we conducted a generalized 
+likelihood ratio test (GLRT), with both two to be null hypothesis 
+consecutively. Moreover, it may be hard to know the exact distribution
+of our test statistics and thus extremely hard to calculate the critical
+value or p-values. Therefore, we may need simulation methods to estimate
+critial value of p-value, and the major question is how can we generate
+random number from our fitted model.
 
 Exploratory Analysis
 --------------------
