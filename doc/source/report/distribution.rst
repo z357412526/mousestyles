@@ -163,6 +163,8 @@ Result
 .. plot:: report/plots/hist_kolmogorov.py
 
    Histogram of distances travelled in 20ms by strain 0, mouse 0, day 0.
+   
+- Comparsion Between truncated Exponential and Powerlaw (Pareto) distribution.
 
 Reference reading:
 ------------------
