@@ -309,4 +309,4 @@ Reference reading:
 ------------------
 
 -  https://en.wikipedia.org/wiki/Power\_law
-
+-  http://arxiv.org/pdf/0706.1062v2.pdf
