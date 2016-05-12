@@ -34,14 +34,9 @@ a close look at the distance distribution. This power law decay
 only works for monotone decreasing distribution. While it is not 
 for our case. Therefore, two methods are designed to handle this.
 
-- Only estimate the powerlaw on the tail of distribution. Namely, 
-truncate the small unstable distances on the left tail of 
-distribution.
+- Only estimate the powerlaw on the tail of distribution. Namely, truncate the small unstable distances on the left tail of distribution.
 
-- If the distribution is not monotone decreasing, power function 
-may not be realistic. In this case, the distribution is left skewed 
-with one peak (see exploratory analysis). Thus we can make more 
-general assumption, gamma distribution.
+- If the distribution is not monotone decreasing, power function may not be realistic. In this case, the distribution is left skewed with one peak (see exploratory analysis). Thus we can make more general assumption, gamma distribution.
 
 ** Compare the fitness **
 
@@ -90,11 +85,14 @@ Data Requirements Description
 -----------------------------
 
 -  Label of “home base” or “non home base”: generated in the process of
-   data pre-processing by the definition
+   data pre-processing by the definition. The build-in function enable 
+   us load data directly.
 -  Event index corresponding to the time: a vector mapped the time
    indicating the events.
--  Inter event distance: calculated by the square root of the sum of the
+-  Distance: calculated by the square root of the sum of the
    difference x,y coordinates
+-  Speed: calculated by the distance divided by the duration 
+   of this distance.
 
 Methodology/ Approach Description
 ---------------------------------
