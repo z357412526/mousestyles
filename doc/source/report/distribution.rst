@@ -215,6 +215,17 @@ and power law is also better, while not rejecting two might happen, as
 we tends to protect the null and if they react similarly, we don’t have 
 enough evidence to reject any of them.
 
+Here is the algorithm to conduct the test. The GLRT test statistics is the 
+ratio of likelihood, with numerator being likelihood under null set while 
+that under alternative in numerator. It is intuitively right that we shall reject
+the null if our test statistics is too small. To make the significance level
+being 0.05, it is essential to find the critical value. However, it is hard for
+us to derive the distribution of test statistics and thus we use simulation
+to estimate it. Thus, we draw random number from null distribution and 
+then calculate the test statistics. Also, p-value is a better statistics and it 
+will not only tell us whether we should reject the null, but also tell us what 
+is the confidence that we reject the null.
+
 Reference reading:
 ------------------
 
