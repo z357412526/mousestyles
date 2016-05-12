@@ -143,6 +143,10 @@ guide of testing:
 Result
 --------------------
 
+We fit the power law and exponential distribution for each mouse day. For each, we got an estimator of alpha for power law and an
+estimator of lambda for exponential. We store our result in a dataframe called estimation which has five columns: strain, mouse, day
+alpha and lambda. Draw histogram of the estimator where red, blue and green stands for different strains.
+
 -  The histogram of estimators from powerlaw:
 
 .. plot:: report/plots/plot_powerlaw.py
@@ -155,11 +159,17 @@ Result
 
    Histogram of the parameters of exponential.
 
+We want to check the fitted curve with the original histogram of distance so we write of function to draw the power law and exponential
+curve with corresponding estimator with the original histogram of distance with the input of strain, mouse and day. Here is an example of
+strain 0, mouse 2, day 5.
+
 -  The histogram of data and fitted curve for strain 0, mouse 2, day 5:
 
 .. plot:: report/plots/plot_fitted.py
 
    Histogram and fitted curve for strain 0, mouse 2, day 5.
+   
+   
 
 -  Fitting power law distribution and gamma distribution for strain 0, mouse 0,
    and day 0; fitting by Maximum Likelihood, and by minimizing Kolmogorov
