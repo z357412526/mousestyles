@@ -131,10 +131,11 @@ of the tail.
 
 Here are our algorithms:
 
-- Draw the histogram for our data. For each mouse day,  observe the distribution and explore whether our distribution assumption makes sense.
-- Estimate parameters based on MLE of powerlaw and exponential.
+- Draw the histogram for our data. For each mouse day, observe the distribution and explore whether our distribution assumption makes sense.
+- Estimate parameters based on MLE of truncated powerlaw, aka Pareto distribution and truncated exponential.
 - Add the density function to our histogram, see the fitness of our distribution.
 - Conduct statistical test to quantitatively analysis the fitness. For testing the hypothetical distributions of a given array, there are several existing commonly used methods:
+
    - Kolmogorov–Smirnov test
    - Cramér–von Mises criterion
    - Anderson–Darling test
@@ -142,10 +143,11 @@ Here are our algorithms:
    - Chi-squared test
    - Akaike information criterion
    - Hosmer–Lemeshow test
+   
   However, each approach has their pros and cons. We adopt KS test since the Kolmogorov–Smirnov statistic quantifies a distance between
   the empirical distribution function of the sample and the cumulative distribution function of the reference distribution. We recommend
   that all the methods are to be tried to get a comprehensive understanding of the inter-event step distributions.
-- Conduct Generalized Likehood Ratio Test to compare the fitness of powerlaw and exponential.
+- Conduct Generalized Likehood Ratio Test to compare the fitness of powerlaw and exponential. GLRT will calculate Likelihood Ratio which is the fraction of likelihood function with smallest KL divergence in two separate parametric space and then compare their peroformance.
 
 
 Testing Framework Outline
@@ -214,8 +216,9 @@ alpha and lambda. Draw histogram of the estimator where red, blue and green stan
    Histogram of the parameters of exponential.
 
 We want to check the fitted curve with the original histogram of distance so we write of function to draw the power law and exponential
-curve with corresponding estimator with the original histogram of distance with the input of strain, mouse and day. Here is an example of
-strain 0, mouse 2, day 5. From the plot we can see the fitting is pretty well.
+curve with corresponding estimator with the original histogram of distance with the input of strain, mouse and day. In particular, some
+normalization may be needed when doing the camparison and drawing the plot, for example, we intutively times (alpha-1) for the histogram.
+Here is an example of strain 0, mouse 2, day 5. From the plot we can see the fitting is pretty well.
 
 -  The histogram of data and fitted curve for strain 0, mouse 2, day 5:
 
