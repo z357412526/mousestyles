@@ -226,6 +226,12 @@ then calculate the test statistics. Also, p-value is a better statistics and it
 will not only tell us whether we should reject the null, but also tell us what 
 is the confidence that we reject the null.
 
+From the outcome of our function, we actually find the p-value from
+exponential null is very close to 1, while that from power law null is very
+Small, next to 0.0005. This is a strong evidence that we should not think
+power law is a better fit than exponential. Thus, we conclude that we should
+use exponential to fit and do further research.
+
 Reference reading:
 ------------------
 
