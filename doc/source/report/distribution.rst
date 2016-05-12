@@ -6,9 +6,14 @@ Power Laws & Universality
 Statement of Problem:
 ---------------------
 
+
 To take a closer look at the tail property of locomotion, we analyze the
 moving distance distribution for home based mice and non home based
-mice.
+Mice. Fitting those distribution using some prior knowledge and obtain 
+estimator for each mouse. With expectation, it is possible to cluster 
+mice by the their unique distribution estimator, and further figure 
+figure out with strain they belong to.
+
 
 Statement of Statistical Problem:
 ---------------------------------
