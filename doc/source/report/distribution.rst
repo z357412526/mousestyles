@@ -6,13 +6,17 @@ Power Laws & Universality
 Statement of Problem:
 ---------------------
 
-
+- Construct Statistical Model for Locomotion Distribution:
 To take a closer look at the tail property of locomotion, we analyze the
-moving distance distribution for home based mice and non home based
-Mice. Fitting those distribution using some prior knowledge and obtain 
-estimator for each mouse. With expectation, it is possible to cluster 
-mice by the their unique distribution estimator, and further figure 
-figure out with strain they belong to.
+moving distance distribution for each string. Fitting those distributions 
+using some prior knowledge and obtain estimator for each mouse. With 
+expectation, it is possible to cluster mice by the their unique distribution 
+estimator, and further figure figure out with strain they belong to.
+
+There are some smaller questions to answer:
+   - What is the distribution model we could use to fit?
+   - How can we estimate parameters for our distribution?
+   - How can we do clustering strains based on model parameters?
 
 
 Statement of Statistical Problem:
