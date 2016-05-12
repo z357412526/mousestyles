@@ -248,6 +248,7 @@ Further Work:
 Here are some further research we could do. However, because of 
 Incomplete sample we have, we cannot do it for now, but it is easy 
 to fix the function
+
 - K means clustering: One major goal of this project is to measure 
 similarity between different strain and hopefully make clusters based 
 on our data. But one difficulty is that we cannot plug in the information 
