@@ -48,7 +48,14 @@ Exploratory Analysis
 
 -  The difference between “home base” and “non home base”: "home base",
    which means a favored location at which long periods of inactivity
-   (ISs) occur, is a post defined characteristic of the mouse.
+   (ISs) occur, is a post defined characteristic of the mouse and it is
+   classified by its behavior. For instance, if one mice spend about 80%
+   of the time outside of the nest, then we may conclude it is not home
+   base and we will cluster it as non-home based mouse. This classification
+   is not done by one specific mouse, but a strain of mouse. By the 
+   Exploratory Analysis, we will find significant difference between two
+   classes and hopefully we can make connection about the speed of mice and
+   its home based or non home based property.
 -  The definition of inter-event distance: literally, inter-event
    distance is the distance within one single event. Investigating the
    data of the distance between each two consecutive points recorded by
